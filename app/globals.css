@@ -1,0 +1,155 @@
+   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom base styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-feature-settings: 'rlig' 1, 'calt' 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #fafafa;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    letter-spacing: -0.025em;
+  }
+}
+
+/* Elegant Components */
+@layer components {
+  .elegant-gradient {
+    @apply bg-gradient-to-br from-elegant-cream to-elegant-gold;
+  }
+  
+  .sophisticated-gradient {
+    @apply bg-gradient-to-br from-elegant-navy to-elegant-black;
+  }
+  
+  .elegant-text {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-elegant-gold to-elegant-navy;
+  }
+  
+  .btn-elegant {
+    @apply inline-flex items-center px-8 py-4 bg-elegant-navy text-elegant-cream font-serif font-medium text-lg rounded-lg hover:bg-elegant-black transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5;
+  }
+  
+  .btn-elegant-outline {
+    @apply inline-flex items-center px-8 py-4 border-2 border-elegant-navy text-elegant-navy font-serif font-medium text-lg rounded-lg hover:bg-elegant-navy hover:text-elegant-cream transition-all duration-300;
+  }
+  
+  .btn-signature {
+    @apply inline-flex items-center px-8 py-4 bg-elegant-gold text-elegant-navy font-serif font-medium text-lg rounded-lg hover:bg-elegant-navy hover:text-elegant-cream transition-all duration-300 shadow-lg hover:shadow-xl;
+  }
+  
+  .card-elegant {
+    @apply bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-all duration-500 border border-elegant-cream;
+  }
+  
+  .section-badge-elegant {
+    @apply inline-flex items-center px-4 py-2 rounded-full bg-elegant-cream text-elegant-navy text-sm font-medium font-serif tracking-wide;
+  }
+  
+  .text-script {
+    @apply font-script text-elegant-gold;
+  }
+
+  .hero-title {
+    @apply font-display text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-none tracking-tight;
+  }
+
+  .section-title {
+    @apply font-display text-4xl md:text-5xl font-bold text-elegant-navy leading-tight;
+  }
+
+  .elegant-divider {
+    @apply w-24 h-0.5 bg-elegant-gold mx-auto;
+  }
+}
+
+/* Custom utilities */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+  
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+
+  .animation-delay-600 {
+    animation-delay: 600ms;
+  }
+}
+
+/* Performance optimizations */
+.next-image {
+  border-radius: inherit;
+}
+
+/* Focus styles for accessibility */
+.focus\:ring-elegant:focus {
+  --tw-ring-color: rgb(210 182 138 / 0.5);
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* Elegant scroll animations */
+@media (prefers-reduced-motion: no-preference) {
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  
+  .animate-on-scroll.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .elegant-hover {
+    transition: all 0.3s ease-in-out;
+  }
+
+  .elegant-hover:hover {
+    transform: translateY(-2px);
+  }
+}
+
+/* Loading states */
+.skeleton {
+  @apply animate-pulse bg-elegant-cream rounded;
+}
+
+/* Custom elegant scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-elegant-cream;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-elegant-gold rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-elegant-navy;
+}
