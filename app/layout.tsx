@@ -3,6 +3,7 @@ import { Analytics } from '@vercel/analytics/react'
 import './globals.css'
 import { siteConfig } from '@/config/site'
 import { JsonLd } from '@/components/json-ld'
+import { GoogleAnalytics } from '@/components/google-analytics'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -77,6 +78,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const ga4MeasurementId = process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -85,6 +88,7 @@ export default function RootLayout({
       <body className={inter.className}>
         {children}
         <Analytics />
+        {ga4MeasurementId && <GoogleAnalytics measurementId={ga4MeasurementId} />}
       </body>
     </html>
   )

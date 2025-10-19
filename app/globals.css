@@ -4,6 +4,119 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Emergency layout fixes */
+* {
+  box-sizing: border-box;
+}
+
+/* Hide problematic oversized elements */
+.large-geometric-shape,
+.oversized-icon,
+.blue-accent {
+  display: none !important;
+}
+
+/* Make geometric accents smaller and subtle */
+.geometric-accent {
+  width: 20px !important;
+  height: 20px !important;
+  opacity: 0.2 !important;
+}
+
+/* Hide any oversized decorative elements */
+[class*="geometric"],
+[class*="shape"],
+[class*="large-icon"] {
+  display: none !important;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+section {
+  margin-bottom: 4rem;
+  overflow: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Fix hero section layout */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.hero-text {
+  background: rgba(0,0,0,0.6);
+  padding: 40px;
+  border-radius: 8px;
+  max-width: 500px;
+  color: white;
+  z-index: 2;
+  position: relative;
+}
+
+/* Keep content clean and readable */
+.hero-section .hero-text {
+  z-index: 2;
+  position: relative;
+}
+
+/* Ensure proper spacing */
+.space-y-8 > * + * {
+  margin-top: 2rem !important;
+}
+
+.space-y-6 > * + * {
+  margin-top: 1.5rem !important;
+}
+
+/* Fix overlapping issues */
+.relative {
+  position: relative;
+  z-index: 1;
+}
+
+/* Mobile responsive fixes */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+  
+  section {
+    margin-bottom: 3rem;
+  }
+  
+  .hero-section {
+    min-height: 80vh;
+    padding: 2rem 0;
+  }
+  
+  /* Fix service cards on mobile */
+  .grid.md\:grid-cols-3 {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  /* Prevent card overlap */
+  .transform.scale-105 {
+    transform: none !important;
+  }
+}
+
 /* Custom base styles */
 @layer base {
   html {
