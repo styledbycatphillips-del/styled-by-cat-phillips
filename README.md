@@ -1,127 +1,70 @@
-### Step 1: Set Up the Next.js Project
+﻿# Styled by Cat Phillips  Executive Presence Website
 
-1. **Create a new Next.js project**:
-   Open your terminal and run the following command:
+> **When how you show up catches up to who you've become**
 
-   ```bash
-   npx create-next-app@latest styled-by-cat-phillips --typescript
-   ```
+A professional website for executive presence consulting, featuring modern Next.js 14 architecture with integrated newsletter signup, analytics tracking, and editorial design system.
 
-   This command will create a new Next.js project with TypeScript support.
+##  Executive Presence Services
 
-2. **Navigate to the project directory**:
+- **Executive Presence Intensive**  Complete wardrobe and brand overhaul for executives (,000 launch: ,000)
+- **Signature Session**  90-minute presence audit with strategic roadmap ()
+- **Digital Products**  Executive audits, brand workbooks, and templates (-)
 
-   ```bash
-   cd styled-by-cat-phillips
-   ```
+##  Technical Stack
 
-### Step 2: Install Dependencies
+- **Framework:** Next.js 14 with App Router
+- **Styling:** Tailwind CSS with custom design tokens
+- **Analytics:** Google Analytics 4 (G-ZF9Q1FZHCL)
+- **Email:** Mailchimp API integration
+- **Typography:** Cormorant Garamond + Inter font system
+- **Deployment:** Vercel-ready with optimized build
 
-3. **Install the required dependencies**:
-   Run the following command to install Tailwind CSS, ESLint, and other necessary packages:
+##  Brand System
 
-   ```bash
-   npm install tailwindcss postcss autoprefixer framer-motion next-sitemap sharp clsx next-seo @headlessui/react @heroicons/react @vercel/analytics
-   ```
+**Colors:**
+- Ink: #0F172A (Primary text, headers)
+- Stone: #57534E (Secondary text)
+- Ivory: #F8F5F0 (Backgrounds)
+- Olive: #6B8A6E (Accents, CTAs)
 
-4. **Install development dependencies**:
+**Voice:** Editorial. Grounded. Intelligent. Calm Authority.
 
-   ```bash
-   npm install --save-dev eslint eslint-config-next @types/node @types/react @types/react-dom
-   ```
+##  Development Setup
 
-### Step 3: Configure Tailwind CSS
+1. **Install dependencies:**
+   `
+   npm install
+   `
 
-5. **Initialize Tailwind CSS**:
-   Run the following command to create the Tailwind configuration files:
+2. **Environment setup:**
+   `
+   cp .env.example .env.local
+   `
+   Add your Mailchimp API key and Google Analytics ID.
 
-   ```bash
-   npx tailwindcss init -p
-   ```
+3. **Start development server:**
+   `
+   npm run dev
+   `
 
-6. **Configure `tailwind.config.js`**:
-   Update the `tailwind.config.js` file to include the paths to your template files:
+4. **Build for production:**
+   `
+   npm run build
+   `
 
-   ```javascript
-   /** @type {import('tailwindcss').Config} */
-   module.exports = {
-     content: [
-       "./app/**/*.{js,ts,jsx,tsx}",
-       "./pages/**/*.{js,ts,jsx,tsx}",
-       "./components/**/*.{js,ts,jsx,tsx}",
-     ],
-     theme: {
-       extend: {},
-     },
-     plugins: [],
-   }
-   ```
+##  Key Features
 
-7. **Add Tailwind directives to your CSS**:
-   Open `styles/globals.css` and add the following lines:
+- Newsletter Signup: Role-based subscription with honeypot protection
+- Analytics Tracking: Page views, scroll depth, CTA clicks
+- Executive Positioning: Professional photography and messaging
+- Brand Guidelines: Comprehensive technical documentation
+- Responsive Design: Mobile-first with editorial typography
 
-   ```css
-   @tailwind base;
-   @tailwind components;
-   @tailwind utilities;
-   ```
+##  Local Market Focus
 
-### Step 4: Set Up ESLint
+**Primary:** Little Rock, Arkansas  
+**Secondary:** Northwest Arkansas
 
-8. **Create an ESLint configuration file**:
-   Create a file named `.eslintrc.json` in the root of your project and add the following configuration:
+---
 
-   ```json
-   {
-     "extends": "next/core-web-vitals",
-     "rules": {
-       "react/react-in-jsx-scope": "off"
-     }
-   }
-   ```
-
-### Step 5: Implement the Provided Components and Configurations
-
-9. **Create the necessary directories**:
-   Create the following directories in your project:
-
-   ```bash
-   mkdir app/components app/config
-   ```
-
-10. **Add the provided files**:
-    Create the files as per the provided content. Here’s a brief overview of how to structure them:
-
-    - **`app/layout.tsx`**: Root layout file.
-    - **`app/page.tsx`**: Main homepage file.
-    - **`app/components/hero-section.tsx`**: Hero section component.
-    - **`app/components/about-section.tsx`**: About section component.
-    - **`app/components/process-section.tsx`**: Process section component.
-    - **`app/components/services-overview.tsx`**: Services overview component.
-    - **`app/components/testimonials-section.tsx`**: Testimonials section component.
-    - **`app/components/cta-section.tsx`**: Call to action section component.
-    - **`app/components/json-ld.tsx`**: JSON-LD schema markup component.
-    - **`app/config/site.ts`**: Site configuration file.
-    - **`next.config.js`**: Next.js configuration file.
-    - **`package.json`**: Ensure the dependencies and scripts match the provided content.
-
-### Step 6: Run the Development Server
-
-11. **Start the development server**:
-    Run the following command to start your Next.js application:
-
-    ```bash
-    npm run dev
-    ```
-
-12. **Open your browser**:
-    Navigate to `http://localhost:3000` to see your new Next.js project in action.
-
-### Step 7: Additional Configurations
-
-13. **Add any additional configurations**:
-    If you have any additional files like `robots.txt`, sitemap generation, or performance monitoring, create those files and implement the provided content as needed.
-
-### Conclusion
-
-You now have a Next.js project named "styled-by-cat-phillips" set up with TypeScript, Tailwind CSS, and ESLint, along with the provided AI-optimized components and configurations. You can further customize and expand your project as needed!
+Built with executive presence in mind.  2025 Styled by Cat Phillips
