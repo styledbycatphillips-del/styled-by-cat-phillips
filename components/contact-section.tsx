@@ -10,11 +10,14 @@ export function ContactSection() {
     const form = event.currentTarget
     const formData = new FormData(form)
 
-    if (typeof window !== 'undefined' && 'gtag' in window) {
-      window.gtag('event', 'consult_submit', {
-        method: 'primary_form',
-        city: formData.get('city') ?? '',
-      })
+    if (typeof window !== 'undefined') {
+      const gtag = window.gtag
+      if (typeof gtag === 'function') {
+        gtag('event', 'consult_submit', {
+          method: 'primary_form',
+          city: formData.get('city') ?? '',
+        })
+      }
     }
 
     setStatus('sent')
@@ -34,7 +37,7 @@ export function ContactSection() {
 
         {status === 'sent' ? (
           <div className="mt-10 rounded-2xl border border-signature-champagne/50 bg-signature-cream/60 p-8 text-center text-signature-navy">
-            Thank you—your note is on the way. Expect a reply from Cat within one business day.
+            Thank you — your note is on the way. Expect a reply from Cat within one business day.
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="mx-auto mt-10 grid max-w-3xl gap-6">

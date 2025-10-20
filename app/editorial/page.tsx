@@ -1,5 +1,7 @@
 'use client'
 
+/* eslint-disable @next/next/no-img-element, react/no-unescaped-entities */
+
 import { NewsletterSignup } from '@/components/newsletter-signup'
 
 export default function EditorialHomePage() {

@@ -16,12 +16,15 @@ export function NewsletterSignup({ variant = 'stacked', source = 'site' }: Newsl
     const formData = new FormData(form)
     const email = formData.get('email')?.toString()
 
-    if (typeof window !== 'undefined' && 'gtag' in window) {
-      window.gtag('event', 'newsletter_signup', {
-        component_variant: variant,
-        source,
-        email_provided: Boolean(email),
-      })
+    if (typeof window !== 'undefined') {
+      const gtag = window.gtag
+      if (typeof gtag === 'function') {
+        gtag('event', 'newsletter_signup', {
+          component_variant: variant,
+          source,
+          email_provided: Boolean(email),
+        })
+      }
     }
 
     setSubmitted(true)
@@ -89,6 +92,6 @@ export function NewsletterSignup({ variant = 'stacked', source = 'site' }: Newsl
 
 declare global {
   interface Window {
-    gtag?: (...args: any[]) => void
+    gtag?: (...args: unknown[]) => void
   }
 }
