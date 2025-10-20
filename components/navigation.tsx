@@ -5,13 +5,15 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { siteConfig } from '@/config/site'
 
-const primaryNav = [
-  { name: 'About', href: '#about' },
-  { name: 'Process', href: '#process' },
-  { name: 'Services', href: '#services' },
-  { name: 'Testimonials', href: '#testimonials' },
-  { name: 'Contact', href: '#contact' },
+const navigation = [
+  { name: 'About', href: '/#about' },
+  { name: 'Process', href: '/#process' },
+  { name: 'Services', href: '/services' },
+  { name: 'Testimonials', href: '/#testimonials' },
+  { name: 'Contact', href: '/#contact' },
 ]
+
+const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL ?? siteConfig.links.calendly
 
 export function Navigation() {
   const [open, setOpen] = useState(false)
@@ -34,7 +36,7 @@ export function Navigation() {
         </Link>
 
         <div className="hidden items-center gap-8 md:flex">
-          {primaryNav.map((item) => (
+          {navigation.map((item) => (
             <Link
               key={item.name}
               href={item.href}
@@ -44,10 +46,10 @@ export function Navigation() {
             </Link>
           ))}
           <Link
-            href="#book"
+            href={calendlyUrl}
             className="rounded-lg bg-signature-navy px-5 py-2 font-semibold text-signature-cream transition-colors hover:bg-signature-black"
           >
-            Start the Assessment
+            Book a Session
           </Link>
         </div>
 
@@ -81,7 +83,7 @@ export function Navigation() {
       {open && (
         <div className="border-t border-signature-gray/30 bg-signature-cream/98 md:hidden">
           <div className="space-y-1 px-4 py-3">
-            {primaryNav.map((item) => (
+            {navigation.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
@@ -92,11 +94,11 @@ export function Navigation() {
               </Link>
             ))}
             <Link
-              href="#book"
+              href={calendlyUrl}
               className="mt-3 block rounded-lg bg-signature-navy px-4 py-3 text-center text-base font-semibold text-signature-cream hover:bg-signature-black"
               onClick={() => setOpen(false)}
             >
-              Start the Assessment
+              Book a Session
             </Link>
           </div>
           <div className="border-t border-signature-gray/30 px-4 py-4 text-sm text-signature-navy/80">

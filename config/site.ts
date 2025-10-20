@@ -9,6 +9,7 @@ export const siteConfig = {
     linkedin: 'https://linkedin.com/in/catphillips',
     email: 'cat@styledbycatphillips.com',
     phone: '501.541.1139',
+    calendly: 'https://calendly.com/styledbycat/signature-session',
   },
   business: {
     name: 'Styled by Cat Phillips',

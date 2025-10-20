@@ -1,4 +1,4 @@
-   import { Metadata } from 'next'
+﻿   import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Navigation } from '@/components/navigation'
@@ -55,7 +55,7 @@ export default function HomePage() {
         <ProcessSection />
         
         {/* Services Overview */}
-        <ServicesOverview />
+        <ServicesOverview ctaHref="/services#calendly" />
         
         {/* Client Success Stories */}
         <TestimonialsSection />
@@ -77,7 +77,7 @@ export default function HomePage() {
                 </h3>
                 <div itemScope itemType="https://schema.org/Answer" itemProp="acceptedAnswer">
                   <p itemProp="text" className="text-gray-700">
-                    Script Your Signature™ is my proprietary 3-step process for developing authentic signature style: Discover your identity, Design your strategy, and Define your presence. This systematic approach helps executives and creatives move beyond trends to develop signature style that supports their professional goals.
+                    Script Your Signature&trade; is my proprietary 3-step process for developing authentic signature style: Discover your identity, Design your strategy, and Define your presence. This systematic approach helps executives and creatives move beyond trends to develop signature style that supports their professional goals.
                   </p>
                 </div>
               </div>

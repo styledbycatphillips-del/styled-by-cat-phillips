@@ -1,3 +1,7 @@
+type ServicesOverviewProps = {
+  ctaHref?: string
+}
+
 const services = [
   {
     name: 'Executive Presence Intensive',
@@ -31,7 +35,7 @@ const services = [
   },
 ]
 
-export function ServicesOverview() {
+export function ServicesOverview({ ctaHref = '#book' }: ServicesOverviewProps) {
   return (
     <section id="services" className="bg-signature-cream/40 py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -63,7 +67,7 @@ export function ServicesOverview() {
               </ul>
               <div className="mt-8 pt-4">
                 <a
-                  href="#book"
+                  href={ctaHref}
                   className="text-sm font-semibold uppercase tracking-[0.3em] text-signature-navy transition hover:text-signature-black"
                 >
                   Book a discovery call →

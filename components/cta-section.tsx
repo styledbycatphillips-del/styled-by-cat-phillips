@@ -1,4 +1,7 @@
 import Link from 'next/link'
+import { siteConfig } from '@/config/site'
+
+const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL ?? siteConfig.links.calendly
 
 export function CTASection() {
   return (
@@ -6,20 +9,23 @@ export function CTASection() {
       <div className="mx-auto max-w-5xl px-4 text-center">
         <p className="font-serif text-sm uppercase tracking-[0.5em] text-signature-champagne">Next step</p>
         <h2 className="mt-4 font-serif text-4xl font-semibold">
-          When your signature is intentional, the room believes you before you start speaking.
+          Ready to begin your Signature transformation?
         </h2>
         <p className="mt-4 text-lg text-signature-gray">
-          Reserve a consultation to map the first 30 days of your transformation with Script Your Signature™.
+          Start with the Signature Assessment or go straight to a Signature Session with Cat.
         </p>
         <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-          <Link href="#book" className="btn-primary bg-signature-champagne text-signature-black hover:bg-signature-cream">
+          <Link
+            href="/assessment"
+            className="rounded-lg border border-signature-cream px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-signature-cream transition hover:bg-signature-cream/10"
+          >
             Start the assessment
           </Link>
           <Link
-            href="#testimonials"
-            className="rounded-lg border border-signature-cream px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-signature-cream transition hover:bg-signature-cream/10"
+            href={calendlyUrl}
+            className="btn-primary bg-signature-champagne text-signature-black hover:bg-signature-cream"
           >
-            See client wins
+            Book a Signature Session
           </Link>
         </div>
       </div>
