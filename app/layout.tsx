@@ -1,11 +1,39 @@
-   import { Inter } from 'next/font/google'
+import { Inter } from 'next/font/google'
+import localFont from 'next/font/local'
 import { Analytics } from '@vercel/analytics/react'
 import './globals.css'
 import { siteConfig } from '@/config/site'
 import { JsonLd } from '@/components/json-ld'
 import { GoogleAnalytics } from '@/components/google-analytics'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'], variable: '--font-sans' })
+
+const signatureSerif = localFont({
+  src: [
+    {
+      path: '../public/fonts/bodoni-moda-400.woff2',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/bodoni-moda-500.woff2',
+      weight: '500',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/bodoni-moda-600.woff2',
+      weight: '600',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/bodoni-moda-700.woff2',
+      weight: '700',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-serif',
+  display: 'swap',
+})
 
 export const metadata = {
   title: {
@@ -85,7 +113,7 @@ export default function RootLayout({
       <head>
         <JsonLd />
       </head>
-      <body className={inter.className}>
+      <body className={`${inter.variable} ${signatureSerif.variable} bg-ivory text-ink antialiased`}>
         {children}
         <Analytics />
         {ga4MeasurementId && <GoogleAnalytics measurementId={ga4MeasurementId} />}

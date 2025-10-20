@@ -13,6 +13,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
+    "@fontsource/bodoni-moda": "^5.2.7",
     "@headlessui/react": "^1.7.0",
     "@heroicons/react": "^2.0.0",
     "@tailwindcss/forms": "^0.5.10",

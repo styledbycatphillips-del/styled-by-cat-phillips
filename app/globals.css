@@ -1,5 +1,3 @@
-   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -127,11 +125,11 @@ img {
     font-feature-settings: 'rlig' 1, 'calt' 1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #fafafa;
+    @apply bg-ivory text-ink;
   }
 
   h1, h2, h3 {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-serif), serif;
     letter-spacing: -0.025em;
   }
 }

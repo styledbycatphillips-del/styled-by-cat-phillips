@@ -8,6 +8,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        ink: '#1A1C1E',
+        ivory: '#F8F5F0',
+        stone: '#6B7280',
+        silver: '#C7CBD1',
         // Signature Brand Palette - Sophisticated & Timeless
         signature: {
           black: '#000000',       // Authority & sophistication
@@ -37,10 +41,10 @@ module.exports = {
       },
       fontFamily: {
         // Elegant Typography Stack
-        serif: ['Playfair Display', 'Crimson Text', 'Georgia', 'serif'],
-        sans: ['Inter', 'Helvetica Neue', 'Arial', 'sans-serif'],
+        serif: ['var(--font-serif)', 'Georgia', 'serif'],
+        sans: ['var(--font-sans)', 'Inter', 'Helvetica Neue', 'Arial', 'sans-serif'],
         script: ['Dancing Script', 'Brush Script MT', 'cursive'],
-        display: ['Playfair Display', 'serif'],
+        display: ['var(--font-serif)', 'serif'],
       },
       fontSize: {
         'display': ['4rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
