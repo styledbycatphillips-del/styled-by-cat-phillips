@@ -1,141 +1,109 @@
-'use client';'use client''use client'
+'use client'
 
+import { useState } from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
+import { siteConfig } from '@/config/site'
 
+const primaryNav = [
+  { name: 'About', href: '#about' },
+  { name: 'Process', href: '#process' },
+  { name: 'Services', href: '#services' },
+  { name: 'Testimonials', href: '#testimonials' },
+  { name: 'Contact', href: '#contact' },
+]
 
-export default function Navigation() {
+export function Navigation() {
+  const [open, setOpen] = useState(false)
 
   return (
+    <header className="sticky top-0 z-40 bg-signature-cream/95 backdrop-blur border-b border-signature-gray/30 shadow-sm">
+      <nav className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        <Link href="/" className="flex items-center space-x-3">
+          <Image
+            src="/scbp-signature-logo-primary-dark.png"
+            alt="Styled by Cat Phillips"
+            width={160}
+            height={42}
+            className="h-9 w-auto"
+            priority
+          />
+          <span className="hidden text-sm font-medium uppercase tracking-[0.28em] text-signature-navy sm:inline">
+            Script Your Signature
+          </span>
+        </Link>
 
-    <nav className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">export function Navigation() {import { useState } from 'react'
-
-      <a href="/" className="text-xl">Styled by Cat Phillips</a>
-
-      <div className="flex gap-4">  return (import Link from 'next/link'
-
-        <a href="/assessment">Start the assessment</a>
-
-        <a href="/services">See the process</a>    <header className="sticky top-0 bg-signature-cream/95 backdrop-blur-sm border-b border-signature-gray/30 z-20">import Image from 'next/image'
-
-        <a href="YOUR-CALENDLY-LINK">Book a Signature Session</a>
-
-      </div>      <div className="max-w-6xl mx-auto px-4 flex items-center justify-between h-16">import { siteConfig } from '@/config/site'
-
-    </nav>
-
-  );        <div className="flex items-center">
-
-}
-          <img export function Navigation() {
-
-            src="/scbp-logo-primary-light.png.png"   const [isMenuOpen, setIsMenuOpen] = useState(false)
-
-            alt="Styled by Cat Phillips" 
-
-            className="h-8 w-auto"  const navigation = [
-
-          />    { name: 'About', href: '#about' },
-
-        </div>    { name: 'Process', href: '#process' },
-
-        <nav className="flex items-center space-x-6">    { name: 'Services', href: '#services' },
-
-          <a href="#services" className="text-signature-navy hover:text-signature-black transition-colors">Services</a>    { name: 'Testimonials', href: '#testimonials' },
-
-          <a href="#process" className="text-signature-navy hover:text-signature-black transition-colors">Process</a>    { name: 'Contact', href: '#contact' },
-
-          <a href="#proof" className="text-signature-navy hover:text-signature-black transition-colors">Proof</a>  ]
-
-          <a href="#book" className="btn-primary">Start the assessment</a>
-
-        </nav>  return (
-
-      </div>    <nav className="fixed w-full z-50 bg-white/95 backdrop-blur-sm shadow-lg">
-
-    </header>      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-  )        <div className="flex justify-between items-center py-4">
-
-}          {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3">
-            <Image
-              src="/logo.png"
-              alt="Styled by Cat Phillips Logo"
-              width={50}
-              height={25}
-              className="h-8 w-auto"
-              quality={90}
-            />
-            <div className="hidden sm:block">
-              <div className="text-lg font-bold text-gray-900">
-                Script Your Signature
-              </div>
-              <div className="text-sm text-gray-600">
-                by Cat Phillips
-              </div>
-            </div>
+        <div className="hidden items-center gap-8 md:flex">
+          {primaryNav.map((item) => (
+            <Link
+              key={item.name}
+              href={item.href}
+              className="font-medium text-signature-navy transition-colors hover:text-signature-black"
+            >
+              {item.name}
+            </Link>
+          ))}
+          <Link
+            href="#book"
+            className="rounded-lg bg-signature-navy px-5 py-2 font-semibold text-signature-cream transition-colors hover:bg-signature-black"
+          >
+            Start the Assessment
           </Link>
+        </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navigation.map((item) => (
+        <button
+          type="button"
+          aria-label="Toggle navigation menu"
+          className="flex h-10 w-10 items-center justify-center rounded-lg border border-signature-gray/40 text-signature-navy md:hidden"
+          onClick={() => setOpen((value) => !value)}
+        >
+          <svg
+            className="h-6 w-6"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={1.8}
+            strokeLinecap="round"
+          >
+            {open ? (
+              <path d="M6 6l12 12M6 18L18 6" />
+            ) : (
+              <>
+                <path d="M4 6h16" />
+                <path d="M4 12h16" />
+                <path d="M4 18h16" />
+              </>
+            )}
+          </svg>
+        </button>
+      </nav>
+
+      {open && (
+        <div className="border-t border-signature-gray/30 bg-signature-cream/98 md:hidden">
+          <div className="space-y-1 px-4 py-3">
+            {primaryNav.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-gray-700 hover:text-yellow-600 font-medium transition-colors duration-200"
+                className="block rounded-lg px-4 py-2 text-base font-medium text-signature-navy transition hover:bg-signature-cream/80 hover:text-signature-black"
+                onClick={() => setOpen(false)}
               >
                 {item.name}
               </Link>
             ))}
             <Link
-              href="#contact"
-              className="bg-yellow-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-yellow-600 transition-colors duration-200 shadow-lg"
+              href="#book"
+              className="mt-3 block rounded-lg bg-signature-navy px-4 py-3 text-center text-base font-semibold text-signature-cream hover:bg-signature-black"
+              onClick={() => setOpen(false)}
             >
-              Book Consultation
+              Start the Assessment
             </Link>
           </div>
-
-          {/* Mobile menu button */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-700 hover:text-yellow-600 focus:outline-none focus:text-yellow-600"
-            >
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                {isMenuOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
-            </button>
+          <div className="border-t border-signature-gray/30 px-4 py-4 text-sm text-signature-navy/80">
+            Serving {siteConfig.business.serviceArea.slice(0, 3).join(', ')} &amp; virtual clients worldwide.
           </div>
         </div>
-
-        {/* Mobile Navigation Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-200">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="block px-3 py-2 text-gray-700 hover:text-yellow-600 font-medium transition-colors duration-200"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              ))}
-              <Link
-                href="#contact"
-                className="block mx-3 mt-4 bg-yellow-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-yellow-600 transition-colors duration-200 text-center"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Book Consultation
-              </Link>
-            </div>
-          </div>
-        )}
-      </div>
-    </nav>
+      )}
+    </header>
   )
 }
