@@ -1,4 +1,4 @@
-﻿   import { Metadata } from 'next'
+   import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Navigation } from '@/components/navigation'
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Script Your Signature with Cat Phillips - Little Rock\'s Premier Personal Stylist',
     description: 'Arkansas\'s only signature development specialist using proprietary methodology to help executives and creatives develop authentic professional presence.',
-    images: ['/hero-image.jpg'],
+    images: ['/hero/hero/hero-01.jpg'],
   },
 }
 

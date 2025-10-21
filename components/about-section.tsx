@@ -73,7 +73,7 @@ export function AboutSection() {
         >
           <div className="relative overflow-hidden rounded-2xl shadow-2xl">
             <Image
-              src="/about-cat-phillips.jpg"
+              src="/about/about/about-cat-phillips.webp"
               alt="Cat Phillips working with a client at the studio"
               width={600}
               height={720}

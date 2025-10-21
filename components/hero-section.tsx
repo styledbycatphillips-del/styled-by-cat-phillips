@@ -6,7 +6,7 @@ export function HeroSection() {
     <section className="relative overflow-hidden">
       <div className="absolute inset-0">
         <Image
-          src="/hero-cat-phillips.jpg"
+          src="/hero/hero/hero-01.jpg"
           alt="Cat Phillips styling wardrobe pieces in the studio"
           fill
           priority

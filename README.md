@@ -1,4 +1,4 @@
-﻿# Styled by Cat Phillips  Executive Presence Website
+# Styled by Cat Phillips  Executive Presence Website
 
 > **When how you show up catches up to who you've become**
 
