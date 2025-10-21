@@ -32,7 +32,7 @@ export default function EditorialHomePage() {
           {/* Background Image */}
           <div className="absolute inset-0">
             <img 
-              src="/styledbycatphillipsherostudio.png" 
+              src="/hero/styledbycatphillipsherostudio.png" 
               alt="" 
               className="w-full h-full object-cover"
             />
@@ -51,7 +51,7 @@ export default function EditorialHomePage() {
               {/* Signature Logo */}
               <div className="mb-6">
                 <img 
-                  src="/scbp-signature-logo-primary-dark.png" 
+                  src="/brand/scbp-signature-logo-primary-dark.png" 
                   alt="Cat Phillips signature" 
                   className="mx-auto w-60 md:w-80 lg:w-96 h-auto filter drop-shadow-sm"
                 />

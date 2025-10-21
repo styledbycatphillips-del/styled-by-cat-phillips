@@ -23,7 +23,7 @@ export function Navigation() {
       <nav className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center space-x-3">
           <Image
-            src="/scbp-signature-logo-primary-dark.png"
+            src="/brand/scbp-signature-logo-primary-dark.png"
             alt="Styled by Cat Phillips"
             width={160}
             height={42}
