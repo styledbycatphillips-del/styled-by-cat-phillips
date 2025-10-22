@@ -1,4 +1,4 @@
-import { NewsletterSignup } from '@/components/newsletter-signup'
+﻿import { NewsletterSignup } from '@/components/newsletter-signup'
 import Image from 'next/image'
 
 export default function CleanPage() {
@@ -29,7 +29,7 @@ export default function CleanPage() {
           </h1>
           <div className="w-24 h-1 bg-signature-champagne mx-auto mb-6"></div>
           <p className="text-xl text-signature-cream max-w-2xl mx-auto">
-            Script Your Signature™ • Executive Styling • Little Rock, Arkansas
+            Script Your Signatureâ„¢ â€¢ Executive Styling â€¢ Little Rock, Arkansas
           </p>
         </div>
       </header>
@@ -116,7 +116,7 @@ export default function CleanPage() {
                 <span className="inline-block w-16 h-1 bg-signature-champagne mb-4"></span>
                 <h3 className="text-4xl md:text-5xl font-serif font-bold text-signature-black mb-6 leading-tight">
                   Script Your
-                  <span className="block text-signature-navy italic">Signature™</span>
+                  <span className="block text-signature-navy italic">Signatureâ„¢</span>
                 </h3>
               </div>
               
@@ -178,7 +178,7 @@ export default function CleanPage() {
             <div className="mb-8">
               <h4 className="text-3xl font-script text-signature-champagne mb-2">Cat Phillips</h4>
               <div className="w-16 h-1 bg-signature-champagne mx-auto mb-4"></div>
-              <p className="text-signature-gray">Script Your Signature™</p>
+              <p className="text-signature-gray">Script Your Signatureâ„¢</p>
             </div>
             
             {/* Contact Info */}
@@ -200,7 +200,7 @@ export default function CleanPage() {
             {/* Copyright */}
             <div className="border-t border-signature-gray/20 pt-8">
               <p className="text-signature-gray text-sm">
-                © 2025 Cat Phillips. All rights reserved. | Script Your Signature™
+                Â© 2025 Cat Phillips. All rights reserved. | Script Your Signatureâ„¢
               </p>
             </div>
           </div>
@@ -209,3 +209,4 @@ export default function CleanPage() {
     </div>
   )
 }
+

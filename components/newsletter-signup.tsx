@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { FormEvent, useState } from 'react'
 
@@ -95,3 +95,4 @@ declare global {
     gtag?: (...args: unknown[]) => void
   }
 }
+

@@ -1,4 +1,4 @@
-import Link from 'next/link'
+﻿import Link from 'next/link'
 import { siteConfig } from '@/config/site'
 
 export function Footer() {
@@ -12,7 +12,7 @@ export function Footer() {
             <p className="font-serif text-lg uppercase tracking-[0.5em] text-signature-champagne">
               Styled by Cat Phillips
             </p>
-            <h3 className="font-serif text-3xl font-bold">Script Your Signature™</h3>
+            <h3 className="font-serif text-3xl font-bold">Script Your Signatureâ„¢</h3>
             <p className="max-w-md text-sm text-signature-gray">
               Arkansas&apos;s premier signature development studio. We build authentic presence for executives and
               creatives through wardrobe, voice, and digital alignment.
@@ -69,10 +69,11 @@ export function Footer() {
         </div>
 
         <div className="mt-12 border-t border-signature-gray/30 pt-8 text-sm text-signature-gray flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <p>© {currentYear} Styled by Cat Phillips. All rights reserved.</p>
+          <p>Â© {currentYear} Styled by Cat Phillips. All rights reserved.</p>
           <p>Serving Little Rock, Conway, Northwest Arkansas &amp; virtual clients worldwide.</p>
         </div>
       </div>
     </footer>
   )
 }
+

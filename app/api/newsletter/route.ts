@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server'
+﻿import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
 import { trackServerEvent } from '@/lib/analytics'
 
@@ -103,7 +103,7 @@ async function addToMailchimp(email: string, role?: Role): Promise<{ success: bo
       return { success: false }
     }
     
-    console.log(`✅ Successfully added to Mailchimp: ${email}${role ? ` (${role})` : ''}`)
+    console.log(`âœ… Successfully added to Mailchimp: ${email}${role ? ` (${role})` : ''}`)
     return { success: true }
     
   } catch (error) {
@@ -215,3 +215,4 @@ export async function OPTIONS() {
     },
   })
 }
+

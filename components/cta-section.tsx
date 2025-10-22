@@ -1,4 +1,4 @@
-import Link from 'next/link'
+﻿import Link from 'next/link'
 import { siteConfig } from '@/config/site'
 
 const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL ?? siteConfig.links.calendly
@@ -32,3 +32,4 @@ export function CTASection() {
     </section>
   )
 }
+

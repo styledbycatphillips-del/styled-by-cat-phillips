@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 type CalendlyEmbedProps = {
   url: string
@@ -25,3 +25,4 @@ export default function CalendlyEmbed({
     </div>
   )
 }
+

@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import Script from 'next/script'
 
@@ -34,3 +34,4 @@ declare global {
     gtag?: (...args: unknown[]) => void
   }
 }
+
