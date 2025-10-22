@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 /* eslint-disable @next/next/no-img-element, react/no-unescaped-entities */
 
@@ -12,7 +12,7 @@ export default function EditorialHomePage() {
         <div className="max-w-6xl mx-auto px-4 flex items-center justify-between h-16">
           <div className="flex items-center">
             <img 
-              src="/scbp-logo-primary-light.png.png" 
+              src="/brand/logos/logo-wordmark-dark.svg" 
               alt="Styled by Cat Phillips" 
               className="h-8 w-auto"
             />
@@ -50,11 +50,11 @@ export default function EditorialHomePage() {
 
               {/* Signature Logo */}
               <div className="mb-6">
-                <img 
-                  src="/brand/scbp-signature-logo-primary-dark.png" 
-                  alt="Cat Phillips signature" 
-                  className="mx-auto w-60 md:w-80 lg:w-96 h-auto filter drop-shadow-sm"
-                />
+            <img 
+              src="/brand/logos/sbcp-wordmark-light.svg" 
+              alt="Cat Phillips signature" 
+              className="mx-auto w-60 md:w-80 lg:w-96 h-auto filter drop-shadow-sm"
+            />
               </div>
 
               {/* Main Headline */}
@@ -115,10 +115,10 @@ export default function EditorialHomePage() {
                   Complete wardrobe and brand overhaul for executives ready to align their presence.
                 </p>
                 <ul className="space-y-2 mb-6 text-sm text-signature-navy">
-                  <li>• Wardrobe audit and rebuild strategy</li>
-                  <li>• Voice and messaging refinement</li>
-                  <li>• Platform alignment (LinkedIn, website)</li>
-                  <li>• Photo direction</li>
+                  <li>â€¢ Wardrobe audit and rebuild strategy</li>
+                  <li>â€¢ Voice and messaging refinement</li>
+                  <li>â€¢ Platform alignment (LinkedIn, website)</li>
+                  <li>â€¢ Photo direction</li>
                 </ul>
                 <div className="mb-6">
                   <div className="text-2xl font-bold text-signature-black">$8,000</div>
@@ -136,9 +136,9 @@ export default function EditorialHomePage() {
                   90-minute presence audit and strategic roadmap.
                 </p>
                 <ul className="space-y-2 mb-6 text-sm text-signature-navy">
-                  <li>• Presence assessment</li>
-                  <li>• Alignment gap identification</li>
-                  <li>• Priority action items</li>
+                  <li>â€¢ Presence assessment</li>
+                  <li>â€¢ Alignment gap identification</li>
+                  <li>â€¢ Priority action items</li>
                 </ul>
                 <div className="mb-6">
                   <div className="text-2xl font-bold text-signature-black">$333</div>
@@ -155,9 +155,9 @@ export default function EditorialHomePage() {
                   Self-guided resources for professionals ready to refine.
                 </p>
                 <ul className="space-y-2 mb-6 text-sm text-signature-navy">
-                  <li>• Executive Presence Audit ($44)</li>
-                  <li>• Brand Messaging Workbook ($55)</li>
-                  <li>• Notion Brand Board ($55)</li>
+                  <li>â€¢ Executive Presence Audit ($44)</li>
+                  <li>â€¢ Brand Messaging Workbook ($55)</li>
+                  <li>â€¢ Notion Brand Board ($55)</li>
                 </ul>
                 <div className="mb-6">
                   <div className="text-2xl font-bold text-signature-black">$44-$55</div>
@@ -375,11 +375,15 @@ export default function EditorialHomePage() {
             <div className="w-16 h-0.5 bg-signature-champagne mx-auto"></div>
           </div>
           <div className="space-y-2 text-sm text-signature-gray">
-            <p>Little Rock, AR · 501-541-1139 · cat@styledbycatphillips.com</p>
-            <p>Instagram @styled.by.cat.phillips · LinkedIn /in/styledbycatphillips</p>
+            <p>Little Rock, AR Â· 501-541-1139 Â· cat@styledbycatphillips.com</p>
+            <p>Instagram @styled.by.cat.phillips Â· LinkedIn /in/styledbycatphillips</p>
           </div>
         </div>
       </footer>
     </div>
   )
 }
+
+
+
+

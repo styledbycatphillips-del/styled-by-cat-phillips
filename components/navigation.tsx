@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useState } from 'react'
 import Image from 'next/image'
@@ -22,15 +22,24 @@ export function Navigation() {
     <header className="sticky top-0 z-40 bg-signature-cream/95 backdrop-blur border-b border-signature-gray/30 shadow-sm">
       <nav className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center space-x-3">
+          {/* Dark wordmark on light backgrounds; switch to light in dark theme */}
           <Image
-            src="/brand/scbp-signature-logo-primary-dark.png"
+            src="/brand/logos/logo-wordmark-dark.svg"
             alt="Styled by Cat Phillips"
             width={160}
             height={42}
-            className="h-9 w-auto"
+            className="h-9 w-auto block dark:hidden"
             priority
           />
-          <span className="hidden text-sm font-medium uppercase tracking-[0.28em] text-signature-navy sm:inline">
+          <Image
+            src="/brand/logos/sbcp-wordmark-light.svg"
+            alt="Styled by Cat Phillips"
+            width={160}
+            height={42}
+            className="h-9 w-auto hidden dark:block"
+            priority
+          />
+          <span className="hidden text-[0.88rem] font-medium uppercase tracking-wide-2 text-signature-navy sm:inline">
             Script Your Signature
           </span>
         </Link>
@@ -109,3 +118,6 @@ export function Navigation() {
     </header>
   )
 }
+
+
+

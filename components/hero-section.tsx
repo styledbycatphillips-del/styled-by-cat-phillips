@@ -1,4 +1,4 @@
-import Image from 'next/image'
+﻿import Image from 'next/image'
 import Link from 'next/link'
 
 export function HeroSection() {
@@ -6,36 +6,54 @@ export function HeroSection() {
     <section className="relative overflow-hidden">
       <div className="absolute inset-0">
         <Image
-          src="/hero/hero-01.jpg"
-          alt="Cat Phillips styling wardrobe pieces in the studio"
+          src="/hero/hero-studio-wide.webp"
+          alt="Cat Phillips in studio"
           fill
           priority
           sizes="100vw"
+          placeholder="blur"
+          blurDataURL="/hero/hero-studio-wide-blur.jpg"
           className="object-cover"
         />
         <div className="absolute inset-0 bg-signature-cream/65 backdrop-blur-[2px]" />
       </div>
 
       <div className="relative z-10 mx-auto flex min-h-[92vh] max-w-5xl flex-col items-center justify-center px-4 py-24 text-center">
-        <p className="mb-5 font-serif text-sm uppercase tracking-[0.5em] text-signature-champagne">
-          Styled by Cat Phillips
-        </p>
-        <h1 className="mb-6 max-w-3xl font-serif text-4xl font-bold leading-tight text-signature-black sm:text-5xl">
-          You&apos;ve already built the credibility.
-          <br />
-          Now make sure your presence matches your power.
+        {/* Brand Wordmark */}
+        <div className="mb-5">
+          <Image
+            src="/brand/logos/logo-wordmark-dark.svg"
+            alt="Styled by Cat Phillips logo"
+            width={300}
+            height={80}
+            className="mx-auto h-10 w-auto block dark:hidden"
+            priority
+          />
+          <Image
+            src="/brand/logos/sbcp-wordmark-light.svg"
+            alt="Styled by Cat Phillips logo"
+            width={300}
+            height={80}
+            className="mx-auto h-10 w-auto hidden dark:block"
+            priority
+          />
+        </div>
+        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-serif font-bold text-signature-cream mb-6 leading-tight">
+          The Signature Architecture™
         </h1>
-        <p className="mb-10 max-w-2xl text-lg text-signature-navy sm:text-xl">
-          Executive Presence by Cat Phillips: wardrobe strategy, brand voice, and digital alignment for professionals
-          ready to lead with coherence.
+        <p className="text-xl sm:text-2xl text-signature-gray mb-8 max-w-3xl mx-auto font-sans">
+          Sophisticated presence engineering for leaders who refuse to be invisible.
+        </p>
+        <p className="text-lg text-signature-cream/90 mb-10 max-w-2xl mx-auto font-serif">
+          While others follow trends, we help you architect a timeless presence that commands respect and opens doors.
         </p>
         <div className="flex flex-col items-center gap-4 sm:flex-row">
-          <Link href="#book" className="btn-primary px-8 py-4 text-lg">
+          <Link href="#book" className="btn-primary">
             Book Your Consultation
           </Link>
           <Link
             href="#services"
-            className="rounded-lg border-2 border-signature-navy px-8 py-4 font-medium text-signature-navy transition-colors hover:bg-signature-navy hover:text-signature-cream"
+            className="btn-ghost"
           >
             Explore Services
           </Link>
@@ -44,3 +62,6 @@ export function HeroSection() {
     </section>
   )
 }
+
+
+

@@ -2,16 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Minimal brand base to ensure Tailwind compiles */
-@layer base {
-  html { scroll-behavior: smooth; }
-  body { @apply bg-ivory text-ink antialiased; }
-}
+/* Improve type rendering slightly */
+html, body { text-rendering: optimizeLegibility; }
 
+/* Component presets */
 @layer components {
-  .section { @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8; }
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-full px-5 py-3
+            uppercase tracking-wide-2 text-sm font-medium
+            bg-signature-black text-white shadow-sm
+            hover:opacity-90 transition;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center rounded-full px-5 py-3
+            uppercase tracking-wide-2 text-sm font-medium
+            border border-black/15 dark:border-white/25
+            bg-white/70 dark:bg-black/30 backdrop-blur
+            text-signature-black dark:text-white
+            hover:opacity-90 transition;
+  }
 }
 
-@layer utilities {
-  .text-balance { text-wrap: balance; }
-}
+/* Optional: retain font feature helpers for precision */
+.font-head { font-feature-settings: "liga","kern","dlig","onum","ss01"; }
+.font-body { font-feature-settings: "liga","kern"; }

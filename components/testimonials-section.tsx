@@ -1,4 +1,4 @@
-const testimonials = [
+﻿const testimonials = [
   {
     quote:
       'Within two weeks of working with Cat, I walked into a board interview and knew the room saw the leader I am. The wardrobe plan and voice coaching changed everything.',
@@ -51,3 +51,8 @@ export function TestimonialsSection() {
     </section>
   )
 }
+
+
+
+
+

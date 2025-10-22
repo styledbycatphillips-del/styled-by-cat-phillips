@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
@@ -24,7 +24,7 @@ export function AboutSection() {
           </h2>
           <p className="text-lg leading-relaxed text-signature-navy">
             With over thirteen years blending high-impact styling, brand design, and executive presence, Cat Phillips
-            created Script Your Signature™—a method that aligns how you look, sound, and show up.
+            created Script Your Signature (TM) — a method that aligns how you look, sound, and show up.
           </p>
           <p className="text-lg leading-relaxed text-signature-navy">
             From Little Rock boardrooms to national creative teams, clients trust this process to build confidence,
@@ -73,10 +73,13 @@ export function AboutSection() {
         >
           <div className="relative overflow-hidden rounded-2xl shadow-2xl">
             <Image
-              src="/about/about/about-cat-phillips.webp"
-              alt="Cat Phillips working with a client at the studio"
-              width={600}
-              height={720}
+              src="/about/hero-portrait.webp"
+              alt="Portrait of Cat Phillips"
+              width={1200}
+              height={1500}
+              sizes="(min-width: 1024px) 600px, 90vw"
+              placeholder="blur"
+              blurDataURL="/about/hero-portrait-blur.jpg"
               className="object-cover"
               priority
             />
@@ -94,7 +97,7 @@ export function AboutSection() {
               </div>
             </div>
             <p className="text-sm text-signature-navy">
-              Script Your Signature™ has helped leaders secure board seats, media coverage, and trusted visibility.
+              Script Your Signature (TM) has helped leaders secure board seats, media coverage, and trusted visibility.
             </p>
           </div>
         </motion.div>
@@ -102,3 +105,4 @@ export function AboutSection() {
     </section>
   )
 }
+

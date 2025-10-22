@@ -1,39 +1,11 @@
-import { Inter } from 'next/font/google'
-import localFont from 'next/font/local'
+﻿import { bodoni, inter } from './fonts'
 import { Analytics } from '@vercel/analytics/react'
 import './globals.css'
 import { siteConfig } from '@/config/site'
 import { JsonLd } from '@/components/json-ld'
 import { GoogleAnalytics } from '@/components/google-analytics'
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-sans' })
-
-const signatureSerif = localFont({
-  src: [
-    {
-      path: '../public/fonts/bodoni-moda-400.woff2',
-      weight: '400',
-      style: 'normal',
-    },
-    {
-      path: '../public/fonts/bodoni-moda-500.woff2',
-      weight: '500',
-      style: 'normal',
-    },
-    {
-      path: '../public/fonts/bodoni-moda-600.woff2',
-      weight: '600',
-      style: 'normal',
-    },
-    {
-      path: '../public/fonts/bodoni-moda-700.woff2',
-      weight: '700',
-      style: 'normal',
-    },
-  ],
-  variable: '--font-serif',
-  display: 'swap',
-})
+// Fonts are configured via next/font in app/fonts.ts
 
 export const metadata = {
   title: {
@@ -65,6 +37,9 @@ export const metadata = {
     telephone: false,
   },
   metadataBase: new URL(siteConfig.url),
+  icons: {
+    icon: '/brand/logos/sbcp-mark-dark.svg',
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -109,11 +84,12 @@ export default function RootLayout({
   const ga4MeasurementId = process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className={`${bodoni.variable} ${inter.variable}`}>
       <head>
+        <meta charSet="utf-8" />
         <JsonLd />
       </head>
-      <body className={`${inter.variable} ${signatureSerif.variable} bg-ivory text-ink antialiased`}>
+      <body className={`bg-ivory text-ink antialiased font-body`}>
         {children}
         <Analytics />
         {ga4MeasurementId && <GoogleAnalytics measurementId={ga4MeasurementId} />}
@@ -121,3 +97,7 @@ export default function RootLayout({
     </html>
   )
 }
+
+
+
+
