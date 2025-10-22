@@ -1,4 +1,4 @@
-import { siteConfig } from '@/config/site'
+﻿import { siteConfig } from '@/config/site'
 
 type JsonLdProps = {
   data?: object | object[]
@@ -14,7 +14,7 @@ const organizationSchema = {
   description: siteConfig.description,
   telephone: siteConfig.links.phone,
   email: siteConfig.links.email,
-  logo: `${siteConfig.url}/logo.png`,
+  logo: `${siteConfig.url}/brand/logos/sbcp-mark-dark.svg`,
   image: siteConfig.ogImage,
   foundingDate: siteConfig.business.founded,
   founder: {
@@ -43,10 +43,11 @@ const faqSchema = {
   mainEntity: [
     {
       '@type': 'Question',
-      name: 'What is Script Your Signature methodology?',
+      name: 'What is The Signature Architecture methodology?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Script Your Signature™ is a three-step process—Discover, Design, Define—that aligns wardrobe, presence, and brand positioning for leaders.',
+        text:
+          'The Signature Architecture™ is our framework for architecting executive presence: identity → strategy → presence across wardrobe, voice, and digital platforms.',
       },
     },
     {
@@ -77,3 +78,7 @@ export function JsonLd({ data }: JsonLdProps) {
     </>
   )
 }
+
+
+
+

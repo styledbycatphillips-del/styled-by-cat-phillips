@@ -1,7 +1,9 @@
 export const siteConfig = {
-  name: 'Script Your Signature | Styled by Cat Phillips',
+  // Updated brand and system naming for Kirksey House
+  name: 'The Signature Architecture | Kirksey House',
   description:
-    "Arkansas's premier personal stylist and signature development specialist. Transform your professional presence with the proprietary Script Your Signature™ methodology. Serving Little Rock, Conway, and Northwest Arkansas executives and creatives.",
+    'Kirksey House helps executives and leadership teams architect their presence. Transform your professional image and authority with our proprietary Signature Architecture™ methodology. Serving Little Rock, Conway, Northwest Arkansas, and Dallas/Fort Worth.',
+  // Keep existing domain until migration is complete
   url: 'https://styledbycatphillips.com',
   ogImage: 'https://styledbycatphillips.com/og-image.jpg',
   links: {
@@ -9,12 +11,14 @@ export const siteConfig = {
     linkedin: 'https://linkedin.com/in/catphillips',
     email: 'cat@styledbycatphillips.com',
     phone: '501.541.1139',
+    // Keep calendly for existing usages
     calendly: 'https://calendly.com/styledbycat/signature-session',
   },
   business: {
-    name: 'Styled by Cat Phillips',
-    legalName: 'Catherine Phillips Styling Services',
-    founder: 'Cat Phillips',
+    // Rebrand the business name to Kirksey House
+    name: 'Kirksey House',
+    legalName: 'Kirksey House Consulting, LLC',
+    founder: 'Catherine Phillips',
     founded: '2011',
     address: {
       streetAddress: '',
@@ -30,20 +34,22 @@ export const siteConfig = {
       'Northwest Arkansas',
       'Fayetteville, Arkansas',
       'Bentonville, Arkansas',
-      'Dallas-Fort Worth Metro',
+      'Dallas–Fort Worth Metro',
       'Dallas, Texas',
       'Fort Worth, Texas',
     ],
+    // Update services to align with The Signature Architecture framework
     services: [
-      'Personal Signature Styling',
-      'Executive Presence Development',
-      'Brand Identity Consulting',
-      'Creative Direction',
-      'Wardrobe Consulting',
-      'Image Consulting',
+      'Executive Presence Intensive',
+      'Signature Calibration Session',
+      'Signature Architecture Intensive',
+      'Authority Index Audit',
+      'Leadership Style Consulting',
+      'Image & Wardrobe Consulting',
     ],
-    priceRange: '$350-$10000',
+    priceRange: '$350–$10,000',
   },
 } as const
 
 export type SiteConfig = typeof siteConfig
+
