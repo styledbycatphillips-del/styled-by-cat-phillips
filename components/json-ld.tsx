@@ -14,7 +14,7 @@ const organizationSchema = {
   description: siteConfig.description,
   telephone: siteConfig.links.phone,
   email: siteConfig.links.email,
-  logo: `${siteConfig.url}/brand/logos/sbcp-mark-dark.svg`,
+  logo: `${siteConfig.url}/brand/logos/kh%20logo%20dark%20monogram.svg`,
   image: siteConfig.ogImage,
   foundingDate: siteConfig.business.founded,
   founder: {
@@ -121,4 +121,3 @@ export function JsonLd({ data }: JsonLdProps) {
     </>
   )
 }
-

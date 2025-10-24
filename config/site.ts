@@ -5,7 +5,7 @@ export const siteConfig = {
     'Kirksey House engineers executive presence for leaders and teams. Elevate authority and visibility with our proprietary Signature Architecture™ methodology. Serving Little Rock, Conway, Northwest Arkansas, and Dallas/Fort Worth.',
   // Keep existing domain until migration is complete
   url: 'https://styledbycatphillips.com',
-  ogImage: 'https://styledbycatphillips.com/og-image.jpg',
+  ogImage: 'https://styledbycatphillips.com/brand/logos/KH%20logo%20horse.svg',
   links: {
     instagram: 'https://instagram.com/styled.by.catphillips',
     linkedin: 'https://linkedin.com/in/catphillips',

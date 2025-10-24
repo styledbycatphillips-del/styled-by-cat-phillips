@@ -38,7 +38,7 @@ export const metadata = {
   },
   metadataBase: new URL(siteConfig.url),
   icons: {
-    icon: '/brand/logos/sbcp-mark-dark.svg',
+    icon: '/brand/logos/kh%20logo%20dark%20monogram.svg',
   },
   openGraph: {
     type: 'website',

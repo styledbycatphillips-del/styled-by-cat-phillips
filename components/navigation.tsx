@@ -24,19 +24,19 @@ export function Navigation() {
         <Link href="/" className="flex items-center space-x-3">
           {/* Dark wordmark on light backgrounds; switch to light in dark theme */}
           <Image
-            src="/brand/logos/logo-wordmark-dark.svg"
+            src="/brand/logos/KH%20logo%20horse.svg"
             alt="Kirksey House"
-            width={160}
-            height={42}
-            className="h-9 w-auto block dark:hidden"
+            width={40}
+            height={40}
+            className="h-9 w-9 block dark:hidden"
             priority
           />
           <Image
-            src="/brand/logos/sbcp-wordmark-light.svg"
+            src="/brand/logos/Kh.logo.horse.light.svg"
             alt="Kirksey House"
-            width={160}
-            height={42}
-            className="h-9 w-auto hidden dark:block"
+            width={40}
+            height={40}
+            className="h-9 w-9 hidden dark:block"
             priority
           />
           <span className="hidden text-[0.88rem] font-medium uppercase tracking-wide-2 text-signature-navy sm:inline">

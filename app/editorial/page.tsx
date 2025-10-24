@@ -1,4 +1,4 @@
-'use client'
+ï»¿'use client'
 
 /* eslint-disable @next/next/no-img-element, react/no-unescaped-entities */
 
@@ -12,7 +12,7 @@ export default function EditorialHomePage() {
         <div className="max-w-6xl mx-auto px-4 flex items-center justify-between h-16">
           <div className="flex items-center">
             <img 
-              src="/brand/logos/logo-wordmark-dark.svg" 
+              src="/brand/logos/KH%20logo%20horse.svg" 
               alt="Kirksey House" 
               className="h-8 w-auto"
             />
@@ -51,7 +51,7 @@ export default function EditorialHomePage() {
               {/* Signature Logo */}
               <div className="mb-6">
             <img 
-              src="/brand/logos/sbcp-wordmark-light.svg" 
+              src="/brand/logos/Kh.logo.horse.light.svg" 
               alt="Cat Phillips signature" 
               className="mx-auto w-60 md:w-80 lg:w-96 h-auto filter drop-shadow-sm"
             />
@@ -85,7 +85,7 @@ export default function EditorialHomePage() {
         <section className="py-16 bg-white/50">
           <div className="max-w-3xl mx-auto px-4 text-center">
             <p className="text-sm uppercase tracking-wider text-signature-champagne font-medium mb-4">
-              The Signature Architecture™
+              The Signature Architectureï¿½
             </p>
             <p className="text-lg text-signature-navy">
               Wardrobe, identity, website, and social move together so people meet the same you everywhere.

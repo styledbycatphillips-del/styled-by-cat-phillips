@@ -22,19 +22,19 @@ export function HeroSection() {
         {/* Brand Wordmark */}
         <div className="mb-5">
           <Image
-            src="/brand/logos/logo-wordmark-dark.svg"
+            src="/brand/logos/KH%20logo%20horse.svg"
             alt="Kirksey House logo"
-            width={300}
-            height={80}
-            className="mx-auto h-10 w-auto block dark:hidden"
+            width={120}
+            height={120}
+            className="mx-auto h-20 w-20 block dark:hidden"
             priority
           />
           <Image
-            src="/brand/logos/sbcp-wordmark-light.svg"
+            src="/brand/logos/Kh.logo.horse.light.svg"
             alt="Kirksey House logo"
-            width={300}
-            height={80}
-            className="mx-auto h-10 w-auto hidden dark:block"
+            width={120}
+            height={120}
+            className="mx-auto h-20 w-20 hidden dark:block"
             priority
           />
         </div>
@@ -62,4 +62,3 @@ export function HeroSection() {
     </section>
   )
 }
-
