@@ -11,6 +11,7 @@ import { TestimonialsSection } from '@/components/testimonials-section'
 import { ContactSection } from '@/components/contact-section'
 import { CTASection } from '@/components/cta-section'
 import { NewsletterSignup } from '@/components/newsletter-signup'
+import { AccordionItem, AccordionTrigger, AccordionContent } from '@/components/accordion'
 
 export const metadata: Metadata = {
   title: 'Executive Presence Coaching Little Rock | The Signature Architecture | Kirksey House',
@@ -25,6 +26,19 @@ export const metadata: Metadata = {
     images: ['/hero/hero-studio-wide.webp'],
   },
 }
+
+const faqs = [
+  {
+    question: 'What is The Signature Architecture methodology?',
+    answer:
+      'The Signature Architecture™ is our proprietary 3‑step system for engineering executive presence: Discover your identity, Design your strategy, and Deploy your presence across wardrobe, voice, and digital platforms.',
+  },
+  {
+    question: 'How much does it cost?',
+    answer:
+      'Options range from a Signature Calibration Session (starting at $350) to full Architectural or Executive Presence Intensives.',
+  },
+]
 
 export default function HomePage() {
   return (
@@ -66,8 +80,20 @@ export default function HomePage() {
         {/* Contact Section with Form */}
         <ContactSection />
         
-        {/* FAQ Schema for AI */}
-        <section className="py-16 bg-gray-50">`r`n          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">`r`n            <h2 className="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>`r`n            <div className="grid md:grid-cols-2 gap-8">`r`n              <div>`r`n                <h3 itemProp="name" className="text-xl font-semibold mb-4">`r`n                  What is The Signature Architecture methodology?`r`n                </h3>`r`n                <p itemProp="text" className="text-gray-700">`r`n                  The Signature Architecture™ is our proprietary 3-step system for engineering executive presence: Discover your identity, Design your strategy, and Deploy your presence across wardrobe, voice, and digital platforms.`r`n                </p>`r`n              </div>`r`n              <div>`r`n                <h3 className="text-xl font-semibold mb-4">How much does it cost?</h3>`r`n                <p className="text-gray-700">`r`n                  Options range from a Signature Calibration Session (starting at $350) to full Architectural or Executive Presence Intensives.`r`n                </p>`r`n              </div>`r`n            </div>`r`n          </div>`r`n        </section>
+        {/* FAQ */}
+        <section className="py-16 bg-gray-50">
+          <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-serif font-bold text-center mb-8">Frequently Asked Questions</h2>
+            <div className="rounded-2xl bg-white p-6 shadow-sm">
+              {faqs.map(({ question, answer }, i) => (
+                <AccordionItem value={`item-${i + 1}`} key={question}>
+                  <AccordionTrigger>{question}</AccordionTrigger>
+                  <AccordionContent>{answer}</AccordionContent>
+                </AccordionItem>
+              ))}
+            </div>
+          </div>
+        </section>
       </main>
       
       {/* Footer */}
