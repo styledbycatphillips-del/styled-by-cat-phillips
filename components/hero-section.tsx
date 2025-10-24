@@ -15,7 +15,7 @@ export function HeroSection() {
           blurDataURL="/hero/hero-studio-wide-blur.jpg"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-signature-cream/65 backdrop-blur-[2px]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-signature-navy/30 via-signature-cream/50 to-signature-cream/70 backdrop-blur-[2px]" />
       </div>
 
       <div className="relative z-10 mx-auto flex min-h-[92vh] max-w-5xl flex-col items-center justify-center px-4 py-24 text-center">
@@ -59,4 +59,3 @@ export function HeroSection() {
     </section>
   )
 }
-

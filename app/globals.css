@@ -17,17 +17,17 @@ html, body { text-rendering: optimizeLegibility; }
   .btn-primary {
     @apply inline-flex items-center justify-center rounded-full px-5 py-3
             uppercase tracking-wide-2 text-sm font-medium
-            bg-signature-black text-white shadow-sm
-            hover:opacity-90 transition;
+            bg-signature-navy text-signature-cream shadow-sm
+            hover:bg-signature-black transition;
   }
 
   .btn-ghost {
     @apply inline-flex items-center justify-center rounded-full px-5 py-3
             uppercase tracking-wide-2 text-sm font-medium
-            border border-black/15 dark:border-white/25
-            bg-white/70 dark:bg-black/30 backdrop-blur
-            text-signature-black dark:text-white
-            hover:opacity-90 transition;
+            border border-signature-champagne
+            bg-transparent backdrop-blur
+            text-signature-navy dark:text-signature-cream
+            hover:bg-white/20 dark:hover:bg-white/10 transition;
   }
 }
 

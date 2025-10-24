@@ -19,7 +19,7 @@ export function Navigation() {
   const [open, setOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-40 bg-signature-cream/95 backdrop-blur border-b border-signature-gray/30 shadow-sm">
+    <header className="sticky top-0 z-40 bg-signature-cream backdrop-blur border-b border-signature-gray/30 shadow-sm">
       <nav className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" aria-label="Kirksey House" className="flex items-center space-x-3">
           {/* Dark wordmark on light backgrounds; switch to light in dark theme */}
