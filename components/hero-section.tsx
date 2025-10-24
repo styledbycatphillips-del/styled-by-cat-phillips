@@ -1,4 +1,4 @@
-﻿import Image from 'next/image'
+import Image from 'next/image'
 import Link from 'next/link'
 
 export function HeroSection() {
@@ -23,7 +23,7 @@ export function HeroSection() {
         <div className="mb-5">
           <Image
             src="/brand/logos/logo-wordmark-dark.svg"
-            alt="Styled by Cat Phillips logo"
+            alt="Kirksey House logo"
             width={300}
             height={80}
             className="mx-auto h-10 w-auto block dark:hidden"
@@ -31,7 +31,7 @@ export function HeroSection() {
           />
           <Image
             src="/brand/logos/sbcp-wordmark-light.svg"
-            alt="Styled by Cat Phillips logo"
+            alt="Kirksey House logo"
             width={300}
             height={80}
             className="mx-auto h-10 w-auto hidden dark:block"
@@ -62,6 +62,4 @@ export function HeroSection() {
     </section>
   )
 }
-
-
 

@@ -26,7 +26,7 @@ const services: Service[] = [
   {
     name: 'Signature Architecture Intensive',
     label: 'Complete Transformation',
-    price: '$1,800 – $3,500',
+    price: '$1,800–$3,500',
     summary:
       'A comprehensive engagement architecting identity, strategy, and presence for leaders preparing for growth or a major launch.',
     bullets: [
@@ -38,13 +38,13 @@ const services: Service[] = [
   {
     name: 'Executive Presence Intensive',
     label: 'Leadership Presence',
-    price: '$2,500 – $6,000',
+    price: '$2,500–$6,000',
     summary:
-      'High‑touch executive support to engineer a timeless, credible presence across wardrobe, voice, and digital footprint.',
+      'High-touch executive support to engineer a timeless, credible presence across wardrobe, voice, and digital footprint.',
     bullets: [
-      'On‑call styling and event preparation',
+      'On-call styling and event preparation',
       'Executive coaching and media readiness',
-      'Authority index audit and refinement',
+      'Authority Index™ audit and refinement',
     ],
   },
 ]

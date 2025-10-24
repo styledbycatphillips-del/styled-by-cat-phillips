@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next'
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { siteConfig } from '@/config/site'
 import { ServicesOverview } from '@/components/services-overview'
@@ -8,9 +8,9 @@ import CalendlyEmbed from '@/components/calendly-embed'
 const CALENDLY_URL = process.env.NEXT_PUBLIC_CALENDLY_URL ?? siteConfig.links.calendly
 
 export const metadata: Metadata = {
-  title: 'Services | Styled by Cat Phillips',
+  title: 'Services | Kirksey House',
   description:
-    'Executive Presence Intensive, Signature Session, and digital alignment to script your signature across wardrobe, voice, and web.',
+    'Executive Presence Intensive, Signature Calibration Session, and Signature Architecture Intensive to architect your signature across wardrobe, voice, and web.',
 }
 
 export default function ServicesPage() {
@@ -51,11 +51,9 @@ export default function ServicesPage() {
         <div className="mx-auto grid max-w-6xl gap-8 px-4 sm:px-6 md:grid-cols-2 lg:px-8">
           <article className="rounded-2xl border border-signature-champagne/40 bg-white p-8 shadow-lg">
             <h2 className="font-serif text-2xl text-signature-black">Executive Presence Intensive</h2>
-            <p className="mt-3 text-sm uppercase tracking-[0.3em] text-signature-champagne">
-              4â€“6 weeks Â· $8,000 (Launch $5,000)
-            </p>
+            <p className="mt-3 text-sm uppercase tracking-[0.3em] text-signature-champagne">4–6 weeks • $8,000 (Launch $5,000)</p>
             <p className="mt-4 text-sm text-signature-navy leading-relaxed">
-              For founders and executives preparing for a major visibility momentâ€”board seat, funding round, keynote, or
+              For founders and executives preparing for a major visibility moment—board seat, funding round, keynote, or
               media tour.
             </p>
             <ul className="mt-6 space-y-3 text-sm text-signature-navy">
@@ -69,7 +67,7 @@ export default function ServicesPage() {
               </li>
               <li className="flex items-start gap-3">
                 <span className="mt-2 h-2.5 w-2.5 rounded-full bg-signature-champagne" />
-                <span>Digital alignment across site, social platforms, and photography.</span>
+            <span>Platform alignment across site, social platforms, and photography.</span>
               </li>
             </ul>
             <div className="mt-8 flex flex-wrap gap-3">
@@ -91,10 +89,10 @@ export default function ServicesPage() {
           </article>
 
           <article className="rounded-2xl border border-signature-gray/30 bg-signature-cream/40 p-8 shadow-lg">
-            <h2 className="font-serif text-2xl text-signature-black">Signature Session</h2>
-            <p className="mt-3 text-sm uppercase tracking-[0.3em] text-signature-champagne">90 minutes Â· $333</p>
+            <h2 className="font-serif text-2xl text-signature-black">Signature Calibration Session</h2>
+            <p className="mt-3 text-sm uppercase tracking-[0.3em] text-signature-champagne">90 minutes • $333</p>
             <p className="mt-4 text-sm text-signature-navy leading-relaxed">
-              A concentrated session to diagnose your presence gaps and script a clear roadmap across wardrobe, brand
+              A concentrated session to diagnose your presence gaps and architect a clear roadmap across wardrobe, brand
               voice, and digital touchpoints.
             </p>
             <ul className="mt-6 space-y-3 text-sm text-signature-navy">
@@ -124,7 +122,7 @@ export default function ServicesPage() {
                 rel="noreferrer"
                 className="btn-primary px-5 py-2"
               >
-                Book Signature Session
+                Book Signature Calibration Session
               </Link>
             </div>
           </article>
@@ -139,4 +137,3 @@ export default function ServicesPage() {
     </main>
   )
 }
-

@@ -13,7 +13,7 @@
   },
   {
     quote:
-      'The Signature Session gave me an immediate confidence shift. I no longer second-guess what to wear or how to show up on camera.',
+      'The Signature Calibration Session gave me an immediate confidence shift. I no longer second-guess what to wear or how to show up on camera.',
     name: 'Taylor S.',
     title: 'Fractional CMO',
   },

@@ -25,7 +25,7 @@ export function Navigation() {
           {/* Dark wordmark on light backgrounds; switch to light in dark theme */}
           <Image
             src="/brand/logos/logo-wordmark-dark.svg"
-            alt="Styled by Cat Phillips"
+            alt="Kirksey House"
             width={160}
             height={42}
             className="h-9 w-auto block dark:hidden"
@@ -33,14 +33,14 @@ export function Navigation() {
           />
           <Image
             src="/brand/logos/sbcp-wordmark-light.svg"
-            alt="Styled by Cat Phillips"
+            alt="Kirksey House"
             width={160}
             height={42}
             className="h-9 w-auto hidden dark:block"
             priority
           />
           <span className="hidden text-[0.88rem] font-medium uppercase tracking-wide-2 text-signature-navy sm:inline">
-            Script Your Signature
+            Kirksey House
           </span>
         </Link>
 

@@ -1,4 +1,4 @@
-﻿import clsx from 'clsx'
+import clsx from 'clsx'
 
 const steps = [
   {
@@ -23,7 +23,7 @@ export function ProcessSection() {
     <section id="process" className="bg-white py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="font-serif text-4xl font-semibold text-signature-black">Script Your Signature™ Method</h2>
+          <h2 className="font-serif text-4xl font-semibold text-signature-black">The Signature Architecture™ Method</h2>
           <p className="mt-4 text-lg text-signature-navy">
             A proven framework developed for founders, executives, and creatives who need their presence to lead the
             room before the first word.

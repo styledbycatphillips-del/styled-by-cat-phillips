@@ -1,4 +1,4 @@
-﻿import Link from 'next/link'
+import Link from 'next/link'
 import { siteConfig } from '@/config/site'
 
 export function Footer() {
@@ -10,12 +10,12 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-4">
           <div className="md:col-span-2 space-y-4">
             <p className="font-serif text-lg uppercase tracking-[0.5em] text-signature-champagne">
-              Styled by Cat Phillips
+              Kirksey House
             </p>
-            <h3 className="font-serif text-3xl font-bold">Script Your Signatureâ„¢</h3>
+            <h3 className="font-serif text-3xl font-bold">The Signature Architecture™</h3>
             <p className="max-w-md text-sm text-signature-gray">
-              Arkansas&apos;s premier signature development studio. We build authentic presence for executives and
-              creatives through wardrobe, voice, and digital alignment.
+              Arkansas&apos;s premier presence engineering studio. We build authentic executive presence through wardrobe,
+              voice, and platform alignment.
             </p>
             <div className="flex items-center gap-6 text-sm text-signature-gray">
               <a
@@ -35,7 +35,7 @@ export function Footer() {
             <ul className="space-y-2 text-sm text-signature-gray">
               <li>
                 <Link href="#services" className="hover:text-signature-champagne transition-colors">
-                  Signature Session
+                  Signature Calibration Session
                 </Link>
               </li>
               <li>
@@ -45,7 +45,7 @@ export function Footer() {
               </li>
               <li>
                 <Link href="#services" className="hover:text-signature-champagne transition-colors">
-                  Digital Alignment
+                  Signature Architecture Intensive
                 </Link>
               </li>
             </ul>
@@ -69,11 +69,10 @@ export function Footer() {
         </div>
 
         <div className="mt-12 border-t border-signature-gray/30 pt-8 text-sm text-signature-gray flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <p>Â© {currentYear} Styled by Cat Phillips. All rights reserved.</p>
+          <p>© {currentYear} Kirksey House. The Signature Architecture™. All rights reserved.</p>
           <p>Serving Little Rock, Conway, Northwest Arkansas &amp; virtual clients worldwide.</p>
         </div>
       </div>
     </footer>
   )
 }
-

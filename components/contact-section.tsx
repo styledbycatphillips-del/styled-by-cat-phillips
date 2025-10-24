@@ -29,7 +29,7 @@ export function ContactSection() {
       <div id="book" className="-mt-24 h-0" aria-hidden />
       <div className="mx-auto max-w-5xl rounded-3xl bg-white/70 px-4 py-16 shadow-2xl backdrop-blur-sm sm:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="font-serif text-4xl font-semibold text-signature-black">Ready to script your signature?</h2>
+          <h2 className="font-serif text-4xl font-semibold text-signature-black">Ready to architect your signature?</h2>
           <p className="mt-4 text-lg text-signature-navy">
             Share where you are and what you are building. We will schedule a consultation to map your presence goals.
           </p>
@@ -78,8 +78,8 @@ export function ContactSection() {
                   className="mt-2 w-full rounded-lg border border-signature-gray/30 px-4 py-3 text-sm text-signature-black focus:border-signature-champagne focus:outline-none focus:ring-2 focus:ring-signature-champagne/50"
                 >
                   <option value="executive-intensive">Executive Presence Intensive</option>
-                  <option value="signature-session">Signature Session</option>
-                  <option value="digital-alignment">Digital Alignment</option>
+                  <option value="signature-calibration">Signature Calibration Session</option>
+                  <option value="signature-architecture">Signature Architecture Intensive</option>
                   <option value="unsure">Not sure yet</option>
                 </select>
               </div>

@@ -8,7 +8,7 @@ type CalendlyEmbedProps = {
 
 export default function CalendlyEmbed({
   url,
-  title = 'Signature Session',
+  title = 'Signature Calibration Session',
   height = 720,
 }: CalendlyEmbedProps) {
   return (

@@ -2,7 +2,7 @@ export const siteConfig = {
   // Updated brand and system naming for Kirksey House
   name: 'The Signature Architecture | Kirksey House',
   description:
-    'Kirksey House helps executives and leadership teams architect their presence. Transform your professional image and authority with our proprietary Signature Architecture™ methodology. Serving Little Rock, Conway, Northwest Arkansas, and Dallas/Fort Worth.',
+    'Kirksey House engineers executive presence for leaders and teams. Elevate authority and visibility with our proprietary Signature Architecture™ methodology. Serving Little Rock, Conway, Northwest Arkansas, and Dallas/Fort Worth.',
   // Keep existing domain until migration is complete
   url: 'https://styledbycatphillips.com',
   ogImage: 'https://styledbycatphillips.com/og-image.jpg',
@@ -40,14 +40,11 @@ export const siteConfig = {
     ],
     // Update services to align with The Signature Architecture framework
     services: [
-      'Executive Presence Intensive',
       'Signature Calibration Session',
       'Signature Architecture Intensive',
-      'Authority Index Audit',
-      'Leadership Style Consulting',
-      'Image & Wardrobe Consulting',
+      'Executive Presence Intensive',
     ],
-    priceRange: '$350–$10,000',
+    priceRange: '$350-$10,000',
   },
 } as const
 

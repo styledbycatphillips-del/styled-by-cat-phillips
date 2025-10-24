@@ -9,10 +9,10 @@ export function CTASection() {
       <div className="mx-auto max-w-5xl px-4 text-center">
         <p className="font-serif text-sm uppercase tracking-[0.5em] text-signature-champagne">Next step</p>
         <h2 className="mt-4 font-serif text-4xl font-semibold">
-          Ready to begin your Signature transformation?
+          Ready to begin your Signature Architecture?
         </h2>
         <p className="mt-4 text-lg text-signature-gray">
-          Start with the Signature Assessment or go straight to a Signature Session with Cat.
+          Start with a Signature Calibration Session or book an Intensive to accelerate results.
         </p>
         <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
           <Link
@@ -25,7 +25,7 @@ export function CTASection() {
             href={calendlyUrl}
             className="btn-primary bg-signature-champagne text-signature-black hover:bg-signature-cream"
           >
-            Book a Signature Session
+            Book a Signature Calibration Session
           </Link>
         </div>
       </div>

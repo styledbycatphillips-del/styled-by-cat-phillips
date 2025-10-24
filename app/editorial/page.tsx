@@ -13,7 +13,7 @@ export default function EditorialHomePage() {
           <div className="flex items-center">
             <img 
               src="/brand/logos/logo-wordmark-dark.svg" 
-              alt="Styled by Cat Phillips" 
+              alt="Kirksey House" 
               className="h-8 w-auto"
             />
           </div>
@@ -45,7 +45,7 @@ export default function EditorialHomePage() {
             <div className="max-w-4xl mx-auto px-4 text-center py-20">
               {/* Wordmark */}
               <h1 className="font-serif font-semibold tracking-[0.08em] text-lg md:text-2xl text-signature-black mb-3">
-                STYLED BY CAT PHILLIPS
+                KIRKSEY HOUSE
               </h1>
 
               {/* Signature Logo */}
@@ -65,7 +65,7 @@ export default function EditorialHomePage() {
 
               {/* Subtitle */}
               <p className="text-lg md:text-xl text-signature-navy mb-6 max-w-3xl mx-auto leading-relaxed">
-                Executive Presence by Cat Phillips: wardrobe strategy, brand voice, and digital alignment for professionals ready to lead with coherence.
+                Executive presence by Kirksey House: wardrobe strategy, brand voice, and platform alignment for professionals ready to lead with coherence.
               </p>
 
               {/* Action Buttons */}
@@ -85,7 +85,7 @@ export default function EditorialHomePage() {
         <section className="py-16 bg-white/50">
           <div className="max-w-3xl mx-auto px-4 text-center">
             <p className="text-sm uppercase tracking-wider text-signature-champagne font-medium mb-4">
-              Script your Signature
+              The Signature Architecture™
             </p>
             <p className="text-lg text-signature-navy">
               Wardrobe, identity, website, and social move together so people meet the same you everywhere.
@@ -127,10 +127,10 @@ export default function EditorialHomePage() {
                 <a href="#book" className="btn-primary w-full text-center">Book Discovery Call</a>
               </div>
 
-              {/* Signature Session */}
+              {/* Signature Calibration Session */}
               <div className="bg-white border border-signature-gray/30 rounded-xl p-8 shadow-sm">
                 <h3 className="text-2xl font-serif font-bold text-signature-coffee mb-4">
-                  Signature Session
+              Signature Calibration Session
                 </h3>
                 <p className="text-signature-navy mb-4">
                   90-minute presence audit and strategic roadmap.
@@ -341,7 +341,7 @@ export default function EditorialHomePage() {
                 >
                   <option value="">Select an option</option>
                   <option value="executive-intensive">Executive Presence Intensive</option>
-                  <option value="signature-session">Signature Session</option>
+                  <option value="signature-session">Signature Calibration Session</option>
                   <option value="digital-tools">Digital Tools</option>
                   <option value="exploring">Just Exploring</option>
                 </select>

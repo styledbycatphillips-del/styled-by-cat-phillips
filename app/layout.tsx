@@ -18,7 +18,7 @@ export const metadata = {
     'executive styling arkansas',
     'signature style development',
     'professional image consultant',
-    'script your signature',
+    'signature architecture',
     'cat phillips stylist',
     'northwest arkansas styling',
     'little rock image consultant'
@@ -30,7 +30,7 @@ export const metadata = {
     },
   ],
   creator: 'Cat Phillips',
-  publisher: 'Styled by Cat Phillips',
+  publisher: 'Kirksey House',
   formatDetection: {
     email: false,
     address: false,
