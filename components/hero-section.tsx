@@ -21,12 +21,13 @@ export function HeroSection() {
       <div className="relative z-10 mx-auto flex min-h-[92vh] max-w-5xl flex-col items-center justify-center px-4 py-24 text-center">
         {/* Brand Mark */}
         <div className="mb-5">
+          {/* Use light (transparent) variant in both modes; invert in light mode for a black mark */}
           <Image
-            src="/brand/logos/KH%20logo%20horse.svg"
+            src="/brand/logos/Kh.logo.horse.light.svg"
             alt="Kirksey House logo"
             width={120}
             height={120}
-            className="mx-auto h-20 w-20 block dark:hidden"
+            className="mx-auto h-20 w-20 block filter invert dark:hidden"
             priority
           />
           <Image
