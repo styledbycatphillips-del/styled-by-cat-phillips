@@ -1,4 +1,4 @@
-import { Metadata } from 'next'
+﻿import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Navigation } from '@/components/navigation'
@@ -12,13 +12,14 @@ import { ContactSection } from '@/components/contact-section'
 import { CTASection } from '@/components/cta-section'
 import { NewsletterSignup } from '@/components/newsletter-signup'
 import { AccordionItem, AccordionTrigger, AccordionContent } from '@/components/accordion'
+import { faqs } from '@/config/faqs'
 
 export const metadata: Metadata = {
-  title: 'Executive Presence Coaching Little Rock | The Signature Architecture | Kirksey House',
+  title: 'Executive Presence Coaching Little Rock | The Signature Architecture™ Kirksey House',
   description:
-    'Architect your presence with Kirksey House. Our proprietary Signature Architecture™ serves Little Rock and DFW executives and leadership teams.',
+    'Architect your presence with Kirksey House. Our proprietary Signature Architecture™¢ serves Little Rock and DFW executives and leadership teams.',
   keywords:
-    'executive presence coaching, leadership image Little Rock, Signature Architecture, authority index audit, executive styling',
+    'executive presence coaching, leadership image Little Rock, Signature Architecture™authority index audit, executive styling',
   openGraph: {
     title: 'The Signature Architecture™ - Kirksey House',
     description:
@@ -27,18 +28,6 @@ export const metadata: Metadata = {
   },
 }
 
-const faqs = [
-  {
-    question: 'What is The Signature Architecture methodology?',
-    answer:
-      'The Signature Architecture™ is our proprietary 3‑step system for engineering executive presence: Discover your identity, Design your strategy, and Deploy your presence across wardrobe, voice, and digital platforms.',
-  },
-  {
-    question: 'How much does it cost?',
-    answer:
-      'Options range from a Signature Calibration Session (starting at $350) to full Architectural or Executive Presence Intensives.',
-  },
-]
 
 export default function HomePage() {
   return (
@@ -68,7 +57,7 @@ export default function HomePage() {
         {/* About - Your Signature Is Your Story */}
         <AboutSection />
         
-        {/* Process - The Signature Architecture Methodology */}
+        {/* Process - The Signature Architecture™ethodology */}
         <ProcessSection />
         
         {/* Services Overview */}
