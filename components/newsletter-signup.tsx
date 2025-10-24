@@ -34,10 +34,8 @@ export function NewsletterSignup({ variant = 'stacked', source = 'site' }: Newsl
   if (submitted) {
     return (
       <div className="rounded-2xl border border-signature-champagne/60 bg-white/70 p-6 text-center shadow-lg">
-        <p className="font-serif text-xl text-signature-black">You&apos;re on the list.</p>
-        <p className="mt-2 text-sm text-signature-navy">
-          Watch for the Signature Edit in your inbox within the next few minutes.
-        </p>
+        <p className="font-serif text-xl text-signature-black">You’re on the list.</p>
+        <p className="mt-2 text-sm text-signature-navy">Thanks for subscribing to the Kirksey House Journal.</p>
       </div>
     )
   }
@@ -52,6 +50,12 @@ export function NewsletterSignup({ variant = 'stacked', source = 'site' }: Newsl
       onSubmit={handleSubmit}
       className="rounded-2xl border border-signature-champagne/60 bg-white/80 p-6 shadow-lg backdrop-blur"
     >
+      <div className="mb-4">
+        <h3 className="font-serif text-xl text-signature-black">Elevate Your Presence</h3>
+        <p className="mt-1 text-sm text-signature-navy/80">
+          Join the Kirksey House Journal for monthly insights on presence engineering, wardrobe strategy and executive impact.
+        </p>
+      </div>
       <div className={layoutClasses}>
         <label htmlFor="newsletter-name" className="sr-only">
           Name
@@ -83,8 +87,8 @@ export function NewsletterSignup({ variant = 'stacked', source = 'site' }: Newsl
           Subscribe
         </button>
       </div>
-      <p className="mt-3 text-xs text-signature-gray">
-        Get one email a month on signature styling, wardrobe strategy, and executive presence.
+      <p className="mt-3 text-xs text-signature-navy/70">
+        You’ll receive one thoughtfully curated email a month with actionable guidance on mastering your signature presence.
       </p>
     </form>
   )
