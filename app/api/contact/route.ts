@@ -48,7 +48,7 @@ export async function POST(request: NextRequest) {
     
     const msg = {
       to: siteConfig.links.email,
-      from: 'noreply@styledbycatphillips.com',
+      from: 'noreply@kirkseyhouse.com',
       subject: `New consultation request from ${name}`,
       html: `
         <h2>New Consultation Request</h2>

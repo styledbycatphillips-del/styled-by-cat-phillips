@@ -9,7 +9,7 @@ export const siteConfig = {
   links: {
     instagram: 'https://instagram.com/styled.by.catphillips',
     linkedin: 'https://linkedin.com/in/catphillips',
-    email: 'cat@styledbycatphillips.com',
+    email: 'catherine@kirkseyhouse.com',
     phone: '501.541.1139',
     // Keep calendly for existing usages
     calendly: 'https://calendly.com/styledbycat/signature-session',
@@ -49,4 +49,3 @@ export const siteConfig = {
 } as const
 
 export type SiteConfig = typeof siteConfig
-

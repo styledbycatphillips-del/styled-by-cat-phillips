@@ -1,4 +1,4 @@
-﻿'use client'
+'use client'
 
 /* eslint-disable @next/next/no-img-element, react/no-unescaped-entities */
 
@@ -85,7 +85,7 @@ export default function EditorialHomePage() {
         <section className="py-16 bg-white/50">
           <div className="max-w-3xl mx-auto px-4 text-center">
             <p className="text-sm uppercase tracking-wider text-signature-champagne font-medium mb-4">
-              The Signature Architecture™
+              The Signature Architecture�
             </p>
             <p className="text-lg text-signature-navy">
               Wardrobe, identity, website, and social move together so people meet the same you everywhere.
@@ -115,10 +115,10 @@ export default function EditorialHomePage() {
                   Complete wardrobe and brand overhaul for executives ready to align their presence.
                 </p>
                 <ul className="space-y-2 mb-6 text-sm text-signature-navy">
-                  <li>â€¢ Wardrobe audit and rebuild strategy</li>
-                  <li>â€¢ Voice and messaging refinement</li>
-                  <li>â€¢ Platform alignment (LinkedIn, website)</li>
-                  <li>â€¢ Photo direction</li>
+                  <li>• Wardrobe audit and rebuild strategy</li>
+                  <li>• Voice and messaging refinement</li>
+                  <li>• Platform alignment (LinkedIn, website)</li>
+                  <li>• Photo direction</li>
                 </ul>
                 <div className="mb-6">
                   <div className="text-2xl font-bold text-signature-black">$8,000</div>
@@ -136,9 +136,9 @@ export default function EditorialHomePage() {
                   90-minute presence audit and strategic roadmap.
                 </p>
                 <ul className="space-y-2 mb-6 text-sm text-signature-navy">
-                  <li>â€¢ Presence assessment</li>
-                  <li>â€¢ Alignment gap identification</li>
-                  <li>â€¢ Priority action items</li>
+                  <li>• Presence assessment</li>
+                  <li>• Alignment gap identification</li>
+                  <li>• Priority action items</li>
                 </ul>
                 <div className="mb-6">
                   <div className="text-2xl font-bold text-signature-black">$333</div>
@@ -155,9 +155,9 @@ export default function EditorialHomePage() {
                   Self-guided resources for professionals ready to refine.
                 </p>
                 <ul className="space-y-2 mb-6 text-sm text-signature-navy">
-                  <li>â€¢ Executive Presence Audit ($44)</li>
-                  <li>â€¢ Brand Messaging Workbook ($55)</li>
-                  <li>â€¢ Notion Brand Board ($55)</li>
+                  <li>• Executive Presence Audit ($44)</li>
+                  <li>• Brand Messaging Workbook ($55)</li>
+                  <li>• Notion Brand Board ($55)</li>
                 </ul>
                 <div className="mb-6">
                   <div className="text-2xl font-bold text-signature-black">$44-$55</div>
@@ -375,8 +375,8 @@ export default function EditorialHomePage() {
             <div className="w-16 h-0.5 bg-signature-champagne mx-auto"></div>
           </div>
           <div className="space-y-2 text-sm text-signature-gray">
-            <p>Little Rock, AR Â· 501-541-1139 Â· cat@styledbycatphillips.com</p>
-            <p>Instagram @styled.by.cat.phillips Â· LinkedIn /in/styledbycatphillips</p>
+            <p>Little Rock, AR · 501-541-1139 · catherine@kirkseyhouse.com</p>
+            <p>Instagram @styled.by.cat.phillips · LinkedIn /in/styledbycatphillips</p>
           </div>
         </div>
       </footer>
