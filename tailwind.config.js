@@ -14,11 +14,11 @@ module.exports = {
         stone: "#6b7280",
         navy: "#0f172a",
         signature: {
-          cream: "#F7F4EF",
+          cream: "var(--signature-cream)",
           black: "#0B0B0B",
           gray: "#6E6E6E",
-          champagne: "#E9E1D6",
-          navy: "#0F1A24",
+          champagne: "var(--signature-champagne)",
+          navy: "var(--signature-navy)",
         },
       },
       fontFamily: {
