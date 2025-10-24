@@ -21,11 +21,11 @@ export function Navigation() {
   return (
     <header className="sticky top-0 z-40 bg-signature-cream/95 backdrop-blur border-b border-signature-gray/30 shadow-sm">
       <nav className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center space-x-3">
+        <Link href="/" aria-label="Kirksey House" className="flex items-center space-x-3">
           {/* Dark wordmark on light backgrounds; switch to light in dark theme */}
           <Image
             src="/brand/logos/KH%20logo%20horse.svg"
-            alt="Kirksey House"
+            alt="Kirksey House logo"
             width={40}
             height={40}
             className="h-9 w-9 block dark:hidden"
@@ -33,7 +33,7 @@ export function Navigation() {
           />
           <Image
             src="/brand/logos/Kh.logo.horse.light.svg"
-            alt="Kirksey House"
+            alt="Kirksey House logo"
             width={40}
             height={40}
             className="h-9 w-9 hidden dark:block"
@@ -41,6 +41,9 @@ export function Navigation() {
           />
           <span className="hidden text-[0.88rem] font-medium uppercase tracking-wide-2 text-signature-navy sm:inline">
             Kirksey House
+          </span>
+          <span className="hidden text-xs uppercase tracking-wide-2 text-signature-champagne sm:inline nav-tagline">
+            The Signature Architecture™
           </span>
         </Link>
 
