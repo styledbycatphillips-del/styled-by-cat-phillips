@@ -42,14 +42,6 @@ export default function HomePage() {
         {/* Newsletter Signup - Inline Form */}
         <section className="py-16 bg-signature-cream/30">
           <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl font-serif font-bold text-signature-black mb-4">
-                Originals set the standard.
-              </h2>
-              <p className="text-lg text-signature-navy">
-                Get the Signature Edit. Seven rules to look credible on camera.
-              </p>
-            </div>
             <NewsletterSignup variant="inline" source="inline" />
           </div>
         </section>
