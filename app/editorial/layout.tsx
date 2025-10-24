@@ -1,4 +1,4 @@
-import { Cormorant_Garamond, Inter } from 'next/font/google'
+﻿import { Cormorant_Garamond, Inter } from 'next/font/google'
 
 const cormorant = Cormorant_Garamond({ 
   subsets: ['latin'],
@@ -23,3 +23,4 @@ export default function EditorialLayout({
     </div>
   )
 }
+

@@ -1,4 +1,4 @@
-import { NewsletterSignup } from '@/components/newsletter-signup'
+﻿import { NewsletterSignup } from '@/components/newsletter-signup'
 import Image from 'next/image'
 
 export default function CleanPage() {
@@ -21,15 +21,15 @@ export default function CleanPage() {
             <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
             </svg>
-            Arkansas's Premier Personal Stylist
+            Arkansas&rsquo;s Premier Personal Stylist
           </div>
           
           <h1 className="text-6xl md:text-7xl font-serif font-bold text-white mb-4 leading-tight">
-            Cat Phillips
+            Kirksey House
           </h1>
           <div className="w-24 h-1 bg-signature-champagne mx-auto mb-6"></div>
           <p className="text-xl text-signature-cream max-w-2xl mx-auto">
-            Script Your Signature™ • Executive Styling • Little Rock, Arkansas
+            The Signature Architecture™ • Executive Styling • Little Rock, Arkansas
           </p>
         </div>
       </header>
@@ -176,9 +176,9 @@ export default function CleanPage() {
           <div className="text-center">
             {/* Logo/Brand */}
             <div className="mb-8">
-              <h4 className="text-3xl font-script text-signature-champagne mb-2">Cat Phillips</h4>
+              <h4 className="text-3xl font-script text-signature-champagne mb-2">Kirksey House</h4>
               <div className="w-16 h-1 bg-signature-champagne mx-auto mb-4"></div>
-              <p className="text-signature-gray">Script Your Signature™</p>
+              <p className="text-signature-gray">The Signature Architecture™</p>
             </div>
             
             {/* Contact Info */}
@@ -200,7 +200,7 @@ export default function CleanPage() {
             {/* Copyright */}
             <div className="border-t border-signature-gray/20 pt-8">
               <p className="text-signature-gray text-sm">
-                © 2025 Cat Phillips. All rights reserved. | Script Your Signature™
+                © 2025 Kirksey House. All rights reserved. | The Signature Architecture™
               </p>
             </div>
           </div>
@@ -209,3 +209,4 @@ export default function CleanPage() {
     </div>
   )
 }
+

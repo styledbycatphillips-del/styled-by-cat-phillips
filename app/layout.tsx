@@ -1,11 +1,11 @@
-   import { Inter } from 'next/font/google'
+import { bodoni, inter } from './fonts'
 import { Analytics } from '@vercel/analytics/react'
 import './globals.css'
 import { siteConfig } from '@/config/site'
 import { JsonLd } from '@/components/json-ld'
 import { GoogleAnalytics } from '@/components/google-analytics'
 
-const inter = Inter({ subsets: ['latin'] })
+// Fonts are configured via next/font in app/fonts.ts
 
 export const metadata = {
   title: {
@@ -18,25 +18,28 @@ export const metadata = {
     'executive styling arkansas',
     'signature style development',
     'professional image consultant',
-    'script your signature',
-    'cat phillips stylist',
+    'signature architecture',
+    'Kirksey House stylist',
     'northwest arkansas styling',
     'little rock image consultant'
   ],
   authors: [
     {
-      name: 'Cat Phillips',
+      name: 'Kirksey House',
       url: 'https://styledbycatphillips.com',
     },
   ],
-  creator: 'Cat Phillips',
-  publisher: 'Styled by Cat Phillips',
+  creator: 'Kirksey House',
+  publisher: 'Kirksey House',
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
   metadataBase: new URL(siteConfig.url),
+  icons: {
+    icon: '/brand/logos/kh%20logo%20dark%20monogram.svg',
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -81,11 +84,12 @@ export default function RootLayout({
   const ga4MeasurementId = process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className={`${bodoni.variable} ${inter.variable}`}>
       <head>
+        <meta charSet="utf-8" />
         <JsonLd />
       </head>
-      <body className={inter.className}>
+      <body className={`bg-ivory text-ink antialiased font-body`}>
         {children}
         <Analytics />
         {ga4MeasurementId && <GoogleAnalytics measurementId={ga4MeasurementId} />}
@@ -93,3 +97,7 @@ export default function RootLayout({
     </html>
   )
 }
+
+
+
+

@@ -1,4 +1,4 @@
-// Analytics helper for GA4 event tracking
+﻿// Analytics helper for GA4 event tracking
 // Handles both client-side and server-side event tracking
 
 export interface NewsletterAnalyticsEvent {
@@ -118,3 +118,4 @@ export function trackConversion(event: 'consult_booked', source?: string) {
     })
   }
 }
+

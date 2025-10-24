@@ -1,41 +1,35 @@
-   'use client'
+﻿import Link from 'next/link'
+import { siteConfig } from '@/config/site'
 
-import Link from 'next/link'
+const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL ?? siteConfig.links.calendly
 
 export function CTASection() {
   return (
-    <section className="py-24 bg-signature-gradient">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-4xl font-serif font-bold text-signature-cream mb-6">
-          Ready to Script Your Signature?
+    <section className="bg-signature-black py-20 text-signature-cream">
+      <div className="mx-auto max-w-5xl px-4 text-center">
+        <p className="font-serif text-sm uppercase tracking-[0.5em] text-signature-champagne">Next step</p>
+        <h2 className="mt-4 font-serif text-4xl font-semibold">
+          Ready to begin your Signature Architecture?
         </h2>
-        <p className="text-xl text-signature-gray mb-8 max-w-2xl mx-auto font-sans">
-          Join executives and creatives across Arkansas who've discovered their authentic style identity through the Script Your Signature™ methodology.
+        <p className="mt-4 text-lg text-signature-gray">
+          Start with a Signature Calibration Session or book an Intensive to accelerate results.
         </p>
-        
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
           <Link
-            href="/contact"
-            className="inline-flex items-center px-8 py-4 bg-signature-champagne text-signature-navy text-lg font-serif font-semibold rounded-lg hover:bg-signature-cream hover:text-signature-black transition-colors shadow-lg"
+            href="/assessment"
+            className="rounded-lg border border-signature-cream px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-signature-cream transition hover:bg-signature-cream/10"
           >
-            Book Your Consultation
-            <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
+            Start the assessment
           </Link>
-          
           <Link
-            href="/services"
-            className="inline-flex items-center px-8 py-4 border-2 border-signature-cream text-signature-cream text-lg font-serif font-semibold rounded-lg hover:bg-signature-cream hover:text-signature-navy transition-colors"
+            href={calendlyUrl}
+            className="btn-primary bg-signature-champagne text-signature-black hover:bg-signature-cream"
           >
-            View Services
+            Book a Signature Calibration Session
           </Link>
-        </div>
-        
-        <div className="mt-8 text-signature-gray font-sans">
-          <p>Call: <a href="tel:501.541.1139" className="hover:text-signature-cream transition-colors">501.541.1139</a></p>
         </div>
       </div>
     </section>
   )
 }
+

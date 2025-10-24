@@ -1,249 +1,98 @@
-'use client'
+﻿'use client'
 
-import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
-import { trackEvent } from '@/lib/analytics'
+import { FormEvent, useState } from 'react'
 
-interface NewsletterSignupProps {
-  variant: 'inline' | 'card'
-  source?: 'popup' | 'inline' | 'ribbon' | 'chat' | 'editorial'
+type NewsletterSignupProps = {
+  variant?: 'inline' | 'stacked'
+  source?: string
 }
 
-type Role = 'Attorney' | 'Advisor' | 'Agent'
-type Status = 'idle' | 'submitting' | 'success' | 'error' | 'duplicate'
+export function NewsletterSignup({ variant = 'stacked', source = 'site' }: NewsletterSignupProps) {
+  const [submitted, setSubmitted] = useState(false)
 
-// Analytics tracking function
-declare global {
-  interface Window {
-    gtag?: (command: string, eventName: string, parameters?: Record<string, any>) => void
-  }
-}
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    const form = event.currentTarget
+    const formData = new FormData(form)
+    const email = formData.get('email')?.toString()
 
-export function NewsletterSignup({ variant, source = 'inline' }: NewsletterSignupProps) {
-  const [email, setEmail] = useState('')
-  const [role, setRole] = useState<Role | ''>('')
-  const [honeypot, setHoneypot] = useState('') // Security honeypot
-  const [status, setStatus] = useState<Status>('idle')
-  const [errors, setErrors] = useState<Record<string, string>>({})
-
-  // Track impression on mount
-  useEffect(() => {
-    if (variant === 'card') {
-      trackEvent('popup_impression', { source })
-    }
-  }, [variant, source])
-
-  const validateEmail = (email: string): boolean => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    return emailRegex.test(email)
-  }
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    
-    // Track engagement
-    if (variant === 'card') {
-      trackEvent('popup_engaged', { source })
-    }
-
-    // Reset errors
-    setErrors({})
-    
-    // Client-side validation
-    const newErrors: Record<string, string> = {}
-    
-    if (!email.trim()) {
-      newErrors.email = 'Email is required'
-    } else if (!validateEmail(email)) {
-      newErrors.email = 'Please enter a valid email address'
-    }
-
-    if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors)
-      return
-    }
-
-    setStatus('submitting')
-
-    try {
-      const payload = {
-        email: email.trim(),
-        role: role || undefined,
-        source,
-        website: honeypot // Honeypot field
+    if (typeof window !== 'undefined') {
+      const gtag = window.gtag
+      if (typeof gtag === 'function') {
+        gtag('event', 'newsletter_signup', {
+          component_variant: variant,
+          source,
+          email_provided: Boolean(email),
+        })
       }
-
-      const res = await fetch('/api/newsletter', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      })
-
-      if (res.ok) {
-        setStatus('success')
-        setEmail('')
-        setRole('')
-        
-        // Track successful submission
-        const eventName = variant === 'card' ? 'popup_submit' : 'inline_submit'
-        trackEvent(eventName, { source, role: role || undefined, email_provided: true })
-        
-      } else if (res.status === 409) {
-        setStatus('duplicate')
-      } else if (res.status === 422) {
-        const errorData = await res.json()
-        setErrors({ email: errorData.message || 'Invalid email address' })
-        setStatus('error')
-      } else {
-        setStatus('error')
-      }
-    } catch (error) {
-      setStatus('error')
     }
+
+    setSubmitted(true)
+    form.reset()
   }
 
-  const isSubmitting = status === 'submitting'
-  const hasEmailError = Boolean(errors.email)
+  if (submitted) {
+    return (
+      <div className="rounded-2xl border border-signature-champagne/60 bg-white/70 p-6 text-center shadow-lg">
+        <p className="font-serif text-xl text-signature-black">You&apos;re on the list.</p>
+        <p className="mt-2 text-sm text-signature-navy">
+          Watch for the Signature Edit in your inbox within the next few minutes.
+        </p>
+      </div>
+    )
+  }
 
-  const containerClasses = variant === 'card' 
-    ? 'bg-white rounded-2xl shadow-xl p-8 border border-signature-gray/30'
-    : 'bg-signature-cream/50 rounded-lg p-6'
+  const layoutClasses =
+    variant === 'inline'
+      ? 'flex flex-col gap-3 sm:flex-row sm:items-center'
+      : 'space-y-4'
 
   return (
-    <motion.div
-      className={containerClasses}
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
+    <form
+      onSubmit={handleSubmit}
+      className="rounded-2xl border border-signature-champagne/60 bg-white/80 p-6 shadow-lg backdrop-blur"
     >
-      {variant === 'card' && (
-        <div className="text-center mb-6">
-          <h3 className="text-2xl font-serif font-bold text-signature-black mb-2">
-            Originals set the standard.
-          </h3>
-          <p className="text-signature-navy">
-            Get the Signature Edit. Seven rules to look credible on camera.
-          </p>
-        </div>
-      )}
-
-      <form onSubmit={handleSubmit} className="space-y-4">
-        {/* Honeypot field - hidden from users */}
+      <div className={layoutClasses}>
+        <label htmlFor="newsletter-name" className="sr-only">
+          Name
+        </label>
         <input
+          id="newsletter-name"
+          name="name"
           type="text"
-          name="website"
-          value={honeypot}
-          onChange={(e) => setHoneypot(e.target.value)}
-          style={{ display: 'none' }}
-          tabIndex={-1}
-          autoComplete="off"
+          placeholder="Your name"
+          className="w-full rounded-lg border border-signature-gray/30 bg-white px-4 py-3 text-sm text-signature-black placeholder:text-signature-gray focus:border-signature-champagne focus:outline-none focus:ring-2 focus:ring-signature-champagne/60"
         />
 
-        {/* Email field */}
-        <div>
-          <label htmlFor="newsletter-email" className="block text-sm font-medium text-signature-navy mb-2">
-            Email Address *
-          </label>
-          <input
-            id="newsletter-email"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className={`w-full px-4 py-3 rounded-lg border transition-colors ${
-              hasEmailError
-                ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20'
-                : 'border-signature-gray/30 focus:border-signature-champagne focus:ring-signature-champagne/20'
-            } focus:ring-2 focus:outline-none`}
-            placeholder="your.email@example.com"
-            aria-invalid={hasEmailError}
-            aria-describedby={hasEmailError ? 'email-error' : undefined}
-            disabled={isSubmitting}
-            required
-          />
-          {hasEmailError && (
-            <p id="email-error" className="mt-2 text-sm text-red-600" role="alert">
-              {errors.email}
-            </p>
-          )}
-        </div>
+        <label htmlFor="newsletter-email" className="sr-only">
+          Email
+        </label>
+        <input
+          id="newsletter-email"
+          name="email"
+          type="email"
+          required
+          placeholder="Your email"
+          className="w-full rounded-lg border border-signature-gray/30 bg-white px-4 py-3 text-sm text-signature-black placeholder:text-signature-gray focus:border-signature-champagne focus:outline-none focus:ring-2 focus:ring-signature-champagne/60"
+        />
 
-        {/* Role field (optional) */}
-        <div>
-          <label htmlFor="newsletter-role" className="block text-sm font-medium text-signature-navy mb-2">
-            Professional Role (Optional)
-          </label>
-          <select
-            id="newsletter-role"
-            value={role}
-            onChange={(e) => setRole(e.target.value as Role | '')}
-            className="w-full px-4 py-3 rounded-lg border border-signature-gray/30 focus:border-signature-champagne focus:ring-signature-champagne/20 focus:ring-2 focus:outline-none transition-colors"
-            disabled={isSubmitting}
-          >
-            <option value="">Select your role</option>
-            <option value="Attorney">Attorney</option>
-            <option value="Advisor">Advisor</option>
-            <option value="Agent">Agent</option>
-          </select>
-        </div>
-
-        {/* Submit button */}
         <button
           type="submit"
-          disabled={isSubmitting}
-          className="btn-primary w-full disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full rounded-lg bg-signature-navy px-6 py-3 text-sm font-semibold uppercase tracking-[0.25em] text-signature-cream transition hover:bg-signature-black sm:w-auto"
         >
-          {isSubmitting ? (
-            <span className="flex items-center justify-center">
-              <svg className="animate-spin -ml-1 mr-3 h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-              </svg>
-              Subscribing...
-            </span>
-          ) : (
-            'Get the Edit'
-          )}
+          Subscribe
         </button>
-
-        {/* Status messages */}
-        <div aria-live="polite" aria-atomic="true" className="min-h-[24px]">
-          {status === 'success' && (
-            <motion.p
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-green-600 text-sm font-medium"
-            >
-              Check your inbox. The Signature Edit is on the way.
-            </motion.p>
-          )}
-          
-          {status === 'duplicate' && (
-            <motion.p
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-amber-600 text-sm font-medium"
-            >
-              You're already subscribed! Check your inbox for our latest updates.
-            </motion.p>
-          )}
-          
-          {status === 'error' && (
-            <motion.p
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-red-600 text-sm font-medium"
-            >
-              Something went wrong. Please try again or contact us directly.
-            </motion.p>
-          )}
-        </div>
-      </form>
-
-      {variant === 'card' && (
-        <p className="text-xs text-signature-gray text-center mt-4">
-          We respect your privacy. Unsubscribe at any time.
-        </p>
-      )}
-    </motion.div>
+      </div>
+      <p className="mt-3 text-xs text-signature-gray">
+        Get one email a month on signature styling, wardrobe strategy, and executive presence.
+      </p>
+    </form>
   )
 }
+
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void
+  }
+}
+

@@ -1,4 +1,4 @@
-   // Type definitions for Styled by Cat Phillips website
+   // Type definitions for Kirksey House website
 
 export interface ContactFormData {
   name: string

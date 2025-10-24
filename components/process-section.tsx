@@ -1,54 +1,54 @@
-   'use client'
+import clsx from 'clsx'
+
+const steps = [
+  {
+    title: 'Discover',
+    description:
+      'Define the signature you want to be known for with brand archetypes, wardrobe audit, and leadership goals.',
+  },
+  {
+    title: 'Design',
+    description:
+      'Curate wardrobe, voice, and digital presence guidelines so every choice reinforces your positioning.',
+  },
+  {
+    title: 'Define',
+    description:
+      'Implement your signature with on-call styling, lookbooks, and launch strategy for upcoming appearances.',
+  },
+]
 
 export function ProcessSection() {
   return (
-    <section className="py-24 bg-signature-navy" id="process">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="inline-flex items-center px-3 py-1 rounded-full bg-signature-champagne/20 text-signature-champagne text-sm font-medium font-serif mb-6">
-          Proprietary Methodology
+    <section id="process" className="bg-white py-24">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-2xl text-center">
+          <h2 className="font-serif text-4xl font-semibold text-signature-black">The Signature Architecture™ Method</h2>
+          <p className="mt-4 text-lg text-signature-navy">
+            A proven framework developed for founders, executives, and creatives who need their presence to lead the
+            room before the first word.
+          </p>
         </div>
-        <h2 className="text-4xl font-serif font-bold text-signature-cream mb-6">
-          The Script Your Signature™ Process
-        </h2>
-        <p className="text-xl text-signature-gray max-w-3xl mx-auto mb-12 font-sans">
-          A proprietary three-step methodology for developing your authentic signature style that makes you unforgettable.
-        </p>
-        
-        <div className="grid md:grid-cols-3 gap-8">
-          <div className="bg-signature-cream rounded-2xl shadow-lg p-8 border border-signature-champagne/20">
-            <div className="w-16 h-16 bg-signature-champagne text-signature-navy rounded-xl flex items-center justify-center text-xl font-serif font-bold mx-auto mb-4">
-              01
+
+        <div className="mt-16 grid gap-6 md:grid-cols-3">
+          {steps.map((step, index) => (
+            <div
+              key={step.title}
+              className={clsx(
+                'rounded-2xl border border-signature-champagne/50 bg-signature-cream/40 p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-lg',
+                index === 1 && 'bg-white'
+              )}
+            >
+              <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-signature-champagne/30 font-serif text-lg text-signature-champagne">
+                {index + 1}
+              </div>
+              <h3 className="font-serif text-2xl text-signature-black">{step.title}</h3>
+              <p className="mt-3 text-sm text-signature-navy leading-relaxed">{step.description}</p>
             </div>
-            <h3 className="text-2xl font-serif font-bold text-signature-black mb-4">DISCOVER</h3>
-            <p className="text-signature-champagne font-medium font-serif mb-4">Uncover Your Authentic Identity</p>
-            <p className="text-signature-navy font-sans">
-              Through intensive consultation and signature assessment, we identify your personal style DNA and professional goals.
-            </p>
-          </div>
-          
-          <div className="bg-signature-cream rounded-2xl shadow-lg p-8 border border-signature-champagne/20">
-            <div className="w-16 h-16 bg-signature-champagne text-signature-navy rounded-xl flex items-center justify-center text-xl font-serif font-bold mx-auto mb-4">
-              02
-            </div>
-            <h3 className="text-2xl font-serif font-bold text-signature-black mb-4">DESIGN</h3>
-            <p className="text-signature-champagne font-medium font-serif mb-4">Craft Your Signature Strategy</p>
-            <p className="text-signature-navy font-sans">
-              We develop your unique visual language and create a comprehensive style strategy that represents who you are.
-            </p>
-          </div>
-          
-          <div className="bg-signature-cream rounded-2xl shadow-lg p-8 border border-signature-champagne/20">
-            <div className="w-16 h-16 bg-signature-champagne text-signature-navy rounded-xl flex items-center justify-center text-xl font-serif font-bold mx-auto mb-4">
-              03
-            </div>
-            <h3 className="text-2xl font-serif font-bold text-signature-black mb-4">DEFINE</h3>
-            <p className="text-signature-champagne font-medium font-serif mb-4">Own Your Signature</p>
-            <p className="text-signature-navy font-sans">
-              You leave with the tools, confidence, and signature presence to make an unforgettable impression.
-            </p>
-          </div>
+          ))}
         </div>
       </div>
     </section>
   )
 }
+

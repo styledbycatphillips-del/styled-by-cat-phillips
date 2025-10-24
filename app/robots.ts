@@ -1,4 +1,4 @@
-   import { MetadataRoute } from 'next'
+﻿   import { MetadataRoute } from 'next'
 import { siteConfig } from '@/config/site'
 
 export default function robots(): MetadataRoute.Robots {
@@ -24,3 +24,4 @@ export default function robots(): MetadataRoute.Robots {
     host: siteConfig.url,
   }
 }
+

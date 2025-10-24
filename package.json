@@ -2,14 +2,19 @@
   "name": "styled-by-cat-phillips",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=18.18 <21"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "optimize-images": "node scripts/optimize-images.mjs"
   },
   "dependencies": {
+    "@fontsource/bodoni-moda": "^5.2.7",
     "@headlessui/react": "^1.7.0",
     "@heroicons/react": "^2.0.0",
     "@tailwindcss/forms": "^0.5.10",
@@ -17,23 +22,24 @@
     "@vercel/analytics": "^1.5.0",
     "clsx": "^2.0.0",
     "framer-motion": "^10.0.0",
-    "next": "^14.0.0",
+    "next": "^14.2.33",
     "next-seo": "^6.0.0",
     "next-sitemap": "^4.0.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "sharp": "^0.32.0",
-    "tailwindcss": "^3.3.0",
-    "typescript": "^5.0.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "typescript": "5.5.4",
     "zod": "^4.1.11"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
-    "autoprefixer": "^10.4.0",
+    "autoprefixer": "^10.4.19",
     "eslint": "^8.0.0",
     "eslint-config-next": "^14.0.0",
-    "postcss": "^8.4.0"
+    "fast-glob": "^3.3.3",
+    "postcss": "^8.4.41",
+    "sharp": "^0.34.4",
+    "tailwindcss": "^3.4.13"
   }
 }

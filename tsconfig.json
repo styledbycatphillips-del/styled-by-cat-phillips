@@ -1,4 +1,4 @@
-   {
+{
   "compilerOptions": {
     "lib": ["dom", "dom.iterable", "es6"],
     "allowJs": true,

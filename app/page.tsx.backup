@@ -13,11 +13,11 @@ import { CTASection } from '@/components/cta-section'
 import { NewsletterSignup } from '@/components/newsletter-signup'
 
 export const metadata: Metadata = {
-  title: 'Personal Stylist Little Rock | Script Your Signature | Cat Phillips',
-  description: 'Transform your professional presence with Script Your Signature methodology. Arkansas\'s premier personal stylist specializing in executive styling and signature development for Little Rock professionals.',
-  keywords: 'personal stylist little rock, executive styling arkansas, signature style development, professional image consultant little rock, script your signature',
+  title: 'Personal Stylist Little Rock | The Signature Architecture | Kirksey House',
+  description: 'Transform your professional presence with The Signature Architecture methodology. Arkansas\'s premier personal stylist specializing in executive styling and signature development for Little Rock professionals.',
+  keywords: 'personal stylist little rock, executive styling arkansas, signature style development, professional image consultant little rock, The Signature Architecture',
   openGraph: {
-    title: 'Script Your Signature with Cat Phillips - Little Rock\'s Premier Personal Stylist',
+    title: 'The Signature Architecture with Kirksey House - Little Rock\'s Premier Personal Stylist',
     description: 'Arkansas\'s only signature development specialist using proprietary methodology to help executives and creatives develop authentic professional presence.',
     images: ['/hero-image.jpg'],
   },
@@ -51,7 +51,7 @@ export default function HomePage() {
         {/* About - Your Signature Is Your Story */}
         <AboutSection />
         
-        {/* Process - Script Your Signature Methodology */}
+        {/* Process - The Signature Architecture Methodology */}
         <ProcessSection />
         
         {/* Services Overview */}
@@ -73,11 +73,11 @@ export default function HomePage() {
               {/* FAQ items with schema markup */}
               <div itemScope itemType="https://schema.org/Question">
                 <h3 itemProp="name" className="text-xl font-semibold mb-4">
-                  What is Script Your Signature methodology?
+                  What is The Signature Architecture methodology?
                 </h3>
                 <div itemScope itemType="https://schema.org/Answer" itemProp="acceptedAnswer">
                   <p itemProp="text" className="text-gray-700">
-                    Script Your Signature™ is my proprietary 3-step process for developing authentic signature style: Discover your identity, Design your strategy, and Define your presence. This systematic approach helps executives and creatives move beyond trends to develop signature style that supports their professional goals.
+                    The Signature Architecture™ is my proprietary 3-step process for developing authentic signature style: Discover your identity, Design your strategy, and Define your presence. This systematic approach helps executives and creatives move beyond trends to develop signature style that supports their professional goals.
                   </p>
                 </div>
               </div>

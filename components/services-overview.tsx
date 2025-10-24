@@ -1,85 +1,100 @@
-   'use client'
+type ServicesOverviewProps = {
+  ctaHref?: string
+}
 
-export function ServicesOverview() {
+type Service = {
+  name: string
+  label?: string
+  price: string
+  summary: string
+  bullets: string[]
+}
+
+const services: Service[] = [
+  {
+    name: 'Signature Calibration Session',
+    label: 'Discovery Consultation',
+    price: 'Starting at $350',
+    summary:
+      'A focused consultation to calibrate your signature and set immediate priorities across wardrobe, messaging, and visibility.',
+    bullets: [
+      'Presence audit and priority roadmap',
+      'Signature palette + wardrobe direction',
+      'Key talking points and next steps',
+    ],
+  },
+  {
+    name: 'Signature Architecture Intensive',
+    label: 'Complete Transformation',
+    price: '$1,800–$3,500',
+    summary:
+      'A comprehensive engagement architecting identity, strategy, and presence for leaders preparing for growth or a major launch.',
+    bullets: [
+      'Wardrobe overhaul + lookbook',
+      'Voice, messaging, and platform alignment',
+      'Photography and content direction',
+    ],
+  },
+  {
+    name: 'Executive Presence Intensive',
+    label: 'Leadership Presence',
+    price: '$2,500–$6,000',
+    summary:
+      'High-touch executive support to engineer a timeless, credible presence across wardrobe, voice, and digital footprint.',
+    bullets: [
+      'On-call styling and event preparation',
+      'Executive coaching and media readiness',
+      'Authority Index™ audit and refinement',
+    ],
+  },
+]
+
+export function ServicesOverview({ ctaHref = '#book' }: ServicesOverviewProps) {
   return (
-    <section className="py-24 bg-signature-cream" id="services">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center px-3 py-1 rounded-full bg-signature-champagne/20 text-signature-champagne text-sm font-medium font-serif mb-6">
-            Signature Services
-          </div>
-          <h2 className="text-4xl font-serif font-bold text-signature-black mb-6">
-            Transform Your Professional Presence
-          </h2>
-          <p className="text-xl text-signature-navy max-w-3xl mx-auto font-sans">
-            Each service is built around the Script Your Signature™ methodology to ensure authentic, lasting transformation.
+    <section id="services" className="bg-signature-cream/40 py-24">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="font-serif text-4xl font-semibold text-signature-black">Choose your signature pace</h2>
+          <p className="mt-4 text-xl text-signature-navy max-w-3xl mx-auto font-sans">
+            Each service is built around The Signature Architecture™ to ensure authentic, lasting transformation.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          <div className="bg-white rounded-2xl shadow-lg border-2 border-signature-gray/30 p-8 hover:shadow-xl transition-all duration-300">
-            <div className="text-center mb-6">
-              <h3 className="text-2xl font-serif font-bold text-signature-black mb-2">The Signature Session</h3>
-              <p className="text-signature-champagne font-medium font-serif mb-4">Discovery Consultation</p>
-              <div className="text-3xl font-serif font-bold text-signature-navy">Starting at $350</div>
-            </div>
-            <p className="text-signature-navy mb-6 text-center font-sans">
-              Uncover your signature style through an intensive discovery session perfect for defining your visual identity.
-            </p>
-            <div className="text-center">
-              <p className="text-sm text-signature-gray mb-6 font-sans">
-                <strong>Perfect For:</strong> First-time clients, style direction seekers
-              </p>
-              <button className="block w-full text-center py-3 px-6 rounded-lg font-serif font-semibold transition-colors bg-signature-navy text-signature-cream hover:bg-signature-black">
-                Learn More
-              </button>
-            </div>
-          </div>
-
-          <div className="bg-white rounded-2xl shadow-lg border-2 border-signature-champagne p-8 hover:shadow-xl transition-all duration-300 transform scale-105">
-            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-              <div className="bg-signature-champagne text-signature-navy px-4 py-2 rounded-full text-sm font-serif font-semibold">
-                Most Popular
+        <div className="mt-16 grid gap-8 lg:grid-cols-3">
+          {services.map((service) => (
+            <div
+              key={service.name}
+              className="flex h-full flex-col rounded-2xl border border-signature-champagne/40 bg-white p-8 shadow-card"
+            >
+              <div className="space-y-4">
+                <h3 className="text-2xl font-serif font-bold text-signature-black mb-2">{service.name}</h3>
+                {service.label && (
+                  <p className="text-signature-champagne font-medium font-serif mb-4">{service.label}</p>
+                )}
+                <div className="text-3xl font-serif font-bold text-signature-navy">{service.price}</div>
+                <p className="text-sm text-signature-navy leading-relaxed">{service.summary}</p>
+              </div>
+              <ul className="mt-6 space-y-3 text-sm text-signature-navy">
+                {service.bullets.map((bullet) => (
+                  <li key={bullet} className="flex items-start gap-3">
+                    <span className="mt-2 h-2.5 w-2.5 rounded-full bg-signature-champagne" />
+                    <span>{bullet}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-8 pt-4">
+                <a
+                  href={ctaHref}
+                  className="text-sm font-semibold uppercase tracking-[0.3em] text-signature-navy transition hover:text-signature-black"
+                >
+                  Book a discovery call
+                </a>
               </div>
             </div>
-            <div className="text-center mb-6">
-              <h3 className="text-2xl font-serif font-bold text-signature-black mb-2">Personal Signature Development</h3>
-              <p className="text-signature-champagne font-medium font-serif mb-4">Complete Transformation</p>
-              <div className="text-3xl font-serif font-bold text-signature-navy">$1,800 - $3,500</div>
-            </div>
-            <p className="text-signature-navy mb-6 text-center font-sans">
-              The complete signature styling experience including wardrobe audit, personal shopping, and signature look development.
-            </p>
-            <div className="text-center">
-              <p className="text-sm text-signature-gray mb-6 font-sans">
-                <strong>Perfect For:</strong> Complete transformations, new role preparation
-              </p>
-              <button className="block w-full text-center py-3 px-6 rounded-lg font-serif font-semibold transition-colors bg-signature-champagne text-signature-navy hover:bg-signature-champagne/80">
-                Learn More
-              </button>
-            </div>
-          </div>
-
-          <div className="bg-white rounded-2xl shadow-lg border-2 border-signature-gray/30 p-8 hover:shadow-xl transition-all duration-300">
-            <div className="text-center mb-6">
-              <h3 className="text-2xl font-serif font-bold text-signature-black mb-2">Executive Signature Styling</h3>
-              <p className="text-signature-champagne font-medium font-serif mb-4">Leadership Presence</p>
-              <div className="text-3xl font-serif font-bold text-signature-navy">$2,500 - $6,000</div>
-            </div>
-            <p className="text-signature-navy mb-6 text-center font-sans">
-              Professional styling for executives including media preparation and leadership presence development.
-            </p>
-            <div className="text-center">
-              <p className="text-sm text-signature-gray mb-6 font-sans">
-                <strong>Perfect For:</strong> C-suite executives, thought leaders
-              </p>
-              <button className="block w-full text-center py-3 px-6 rounded-lg font-serif font-semibold transition-colors bg-signature-navy text-signature-cream hover:bg-signature-black">
-                Learn More
-              </button>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
   )
 }
+
