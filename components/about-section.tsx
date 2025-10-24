@@ -23,8 +23,8 @@ export function AboutSection() {
             Your signature should speak before you do.
           </h2>
           <p className="text-lg leading-relaxed text-signature-navy">
-            With over thirteen years blending high-impact styling, brand design, and executive presence, Cat Phillips
-            created The Signature Architecture™ — a framework that aligns how you look, sound, and show up.
+            With over thirteen years blending high-impact styling, brand design, and executive presence, Kirksey House
+            created The Signature Architecture� � a framework that aligns how you look, sound, and show up.
           </p>
           <p className="text-lg leading-relaxed text-signature-navy">
             From Little Rock boardrooms to national creative teams, clients trust this process to build confidence,
@@ -35,7 +35,7 @@ export function AboutSection() {
             <li className="flex items-start gap-3">
               <span className="mt-2 h-3 w-3 rounded-full bg-signature-champagne" />
               <span>
-                <strong>Personal signature style</strong> development rooted in authenticity and strategy.
+                <strong>Presence engineering</strong> development rooted in authenticity and strategy.
               </span>
             </li>
             <li className="flex items-start gap-3">
@@ -47,7 +47,7 @@ export function AboutSection() {
             <li className="flex items-start gap-3">
               <span className="mt-2 h-3 w-3 rounded-full bg-signature-champagne" />
               <span>
-                <strong>Brand alignment</strong> across wardrobe, voice, and digital footprint.
+                <strong>Platform alignment</strong> across wardrobe, voice, and digital footprint.
               </span>
             </li>
           </ul>
@@ -74,7 +74,7 @@ export function AboutSection() {
           <div className="relative overflow-hidden rounded-2xl shadow-2xl">
             <Image
               src="/about/hero-portrait.webp"
-              alt="Portrait of Cat Phillips"
+              alt="Portrait of Kirksey House"
               width={1200}
               height={1500}
               sizes="(min-width: 1024px) 600px, 90vw"
@@ -97,7 +97,7 @@ export function AboutSection() {
               </div>
             </div>
             <p className="text-sm text-signature-navy">
-              The Signature Architecture™ has helped leaders secure board seats, media coverage, and trusted visibility.
+              The Signature Architecture� has helped leaders secure board seats, media coverage, and trusted visibility.
             </p>
           </div>
         </motion.div>

@@ -7,7 +7,7 @@ export function HeroSection() {
       <div className="absolute inset-0">
         <Image
           src="/hero/hero-studio-wide.webp"
-          alt="Cat Phillips in studio"
+          alt="Kirksey House in studio"
           fill
           priority
           sizes="100vw"

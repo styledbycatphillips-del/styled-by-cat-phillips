@@ -1,5 +1,5 @@
 # NOVEMBER LAUNCH STRATEGY + CONTENT CALENDAR
-**Styled by Cat Phillips — Executive Presence**
+**Styled by Kirksey House — Executive Presence**
 
 Launch Window: November 1–30, 2025  
 Primary Offer: Executive Presence Intensive ($5,000 launch rate)  
@@ -54,7 +54,7 @@ Goal: 2 bookings + 500 email signups by month end
 
 **Week 3 (Nov 11–17):**
 - LinkedIn Post 3: Official launch announcement
-  - "Executive Presence by Cat Phillips is here. For professionals ready to align how they show up with who they've become."
+  - "Executive Presence by Kirksey House is here. For professionals ready to align how they show up with who they've become."
 - IG Reel: Before/After metaphor (graphics + voiceover)
 - Email 3: "From Polished to Powerful" (launch announcement + CTA)
 - Blog Post 1: "Why Executive Presence Is a Leadership Skill"
@@ -153,7 +153,7 @@ Goal: 2 bookings + 500 email signups by month end
 - **Platform:** LinkedIn
 - **Format:** Long-form post (500+ words)
 - **Topic:** Official Executive Presence launch announcement
-- **Hook:** "Executive Presence by Cat Phillips is here."
+- **Hook:** "Executive Presence by Kirksey House is here."
 - **Body:** Explain what it is, who it's for, why it matters
 - **CTA:** Book your consultation. Launch rate ends after 10 clients.
 - **Time:** 8:00 AM CST

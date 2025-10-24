@@ -1,4 +1,4 @@
-# WEBSITE COPY — STYLED BY CAT PHILLIPS
+# WEBSITE COPY — STYLED BY Kirksey House
 **Executive Presence Edition**
 
 ---
@@ -12,7 +12,7 @@ You've already built the credibility.
 Now make sure your presence matches your power.
 
 **Subheading:**  
-Executive Presence by Cat Phillips: wardrobe strategy, brand voice, and digital alignment for professionals ready to lead with coherence.
+Executive Presence by Kirksey House: wardrobe strategy, brand voice, and digital alignment for professionals ready to lead with coherence.
 
 **CTA Button:**  
 Book Your Consultation
@@ -64,7 +64,7 @@ You walk away with a cohesive presence system: from your closet to your LinkedIn
 ### Section 4: About Cat (Brief)
 
 **Heading:**  
-Why Cat Phillips
+Why Kirksey House
 
 I've spent over a decade merging aesthetics with identity. From styling clients behind the chair to building brand strategies for professionals, I understand that presence is perception.
 
@@ -125,7 +125,7 @@ My approach is grounded, strategic, and designed for professionals who've outgro
 10+ years in creative styling and brand strategy
 
 **Approach:**  
-Script Your Signature™: wardrobe, voice, and platform alignment
+The Signature Architecture�™: wardrobe, voice, and platform alignment
 
 **Location:**  
 Little Rock, AR (serving clients locally and nationally)
@@ -138,7 +138,7 @@ Book Your Consultation
 ## SERVICES PAGE
 
 ### Page Headline  
-Services: Executive Presence by Cat Phillips
+Services: Executive Presence by Kirksey House
 
 ### Intro  
 Three ways to work together, designed for different stages of readiness.

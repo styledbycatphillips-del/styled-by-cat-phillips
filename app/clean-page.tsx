@@ -7,9 +7,9 @@ export default function CleanHomePage() {
       <header className="bg-signature-cream/50 py-8">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl font-serif font-bold text-signature-black">
-            Cat Phillips
+            Kirksey House
           </h1>
-          <p className="text-signature-navy mt-2">Personal Stylist • Little Rock, Arkansas</p>
+          <p className="text-signature-navy mt-2">Personal Stylist � Little Rock, Arkansas</p>
         </div>
       </header>
 
@@ -37,7 +37,7 @@ export default function CleanHomePage() {
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h3 className="text-3xl font-serif font-bold text-signature-black mb-6">
-            The Signature Architecture™
+            The Signature Architecture�
           </h3>
           <div className="max-w-2xl mx-auto text-signature-navy space-y-4">
             <p>
@@ -54,7 +54,7 @@ export default function CleanHomePage() {
       {/* Simple Footer */}
       <footer className="bg-signature-black text-signature-cream py-12">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <p className="mb-4">© 2025 Cat Phillips. All rights reserved.</p>
+          <p className="mb-4">� 2025 Kirksey House. All rights reserved.</p>
           <p className="text-signature-gray">Little Rock, Arkansas</p>
         </div>
       </footer>

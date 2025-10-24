@@ -1,4 +1,4 @@
-﻿'use client'
+﻿﻿'use client'
 
 /* eslint-disable @next/next/no-img-element, react/no-unescaped-entities */
 
@@ -52,7 +52,7 @@ export default function EditorialHomePage() {
               <div className="mb-6">
             <img 
               src="/brand/logos/Kh.logo.horse.light.svg" 
-              alt="Cat Phillips signature" 
+              alt="Kirksey House signature" 
               className="mx-auto w-60 md:w-80 lg:w-96 h-auto filter drop-shadow-sm"
             />
               </div>
@@ -85,7 +85,7 @@ export default function EditorialHomePage() {
         <section className="py-16 bg-white/50">
           <div className="max-w-3xl mx-auto px-4 text-center">
             <p className="text-sm uppercase tracking-wider text-signature-champagne font-medium mb-4">
-              The Signature Architecture�
+              The Signature Architecture?
             </p>
             <p className="text-lg text-signature-navy">
               Wardrobe, identity, website, and social move together so people meet the same you everywhere.
@@ -115,10 +115,10 @@ export default function EditorialHomePage() {
                   Complete wardrobe and brand overhaul for executives ready to align their presence.
                 </p>
                 <ul className="space-y-2 mb-6 text-sm text-signature-navy">
-                  <li>• Wardrobe audit and rebuild strategy</li>
-                  <li>• Voice and messaging refinement</li>
-                  <li>• Platform alignment (LinkedIn, website)</li>
-                  <li>• Photo direction</li>
+                  <li>� Wardrobe audit and rebuild strategy</li>
+                  <li>� Voice and messaging refinement</li>
+                  <li>� Platform alignment (LinkedIn, website)</li>
+                  <li>� Photo direction</li>
                 </ul>
                 <div className="mb-6">
                   <div className="text-2xl font-bold text-signature-black">$8,000</div>
@@ -136,9 +136,9 @@ export default function EditorialHomePage() {
                   90-minute presence audit and strategic roadmap.
                 </p>
                 <ul className="space-y-2 mb-6 text-sm text-signature-navy">
-                  <li>• Presence assessment</li>
-                  <li>• Alignment gap identification</li>
-                  <li>• Priority action items</li>
+                  <li>� Presence assessment</li>
+                  <li>� Alignment gap identification</li>
+                  <li>� Priority action items</li>
                 </ul>
                 <div className="mb-6">
                   <div className="text-2xl font-bold text-signature-black">$333</div>
@@ -155,9 +155,9 @@ export default function EditorialHomePage() {
                   Self-guided resources for professionals ready to refine.
                 </p>
                 <ul className="space-y-2 mb-6 text-sm text-signature-navy">
-                  <li>• Executive Presence Audit ($44)</li>
-                  <li>• Brand Messaging Workbook ($55)</li>
-                  <li>• Notion Brand Board ($55)</li>
+                  <li>� Executive Presence Audit ($44)</li>
+                  <li>� Brand Messaging Workbook ($55)</li>
+                  <li>� Notion Brand Board ($55)</li>
                 </ul>
                 <div className="mb-6">
                   <div className="text-2xl font-bold text-signature-black">$44-$55</div>
@@ -261,7 +261,7 @@ export default function EditorialHomePage() {
                 <div className="aspect-[4/3] bg-signature-cream/20 rounded-2xl overflow-hidden shadow-lg">
                   <img 
                     src="/Untitled (2).png" 
-                    alt="Cat Phillips working with clients" 
+                    alt="Kirksey House working with clients" 
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -370,13 +370,13 @@ export default function EditorialHomePage() {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <div className="mb-8">
             <h3 className="text-2xl font-serif italic text-signature-champagne mb-4">
-              Cat Phillips
+              Kirksey House
             </h3>
             <div className="w-16 h-0.5 bg-signature-champagne mx-auto"></div>
           </div>
           <div className="space-y-2 text-sm text-signature-gray">
-            <p>Little Rock, AR · 501-541-1139 · catherine@kirkseyhouse.com</p>
-            <p>Instagram @styled.by.cat.phillips · LinkedIn /in/styledbycatphillips</p>
+            <p>Little Rock, AR � 501-541-1139 � catherine@kirkseyhouse.com</p>
+            <p>Instagram @styled.by.cat.phillips � LinkedIn /in/styledbycatphillips</p>
           </div>
         </div>
       </footer>

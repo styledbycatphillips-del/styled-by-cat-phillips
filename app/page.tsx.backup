@@ -13,11 +13,11 @@ import { CTASection } from '@/components/cta-section'
 import { NewsletterSignup } from '@/components/newsletter-signup'
 
 export const metadata: Metadata = {
-  title: 'Personal Stylist Little Rock | The Signature Architecture | Cat Phillips',
+  title: 'Personal Stylist Little Rock | The Signature Architecture | Kirksey House',
   description: 'Transform your professional presence with The Signature Architecture methodology. Arkansas\'s premier personal stylist specializing in executive styling and signature development for Little Rock professionals.',
   keywords: 'personal stylist little rock, executive styling arkansas, signature style development, professional image consultant little rock, The Signature Architecture',
   openGraph: {
-    title: 'The Signature Architecture with Cat Phillips - Little Rock\'s Premier Personal Stylist',
+    title: 'The Signature Architecture with Kirksey House - Little Rock\'s Premier Personal Stylist',
     description: 'Arkansas\'s only signature development specialist using proprietary methodology to help executives and creatives develop authentic professional presence.',
     images: ['/hero-image.jpg'],
   },

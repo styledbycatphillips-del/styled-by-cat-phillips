@@ -1,4 +1,4 @@
-# 📸 STYLED BY CAT PHILLIPS - Photo Strategy & Implementation Guide
+# 📸 STYLED BY Kirksey House - Photo Strategy & Implementation Guide
 
 *Complete reference for website photography workflow*
 

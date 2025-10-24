@@ -1,4 +1,4 @@
-# SBCP Technical Brand Guidelines
+# Kirksey House Technical Brand Guidelines
 ## For Developers & AI Tools
 
 > **Purpose:** Maintain brand consistency across all technical implementations. Use this to brief developers, designers, and AI tools on what's locked vs. flexible.
@@ -36,7 +36,7 @@ font-script: 'Dancing Script'     /* Signature accents only */
 ## 🚫 **What NOT to Change**
 
 ### Messaging (LOCKED)
-- ✅ "Script Your Signature™" - proprietary methodology
+- ✅ "The Signature Architecture�™" - proprietary methodology
 - ✅ "Originals set the standard" - brand tagline
 - ✅ Target: Executives, attorneys, advisors, agents
 - ✅ Geographic authority: Arkansas/Little Rock focus
@@ -102,7 +102,7 @@ font-script: 'Dancing Script'     /* Signature accents only */
 
 ### For Technical AI Tools
 **Provide this context:**
-"This is for Cat Phillips (styledbycatphillips.com), a personal stylist specializing in executive styling and signature development. Use the signature color palette and maintain sophisticated, authoritative brand voice."
+"This is for Kirksey House (styledbycatphillips.com), a personal stylist specializing in executive styling and signature development. Use the signature color palette and maintain sophisticated, authoritative brand voice."
 
 ### For Design AI Tools
 **Include these constraints:**
@@ -139,7 +139,7 @@ font-script: 'Dancing Script'     /* Signature accents only */
 ### Brand Consistency Checklist
 - [ ] Uses signature color palette
 - [ ] Maintains sophisticated voice
-- [ ] Includes "Script Your Signature™"
+- [ ] Includes "The Signature Architecture�™"
 - [ ] Emphasizes executive/professional focus
 - [ ] Maintains Arkansas geographic authority
 

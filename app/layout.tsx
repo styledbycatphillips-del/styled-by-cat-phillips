@@ -1,4 +1,4 @@
-﻿import { bodoni, inter } from './fonts'
+import { bodoni, inter } from './fonts'
 import { Analytics } from '@vercel/analytics/react'
 import './globals.css'
 import { siteConfig } from '@/config/site'
@@ -19,17 +19,17 @@ export const metadata = {
     'signature style development',
     'professional image consultant',
     'signature architecture',
-    'cat phillips stylist',
+    'Kirksey House stylist',
     'northwest arkansas styling',
     'little rock image consultant'
   ],
   authors: [
     {
-      name: 'Cat Phillips',
+      name: 'Kirksey House',
       url: 'https://styledbycatphillips.com',
     },
   ],
-  creator: 'Cat Phillips',
+  creator: 'Kirksey House',
   publisher: 'Kirksey House',
   formatDetection: {
     email: false,
