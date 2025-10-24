@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Brand CSS variables */
+:root {
+  --signature-cream: #fdf7ed;
+  --signature-navy: #0f172a;
+  --signature-champagne: #bfa27a;
+}
+
 /* Improve type rendering slightly */
 html, body { text-rendering: optimizeLegibility; }
 
