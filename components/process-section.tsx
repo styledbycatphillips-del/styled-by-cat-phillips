@@ -12,9 +12,9 @@ const steps = [
       'Curate wardrobe, voice, and digital presence guidelines so every choice reinforces your positioning.',
   },
   {
-    title: 'Define',
+    title: 'Deploy',
     description:
-      'Implement your signature with on-call styling, lookbooks, and launch strategy for upcoming appearances.',
+      'Implement your signature in the real world with on-call styling, lookbooks, and preparation for key meetings and media.',
   },
 ]
 

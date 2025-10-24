@@ -19,7 +19,7 @@ export function HeroSection() {
       </div>
 
       <div className="relative z-10 mx-auto flex min-h-[92vh] max-w-5xl flex-col items-center justify-center px-4 py-24 text-center">
-        {/* Brand Wordmark */}
+        {/* Brand Mark */}
         <div className="mb-5">
           <Image
             src="/brand/logos/KH%20logo%20horse.svg"
@@ -48,13 +48,10 @@ export function HeroSection() {
           While others follow trends, we help you architect a timeless presence that commands respect and opens doors.
         </p>
         <div className="flex flex-col items-center gap-4 sm:flex-row">
-          <Link href="#book" className="btn-primary">
+          <Link href="/contact" className="btn-primary">
             Book Your Consultation
           </Link>
-          <Link
-            href="#services"
-            className="btn-ghost"
-          >
+          <Link href="/services" className="btn-ghost">
             Explore Services
           </Link>
         </div>
@@ -62,3 +59,4 @@ export function HeroSection() {
     </section>
   )
 }
+
