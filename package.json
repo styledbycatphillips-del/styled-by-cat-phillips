@@ -14,6 +14,7 @@
     "optimize-images": "node scripts/optimize-images.mjs"
   },
   "dependencies": {
+    "@builder.io/react": "^8.2.8",
     "@fontsource/bodoni-moda": "^5.2.7",
     "@headlessui/react": "^1.7.0",
     "@heroicons/react": "^2.0.0",

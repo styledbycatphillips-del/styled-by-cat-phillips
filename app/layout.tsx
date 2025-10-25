@@ -4,6 +4,7 @@ import './globals.css'
 import { siteConfig } from '@/config/site'
 import { JsonLd } from '@/components/json-ld'
 import { GoogleAnalytics } from '@/components/google-analytics'
+import '@/builder-register'
 
 // Fonts are configured via next/font in app/fonts.ts
 
