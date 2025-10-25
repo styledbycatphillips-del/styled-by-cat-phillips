@@ -1,10 +1,11 @@
 'use client';
 
 import { BuilderComponent, useIsPreviewing } from '@builder.io/react';
+import type { BuilderContent } from '@builder.io/sdk';
 import '@/src/builder-register';
 
 export interface BuilderPageClientProps {
-  content: any;
+  content: BuilderContent | null | undefined;
 }
 
 export function BuilderPageClient({ content }: BuilderPageClientProps) {
@@ -12,7 +13,7 @@ export function BuilderPageClient({ content }: BuilderPageClientProps) {
 
   // If Builder content exists or we're in preview mode, render it
   if (content || isPreviewing) {
-    return <BuilderComponent model="page" content={content} />;
+    return <BuilderComponent model="page" content={content || undefined} />;
   }
 
   // Fallback UI when no content is available
