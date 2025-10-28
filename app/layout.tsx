@@ -4,9 +4,7 @@ import './globals.css'
 import { siteConfig } from '@/config/site'
 import { JsonLd } from '@/components/json-ld'
 import { GoogleAnalytics } from '@/components/google-analytics'
-import '@/builder-register'
-
-// Fonts are configured via next/font in app/fonts.ts
+import BuilderRegister from '@/builder-register'
 
 export const metadata = {
   title: {
@@ -77,11 +75,7 @@ export const metadata = {
   },
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   const ga4MeasurementId = process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID
 
   return (
@@ -90,7 +84,8 @@ export default function RootLayout({
         <meta charSet="utf-8" />
         <JsonLd />
       </head>
-      <body className={`bg-ivory text-ink antialiased font-body`}>
+      <body suppressHydrationWarning className={`bg-ivory text-ink antialiased font-body`}>
+        <BuilderRegister />
         {children}
         <Analytics />
         {ga4MeasurementId && <GoogleAnalytics measurementId={ga4MeasurementId} />}
@@ -98,7 +93,3 @@ export default function RootLayout({
     </html>
   )
 }
-
-
-
-

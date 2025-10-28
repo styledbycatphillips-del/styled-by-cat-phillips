@@ -19,23 +19,36 @@ const nextConfig = {
   },
   // AI Optimization: Headers for better crawling
   async headers() {
+    const isProd = process.env.NODE_ENV === 'production'
+    const common = [
+      { key: 'X-Content-Type-Options', value: 'nosniff' },
+      { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+    ]
+
+    const devHeaders = [
+      ...common,
+      // Allow Builder editor to iframe and fetch from local dev
+      {
+        key: 'Content-Security-Policy',
+        value:
+          "frame-ancestors 'self' https://*.builder.io https://builder.io http://localhost:3000 http://127.0.0.1:3000 http://localhost:3001 http://127.0.0.1:3001 https://*.loca.lt;",
+      },
+      { key: 'Access-Control-Allow-Origin', value: '*' },
+      { key: 'Access-Control-Allow-Methods', value: 'GET,OPTIONS' },
+      { key: 'Access-Control-Allow-Headers', value: '*' },
+      { key: 'Access-Control-Allow-Private-Network', value: 'true' },
+    ]
+
+    const prodHeaders = [
+      ...common,
+      // In production you can keep DENY for security if you aren't embedding elsewhere
+      { key: 'X-Frame-Options', value: 'DENY' },
+    ]
+
     return [
       {
-        source: '/(.*)',
-        headers: [
-          {
-            key: 'X-Content-Type-Options',
-            value: 'nosniff',
-          },
-          {
-            key: 'X-Frame-Options',
-            value: 'DENY',
-          },
-          {
-            key: 'Referrer-Policy',
-            value: 'strict-origin-when-cross-origin',
-          },
-        ],
+        source: '/:path*',
+        headers: isProd ? prodHeaders : devHeaders,
       },
     ]
   },

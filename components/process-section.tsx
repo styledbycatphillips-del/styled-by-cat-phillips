@@ -23,11 +23,15 @@ export function ProcessSection() {
     <section id="process" className="bg-white py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="font-serif text-4xl font-semibold text-signature-black">The Signature Architecture™ Method</h2>
-          <p className="mt-4 text-lg text-signature-navy">
-            A proven framework developed for founders, executives, and creatives who need their presence to lead the
-            room before the first word.
-          </p>
+          <div style={{color: 'rgb(11, 11, 11)', font: '600 40px/40px __bodoni_6d24c4, __bodoni_Fallback_6d24c4, ui-serif, Georgia, serif '}}>
+            The Signature Architecture™ Method
+          </div>
+          <div style={{color: 'rgb(15, 23, 42)', fontSize: '20px', fontWeight: '400', lineHeight: '28px', marginTop: '16px'}}>
+            <p>
+              A visible infrastructure for executive presence and calibrated
+              leadership.
+            </p>
+          </div>
         </div>
 
         <div className="mt-16 grid gap-6 md:grid-cols-3">
@@ -51,4 +55,3 @@ export function ProcessSection() {
     </section>
   )
 }
-

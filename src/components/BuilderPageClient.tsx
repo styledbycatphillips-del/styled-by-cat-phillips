@@ -4,8 +4,7 @@ import React from 'react'
 import { BuilderComponent } from '@builder.io/react'
 import type { BuilderContent } from '@builder.io/sdk'
 
-// Ensure component registration executes on the client
-import '@/builder-register'
+// Registration is mounted once in the app layout
 
 export type BuilderPageClientProps = {
   content: BuilderContent | null
@@ -14,4 +13,3 @@ export type BuilderPageClientProps = {
 export default function BuilderPageClient({ content }: BuilderPageClientProps) {
   return <BuilderComponent model="page" content={content || undefined} />
 }
-

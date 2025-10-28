@@ -38,3 +38,7 @@ next-env.d.ts
 
 # Local development
 *.log
+
+# Local analysis/export artifacts
+KH_JobIntel_*
+public.zip

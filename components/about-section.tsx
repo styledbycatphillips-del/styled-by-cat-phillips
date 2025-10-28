@@ -71,32 +71,34 @@ export function AboutSection() {
           viewport={{ once: true }}
           className="relative"
         >
-          <div className="relative overflow-hidden rounded-2xl shadow-2xl">
-            <Image
-              src="/about/hero-portrait.webp"
+          <div style={{borderRadius: '16px', boxShadow: 'rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.25) 0px 25px 50px -12px', fontWeight: 400, overflowX: 'hidden', overflowY: 'hidden', position: 'relative'}}>
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2F584b32b75dc24ccf9afea56f917c1039%2F87f8e66f9fcd4c17887a2eb341bdfdd5"
               alt="Kirksey House founder portrait"
               width={1200}
               height={1500}
-              sizes="(min-width: 1024px) 600px, 90vw"
-              placeholder="blur"
-              blurDataURL="/about/hero-portrait-blur.jpg"
-              className="object-cover"
-              priority
+              decoding="async"
+              loading="lazy"
+              style={{display: 'block', aspectRatio: 'auto 1200 / 1500', color: 'rgba(0, 0, 0, 0)', fontWeight: 400, objectFit: 'cover', width: '1232px', marginLeft: '-4px', paddingBottom: '200px'}}
             />
           </div>
 
-          <div className="absolute -bottom-8 -left-8 max-w-xs rounded-xl border border-signature-champagne/30 bg-signature-cream p-6 shadow-xl">
-            <div className="mb-4 flex items-center justify-between">
+          <div style={{backgroundColor: 'rgb(253, 247, 237)', borderColor: 'rgb(229, 231, 235)', borderRadius: '12px', borderWidth: '0.834783px', bottom: '-32px', boxShadow: 'rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.1) 0px 8px 10px -6px', fontWeight: 400, left: '-525px', maxWidth: '320px', position: 'absolute', top: '-1044px', padding: '24px'}}>
+            <div style={{display: 'flex', alignItems: 'center', fontWeight: 400, justifyContent: 'space-between', marginBottom: '16px'}}>
               <div>
-                <div className="text-sm uppercase tracking-[0.4em] text-signature-champagne">Experience</div>
-                <div className="font-serif text-3xl font-semibold text-signature-black">13+</div>
+                <div style={{fontWeight: 400}}>
+                  <div style={{color: 'rgb(191, 162, 122)', fontSize: '14px', fontWeight: 400, letterSpacing: '5.6px', lineHeight: '20px', textTransform: 'uppercase'}}>
+                    Experience
+                  </div>
+                  <div style={{fontFamily: 'inherit', fontSize: '1.875rem', fontWeight: 600, color: 'rgb(11,11,11)'}}>13+</div>
+                </div>
               </div>
-              <div className="text-right">
-                <div className="text-sm uppercase tracking-[0.4em] text-signature-champagne">Transformations</div>
-                <div className="font-serif text-3xl font-semibold text-signature-black">200+</div>
+              <div style={{textAlign: 'right'}}>
+                <div style={{textTransform: 'uppercase', fontSize: '0.75rem', letterSpacing: '0.4em', color: 'rgb(191, 162, 122)'}}>Transformations</div>
+                <div style={{fontFamily: 'inherit', fontSize: '1.875rem', fontWeight: 600, color: 'rgb(11,11,11)'}}>200+</div>
               </div>
             </div>
-            <p className="text-sm text-signature-navy">
+            <p style={{fontSize: '0.875rem', color: 'rgb(15, 23, 42)'}}>
               The Signature Architecture™ has helped leaders secure board seats, media coverage, and trusted visibility.
             </p>
           </div>
@@ -105,4 +107,3 @@ export function AboutSection() {
     </section>
   )
 }
-

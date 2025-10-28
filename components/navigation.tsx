@@ -1,4 +1,4 @@
-﻿'use client'
+'use client'
 
 import { useState } from 'react'
 import Image from 'next/image'
@@ -30,6 +30,7 @@ export function Navigation() {
             height={40}
             className="h-9 w-9 block dark:hidden"
             priority
+            style={{display: 'none', aspectRatio: 'auto 40 / 40', color: 'rgba(0, 0, 0, 0)', fontWeight: 400, height: '36px', marginLeft: '12px', width: '36px'}}
           />
           <Image
             src="/brand/logos/Kh.logo.horse.light.svg"
@@ -39,10 +40,10 @@ export function Navigation() {
             className="h-9 w-9 hidden dark:block"
             priority
           />
-          <span className="hidden text-[0.88rem] font-medium uppercase tracking-wide-2 text-signature-navy sm:inline">
+          <span style={{display: 'block', color: 'rgb(15, 23, 42)', fontSize: '14px', fontWeight: 500, letterSpacing: '1.1264px', lineHeight: '21px', marginLeft: '12px', textTransform: 'uppercase'}}>
             Kirksey House
           </span>
-          <span className="hidden text-xs uppercase tracking-wide-2 text-signature-champagne sm:inline nav-tagline">
+          <span style={{display: 'block', color: 'rgba(191, 162, 122, 1)', fontSize: '12px', fontWeight: 400, letterSpacing: '0.96px', lineHeight: '16px', marginLeft: '12px', textTransform: 'uppercase'}}>
             The Signature Architecture™
           </span>
         </Link>
@@ -121,6 +122,3 @@ export function Navigation() {
     </header>
   )
 }
-
-
-

@@ -1,5 +1,4 @@
-﻿import { Metadata } from 'next'
-import Image from 'next/image'
+import { Metadata } from 'next'
 import Link from 'next/link'
 import { Navigation } from '@/components/navigation'
 import { Footer } from '@/components/footer'
@@ -9,58 +8,62 @@ import { ProcessSection } from '@/components/process-section'
 import { ServicesOverview } from '@/components/services-overview'
 import { TestimonialsSection } from '@/components/testimonials-section'
 import { ContactSection } from '@/components/contact-section'
-import { CTASection } from '@/components/cta-section'
 import { NewsletterSignup } from '@/components/newsletter-signup'
 import { AccordionItem, AccordionTrigger, AccordionContent } from '@/components/accordion'
 import { faqs } from '@/config/faqs'
+import { builder } from '@/lib/builder'
+import BuilderPageClient from '@/components/BuilderPageClient'
 
 export const metadata: Metadata = {
-  title: 'Executive Presence Coaching Little Rock | The Signature Architecture™ Kirksey House',
+  title: 'Executive Presence Coaching Little Rock | The Signature ArchitectureT Kirksey House',
   description:
-    'Architect your presence with Kirksey House. Our proprietary Signature Architecture™¢ serves Little Rock and DFW executives and leadership teams.',
+    'Architect your presence with Kirksey House. Our proprietary Signature ArchitectureT� serves Little Rock and DFW executives and leadership teams.',
   keywords:
-    'executive presence coaching, leadership image Little Rock, Signature Architecture™authority index audit, executive styling',
+    'executive presence coaching, leadership image Little Rock, Signature ArchitectureTauthority index audit, executive styling',
   openGraph: {
-    title: 'The Signature Architecture™ - Kirksey House',
+    title: 'The Signature ArchitectureT - Kirksey House',
     description:
       'Executive presence engineered. Kirksey House guides C-suite leaders through wardrobe, voice, and platform alignment.',
     images: ['/hero/hero-studio-wide.webp'],
   },
 }
 
-
-export default function HomePage() {
+export default async function HomePage() {
+  const content = await builder.get('page', { url: '/' }).toPromise()
+  if (content) {
+    return <BuilderPageClient content={content} />
+  }
   return (
     <>
       {/* Navigation */}
       <Navigation />
-      
+
       <main>
         {/* Hero Section with Signature Positioning */}
         <HeroSection />
-        
+
         {/* Newsletter Signup - Inline Form */}
         <section className="py-16 bg-signature-cream/30">
           <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
             <NewsletterSignup variant="inline" source="inline" />
           </div>
         </section>
-        
+
         {/* About - Your Signature Is Your Story */}
         <AboutSection />
-        
-        {/* Process - The Signature Architecture™ethodology */}
+
+        {/* Process - The Signature ArchitectureTethodology */}
         <ProcessSection />
-        
+
         {/* Services Overview */}
         <ServicesOverview ctaHref="/services#calendly" />
-        
+
         {/* Client Success Stories */}
         <TestimonialsSection />
-        
+
         {/* Contact Section with Form */}
         <ContactSection />
-        
+
         {/* FAQ */}
         <section className="py-16 bg-gray-50">
           <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
@@ -76,7 +79,7 @@ export default function HomePage() {
           </div>
         </section>
       </main>
-      
+
       {/* Footer */}
       <Footer />
     </>
