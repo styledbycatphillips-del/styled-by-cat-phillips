@@ -1,52 +1,54 @@
 {
-  "name": "styled-by-cat-phillips",
-  "version": "0.1.0",
-  "private": true,
-  "engines": {
-    "node": ">=18.18 <21"
-  },
-  "scripts": {
-    "dev": "next dev -p 3000 -H 0.0.0.0",
-    "dev:3001": "next dev -p 3001 -H 0.0.0.0",
-    "tunnel": "npx --yes localtunnel --port 3001",
-    "notion:ping": "node scripts/notion-ping.mjs",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "type-check": "tsc --noEmit",
-    "optimize-images": "node scripts/optimize-images.mjs"
-  },
-  "dependencies": {
-    "@builder.io/react": "^8.2.8",
-    "@builder.io/sdk": "^6.1.2",
-    "@fontsource/bodoni-moda": "^5.2.7",
-    "@headlessui/react": "^1.7.0",
-    "@heroicons/react": "^2.0.0",
-    "@notionhq/client": "^2.3.0",
-    "@tailwindcss/forms": "^0.5.10",
-    "@tailwindcss/typography": "^0.5.19",
-    "@vercel/analytics": "^1.5.0",
-    "clsx": "^2.0.0",
-    "framer-motion": "^10.0.0",
-    "next": "^14.2.33",
-    "next-seo": "^6.0.0",
-    "next-sitemap": "^4.0.0",
-    "react": "18.3.1",
-    "react-dom": "18.3.1",
-    "typescript": "5.5.4",
-    "zod": "^4.1.11"
-  },
-  "devDependencies": {
-    "@types/node": "^20.0.0",
-    "@types/react": "^18.2.0",
-    "@types/react-dom": "^18.2.0",
-    "autoprefixer": "^10.4.19",
-    "dotenv": "^17.2.3",
-    "eslint": "^8.0.0",
-    "eslint-config-next": "^14.0.0",
-    "fast-glob": "^3.3.3",
-    "postcss": "^8.4.41",
-    "sharp": "^0.34.4",
-    "tailwindcss": "^3.4.13"
-  }
+    "name":  "styled-by-cat-phillips",
+    "version":  "0.1.0",
+    "private":  true,
+    "engines":  {
+                    "node":  "\u003e=18.18 \u003c21"
+                },
+    "scripts":  {
+                    "dev":  "next dev -p 3000 -H 0.0.0.0",
+                    "dev:3001":  "next dev -p 3001 -H 0.0.0.0",
+                    "tunnel":  "npx --yes localtunnel --port 3001",
+                    "notion:ping":  "node scripts/notion-ping.mjs",
+                    "notion:list":  "node scripts/notion-list-dbs.mjs",
+                    "notion:sync":  "node scripts/notion-sync.mjs",
+                    "build":  "next build",
+                    "start":  "next start",
+                    "lint":  "next lint",
+                    "type-check":  "tsc --noEmit",
+                    "optimize-images":  "node scripts/optimize-images.mjs"
+                },
+    "dependencies":  {
+                         "@builder.io/react":  "^8.2.8",
+                         "@builder.io/sdk":  "^6.1.2",
+                         "@fontsource/bodoni-moda":  "^5.2.7",
+                         "@headlessui/react":  "^1.7.0",
+                         "@heroicons/react":  "^2.0.0",
+                         "@notionhq/client":  "^2.3.0",
+                         "@tailwindcss/forms":  "^0.5.10",
+                         "@tailwindcss/typography":  "^0.5.19",
+                         "@vercel/analytics":  "^1.5.0",
+                         "clsx":  "^2.0.0",
+                         "framer-motion":  "^10.0.0",
+                         "next":  "^14.2.33",
+                         "next-seo":  "^6.0.0",
+                         "next-sitemap":  "^4.0.0",
+                         "react":  "18.3.1",
+                         "react-dom":  "18.3.1",
+                         "typescript":  "5.5.4",
+                         "zod":  "^4.1.11"
+                     },
+    "devDependencies":  {
+                            "@types/node":  "^20.0.0",
+                            "@types/react":  "^18.2.0",
+                            "@types/react-dom":  "^18.2.0",
+                            "autoprefixer":  "^10.4.19",
+                            "dotenv":  "^17.2.3",
+                            "eslint":  "^8.0.0",
+                            "eslint-config-next":  "^14.0.0",
+                            "fast-glob":  "^3.3.3",
+                            "postcss":  "^8.4.41",
+                            "sharp":  "^0.34.4",
+                            "tailwindcss":  "^3.4.13"
+                        }
 }
