@@ -42,3 +42,6 @@ next-env.d.ts
 # Local analysis/export artifacts
 KH_JobIntel_*
 public.zip
+
+# Fonts - keep local copies but don't track binaries in the repo
+public/fonts/*.{otf,ttf,woff,woff2}
