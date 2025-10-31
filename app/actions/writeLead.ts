@@ -42,8 +42,14 @@ export async function writeLead(payload: LeadPayload) {
   p[titleKey] = { title: [{ type: 'text', text: { content: titleContent } }] }
 
   if (email) {
-    if (hasProp('Email', 'email')) p['Email'] = { email }
-    else if (hasProp('Email', 'rich_text')) p['Email'] = { rich_text: [{ type: 'text', text: { content: email } }] }
+    // Support common email property name variants (plain 'Email' or 'Email (raw)')
+    const emailCandidates = ['Email', 'Email (raw)', 'Email (Raw)']
+    const emailKey = emailCandidates.find((k) => hasProp(k, 'email') || hasProp(k, 'rich_text'))
+    const targetKey = emailKey || (hasProp('Email', 'email') || hasProp('Email', 'rich_text') ? 'Email' : undefined)
+    if (targetKey) {
+      if (hasProp(targetKey, 'email')) p[targetKey] = { email }
+      else p[targetKey] = { rich_text: [{ type: 'text', text: { content: email } }] }
+    }
   }
   if (phone) {
     if (hasProp('Phone', 'phone_number')) p['Phone'] = { phone_number: phone }

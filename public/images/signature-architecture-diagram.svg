@@ -1,0 +1,61 @@
+<svg width="1200" height="540" viewBox="0 0 1200 540" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Signature Architecture Diagram</title>
+  <desc id="desc">Signals to System to Standards to Publish with Measure lane and five pillars.</desc>
+  <style>
+    .navy { fill:#0F172A; }
+    .cream { fill:#FDF7ED; }
+    .champ { fill:#BFA27A; }
+    .t { font-family:Inter, Arial, sans-serif; fill:#0F172A; }
+    .title { font-family:Fraunces, Georgia, serif; font-size:22px; }
+    .label { font-size:14px; }
+    .box { fill:#FDF7ED; stroke:#0F172A; stroke-width:2; rx:10; }
+  </style>
+
+  <text x="40" y="40" class="t title">Signature Architecture — Signals → System → Standards → Publish → Measure</text>
+
+  <!-- flow boxes -->
+  <rect x="60" y="100" width="200" height="80" class="box"/>
+  <text x="130" y="148" class="t label">Signals</text>
+
+  <rect x="300" y="100" width="200" height="80" class="box"/>
+  <text x="370" y="148" class="t label">System</text>
+
+  <rect x="540" y="100" width="200" height="80" class="box"/>
+  <text x="606" y="148" class="t label">Standards</text>
+
+  <rect x="780" y="100" width="200" height="80" class="box"/>
+  <text x="845" y="148" class="t label">Publish</text>
+
+  <!-- arrows -->
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="7" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L7,3.5 z" class="navy"/>
+    </marker>
+  </defs>
+  <line x1="260" y1="140" x2="300" y2="140" stroke="#0F172A" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="500" y1="140" x2="540" y2="140" stroke="#0F172A" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="740" y1="140" x2="780" y2="140" stroke="#0F172A" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- measure lane -->
+  <rect x="540" y="230" width="200" height="80" class="box"/>
+  <text x="604" y="278" class="t label">Measure</text>
+  <line x1="980" y1="140" x2="740" y2="230" stroke="#0F172A" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- pillars -->
+  <g>
+    <rect x="60"  y="360" width="140" height="34" rx="17" class="champ"/>
+    <text x="95"  y="382" class="t label" fill="#FDF7ED">Alignment</text>
+
+    <rect x="230" y="360" width="160" height="34" rx="17" class="champ"/>
+    <text x="262" y="382" class="t label" fill="#FDF7ED">Consistency</text>
+
+    <rect x="420" y="360" width="160" height="34" rx="17" class="champ"/>
+    <text x="448" y="382" class="t label" fill="#FDF7ED">Governance</text>
+
+    <rect x="610" y="360" width="90" height="34"  rx="17" class="champ"/>
+    <text x="640" y="382" class="t label" fill="#FDF7ED">ROI</text>
+
+    <rect x="720" y="360" width="140" height="34" rx="17" class="champ"/>
+    <text x="752" y="382" class="t label" fill="#FDF7ED">Visibility</text>
+  </g>
+</svg>

@@ -12,6 +12,7 @@
                     "notion:ping":  "node scripts/notion-ping.mjs",
                     "notion:list":  "node scripts/notion-list-dbs.mjs",
                     "notion:sync":  "node scripts/notion-sync.mjs",
+                    "sync:notion-to-builder": "node scripts/notion-to-builder-sync.mjs",
                     "build":  "next build",
                     "start":  "next start",
                     "lint":  "next lint",

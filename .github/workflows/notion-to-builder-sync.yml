@@ -1,0 +1,22 @@
+name: Notion → Builder Sync
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 * * * *' # hourly; change to daily if you prefer
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm ci --ignore-scripts
+      - run: node scripts/notion-to-builder-sync.mjs
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_SOURCE_ID: ${{ secrets.NOTION_SOURCE_ID }}
+          BUILDER_WRITE_KEY: ${{ secrets.BUILDER_WRITE_KEY }}
+          BUILDER_MODEL: page
+          BUILDER_SLUG: homepage
