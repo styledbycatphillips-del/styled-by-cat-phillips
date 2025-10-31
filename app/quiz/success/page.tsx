@@ -19,30 +19,44 @@ export default function Page({ searchParams }: Props) {
   return (
     <main className="mx-auto max-w-3xl px-4 py-24 text-neutral-900">
       <section className="rounded-lg border bg-white p-8 shadow-sm">
-        <h1 className="text-3xl font-semibold">Thanks — here&apos;s your Authority Index result</h1>
-        <p className="mt-3 text-neutral-700">
-          Score: {score || 'n/a'} • Band: <strong className="text-black">{band}</strong>
-        </p>
+        <h1 className="text-3xl font-semibold">
+          Authority Index: {score}/100 — {band}
+        </h1>
+        <p className="mt-2 text-neutral-700">Here is what your score means and the next step to raise it.</p>
+
+        <div className="mt-6 space-y-4 text-neutral-800">
+          {band === 'Emerging' && (
+            <p>
+              Your signals are scattered. Create a 1‑page message matrix and ship one leadership post this month; re‑score in 30 days.
+            </p>
+          )}
+          {band === 'Practicing' && (
+            <p>
+              You have structure, not everywhere. Extend standards to the next team and add a monthly leadership signal; track approvals and revision counts.
+            </p>
+          )}
+          {band === 'Consistent' && (
+            <p>
+              Your system works; guard it. Add a quarterly governance review and a visibility push; track panel invites and qualified consults.
+            </p>
+          )}
+        </div>
 
         <div className="mt-6 space-y-4">
-          <p className="text-neutral-700">
-            This band gives a quick signal of where your brand&apos;s visibility and alignment currently sit.
-            For a fast, focused plan to move the needle, book an Executive Audit — we&apos;ll review your Authority Index and outline next steps.
-          </p>
 
-          <div className="flex flex-wrap gap-3">
+          <div className="mt-8 flex flex-wrap gap-3">
             <a
               href={calendly}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block rounded bg-black px-4 py-2 text-sm font-medium text-white"
+              className="rounded bg-black px-4 py-2 text-white"
             >
               Book an Executive Audit
             </a>
 
             <a
               href={contactHref}
-              className="inline-block rounded border px-4 py-2 text-sm"
+              className="rounded border px-4 py-2"
             >
               Contact / Quick intake
             </a>

@@ -60,7 +60,7 @@ function QuizForm() {
       <form onSubmit={onSubmit} className="space-y-6">
         <div>
           <label htmlFor="email" className="block text-sm font-medium text-neutral-900 mb-2">
-            Email
+            Work email
           </label>
           <input
             id="email"
@@ -68,8 +68,10 @@ function QuizForm() {
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            aria-describedby="email_help"
             className="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent"
           />
+          <p id="email_help" className="mt-1 text-xs text-neutral-600">Use your company email.</p>
         </div>
 
         <div>
@@ -78,13 +80,12 @@ function QuizForm() {
           </label>
           <select
             id="role"
+            required
             value={role}
             onChange={(e) => setRole(e.target.value)}
             className="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent"
           >
-            <option value="">Select your role</option>
-            <option value="CEO">CEO</option>
-            <option value="Founder">Founder</option>
+            <option value="">Select a role</option>
             <option value="Executive">Executive</option>
             <option value="Director">Director</option>
             <option value="Manager">Manager</option>
@@ -93,57 +94,100 @@ function QuizForm() {
 
         <div>
           <label htmlFor="channels" className="block text-sm font-medium text-neutral-900 mb-2">
-            Primary channels where you need to be visible
+            Where you publish now
           </label>
           <select
             id="channels"
-            value={channels}
-            onChange={(e) => setChannels(e.target.value)}
+            multiple
+            required
+            value={channels ? [channels] : []}
+            onChange={(e) => {
+              const selected = Array.from(e.target.selectedOptions, option => option.value);
+              setChannels(selected.join(', '));
+            }}
+            aria-describedby="channels_help"
             className="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent"
           >
-            <option value="">Select primary channels</option>
-            <option value="LinkedIn + Conferences">LinkedIn + Conferences</option>
-            <option value="Media + Press">Media + Press</option>
-            <option value="Internal + Board">Internal + Board meetings</option>
-            <option value="Social + Digital">Social + Digital platforms</option>
+            <option value="Website">Website</option>
+            <option value="Social">Social</option>
+            <option value="PR">PR</option>
+            <option value="Events">Events</option>
+            <option value="Sales collateral">Sales collateral</option>
           </select>
+          <p id="channels_help" className="mt-1 text-xs text-neutral-600">Choose channels you actively use.</p>
         </div>
 
-        <div className="space-y-3">
-          <div className="flex items-center">
-            <input
-              id="hasMatrix"
-              type="checkbox"
-              checked={hasMatrix}
-              onChange={(e) => setHasMatrix(e.target.checked)}
-              className="w-4 h-4 text-black bg-neutral-100 border-neutral-300 rounded focus:ring-black"
-            />
-            <label htmlFor="hasMatrix" className="ml-2 text-sm text-neutral-900">
-              I have a clear message matrix (consistent messaging across all platforms)
+        <fieldset>
+          <legend className="text-sm font-medium text-neutral-900 mb-2">One message matrix for all teams?</legend>
+          <div className="flex gap-6">
+            <label className="inline-flex items-center gap-2">
+              <input 
+                type="radio" 
+                name="matrix" 
+                value="yes" 
+                required
+                checked={hasMatrix === true}
+                onChange={(e) => setHasMatrix(e.target.value === 'yes')}
+                className="text-black focus:ring-black"
+              />
+              Yes
+            </label>
+            <label className="inline-flex items-center gap-2">
+              <input 
+                type="radio" 
+                name="matrix" 
+                value="no" 
+                required
+                checked={hasMatrix === false}
+                onChange={(e) => setHasMatrix(e.target.value === 'yes')}
+                className="text-black focus:ring-black"
+              />
+              No
             </label>
           </div>
+        </fieldset>
 
-          <div className="flex items-center">
-            <input
-              id="publishesMonthly"
-              type="checkbox"
-              checked={publishesMonthly}
-              onChange={(e) => setPublishesMonthly(e.target.checked)}
-              className="w-4 h-4 text-black bg-neutral-100 border-neutral-300 rounded focus:ring-black"
-            />
-            <label htmlFor="publishesMonthly" className="ml-2 text-sm text-neutral-900">
-              I publish content or speak publicly at least monthly
+        <fieldset>
+          <legend className="text-sm font-medium text-neutral-900 mb-2">Leaders publish monthly?</legend>
+          <div className="flex gap-6">
+            <label className="inline-flex items-center gap-2">
+              <input 
+                type="radio" 
+                name="publish" 
+                value="yes" 
+                required
+                checked={publishesMonthly === true}
+                onChange={(e) => setPublishesMonthly(e.target.value === 'yes')}
+                className="text-black focus:ring-black"
+              />
+              Yes
+            </label>
+            <label className="inline-flex items-center gap-2">
+              <input 
+                type="radio" 
+                name="publish" 
+                value="no" 
+                required
+                checked={publishesMonthly === false}
+                onChange={(e) => setPublishesMonthly(e.target.value === 'yes')}
+                className="text-black focus:ring-black"
+              />
+              No
             </label>
           </div>
-        </div>
+        </fieldset>
 
         <button
           type="submit"
           disabled={submitting}
           className="w-full bg-black text-white py-3 px-4 rounded-lg font-medium hover:bg-neutral-800 disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          {submitting ? 'Calculating...' : 'Get My Authority Index'}
+          {submitting ? 'Calculating...' : 'Get my score'}
         </button>
+        
+        <p className="text-xs text-neutral-600">
+          We store quiz results to send your baseline and plan. Request deletion anytime at /privacy or <a href="mailto:contact@kirkseyhouse.com" className="underline">contact@kirkseyhouse.com</a>.
+        </p>
       </form>
     </main>
   )
