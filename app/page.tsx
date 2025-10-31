@@ -8,6 +8,11 @@ import { Measurement } from '@/components/Measurement'
 import { Proof } from '@/components/Proof'
 import { FooterCta } from '@/components/FooterCta'
 
+export const metadata = {
+  title: 'Kirksey House | Brand Operating System for Executive Alignment',
+  description: 'We install Signature Architecture™ and Authority Index™ to align teams, keep standards, prove ROI, and raise visibility.',
+}
+
 export default async function HomePage() {
   // Temporarily disable Builder.io for homepage to use our new static version
   // TODO: Remove Builder content for '/' route or configure Builder to use new design

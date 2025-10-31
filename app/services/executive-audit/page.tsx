@@ -34,9 +34,9 @@ export default function Page() {
 
       <div className="mt-8 flex flex-wrap gap-3">
         <a href={process.env.NEXT_PUBLIC_CALENDLY_URL || '/contact?source=audit'} className="rounded bg-black px-4 py-2 text-white">
-          Start with the free quiz
+          Book an Executive Audit
         </a>
-        <a href="/quiz" className="rounded border px-4 py-2">Take the quiz</a>
+        <a href="/quiz" className="rounded border px-4 py-2">Start with the free quiz</a>
       </div>
     </main>
   );

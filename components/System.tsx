@@ -2,7 +2,7 @@ import React from 'react'
 
 export function System() {
   return (
-    <section className="mx-auto max-w-6xl px-4 py-16 border-t">
+    <section className="mx-auto max-w-6xl px-4 py-16 sm:py-20 border-t">
       <h2 className="text-2xl font-semibold">The system</h2>
       <p className="mt-3">
         <strong>Signature Architecture™</strong> aligns every team and channel to one narrative. From wardrobe to
@@ -15,7 +15,7 @@ export function System() {
           Signals → System → Standards → Publish → Measure • Pillars: Consistency • Alignment • Governance • Visibility • ROI
         </p>
         {/* Swap this image src with your final SVG path when ready */}
-        <img src="/images/signature-architecture-diagram.svg" alt="Signature Architecture diagram" className="mt-3 w-full" />
+        <img src="/images/signature-architecture-diagram.svg" alt="Signature Architecture diagram showing flow: Signals → System → Standards → Publish → Measure and pillars: Alignment, Consistency, Governance, Visibility, ROI." className="mt-3 w-full" />
       </div>
     </section>
   )

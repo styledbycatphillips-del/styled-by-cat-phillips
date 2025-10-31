@@ -11,6 +11,11 @@ export default function Page({ searchParams }: Props) {
 
   const calendly = process.env.NEXT_PUBLIC_CALENDLY_URL || '/services/executive-audit';
 
+  // UTM preservation for contact links
+  const query = new URLSearchParams(searchParams as any);
+  const utm = ['utm_source','utm_medium','utm_campaign'].reduce((o,k)=> ({...o, [k]: query.get(k) || ''}), {} as Record<string,string>);
+  const contactHref = `/contact?source=quiz&quiz_id=${encodeURIComponent(id||'')}&score=${encodeURIComponent(score||'')}&band=${encodeURIComponent(band)}${utm.utm_source?`&utm_source=${utm.utm_source}`:''}${utm.utm_medium?`&utm_medium=${utm.utm_medium}`:''}${utm.utm_campaign?`&utm_campaign=${utm.utm_campaign}`:''}`;
+
   return (
     <main className="mx-auto max-w-3xl px-4 py-24 text-neutral-900">
       <section className="rounded-lg border bg-white p-8 shadow-sm">
@@ -36,7 +41,7 @@ export default function Page({ searchParams }: Props) {
             </a>
 
             <a
-              href={`/contact?source=quiz&quiz_id=${encodeURIComponent(id || '')}&score=${encodeURIComponent(score || '')}&band=${encodeURIComponent(band)}`}
+              href={contactHref}
               className="inline-block rounded border px-4 py-2 text-sm"
             >
               Contact / Quick intake

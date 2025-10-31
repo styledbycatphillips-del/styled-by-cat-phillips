@@ -2,7 +2,7 @@ import React from 'react'
 
 export function Proof() {
   return (
-    <section className="mx-auto max-w-6xl px-4 py-16 border-t">
+    <section className="mx-auto max-w-6xl px-4 py-16 sm:py-20 border-t">
       <h3 className="text-xl font-semibold">Measured outcomes</h3>
       <ul className="mt-3 list-disc pl-5 space-y-1">
         <li>90‑day clarity sprint → one message matrix across 5 departments</li>
