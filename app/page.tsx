@@ -9,15 +9,15 @@ import { Proof } from '@/components/Proof'
 import { FooterCta } from '@/components/FooterCta'
 
 export default async function HomePage() {
-  // Try to load a Builder page for '/'. If present, render the Builder-managed content.
-  try {
-    const content = await builder.get('page', { url: '/' }).toPromise()
-    if (content) return <BuilderPageClient content={content} />
-  } catch (e) {
-    // Ignore builder errors and fall back to the static homepage
-    // (this keeps the site resilient if Builder API is unavailable)
-    console.warn('Builder fetch failed, falling back to static homepage', e)
-  }
+  // Temporarily disable Builder.io for homepage to use our new static version
+  // TODO: Remove Builder content for '/' route or configure Builder to use new design
+  
+  // try {
+  //   const content = await builder.get('page', { url: '/' }).toPromise()
+  //   if (content) return <BuilderPageClient content={content} />
+  // } catch (e) {
+  //   console.warn('Builder fetch failed, falling back to static homepage', e)
+  // }
 
   // Static fallback (production-ready sections)
   return (
