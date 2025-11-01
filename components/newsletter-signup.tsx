@@ -94,9 +94,3 @@ export function NewsletterSignup({ variant = 'stacked', source = 'site' }: Newsl
   )
 }
 
-declare global {
-  interface Window {
-    gtag?: (...args: unknown[]) => void
-  }
-}
-

@@ -1,33 +1,120 @@
 'use client'
 
-import { useState, Suspense } from 'react'
+import { useState, Suspense, useEffect } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 
 function QuizForm() {
   const [email, setEmail] = useState('')
+  const [emailError, setEmailError] = useState('')
   const [role, setRole] = useState('')
-  const [channels, setChannels] = useState('')
-  const [hasMatrix, setHasMatrix] = useState(false)
-  const [publishesMonthly, setPublishesMonthly] = useState(false)
+  const [selectedChannels, setSelectedChannels] = useState<string[]>([])
+  const [channelsError, setChannelsError] = useState('')
+  const [hasMatrix, setHasMatrix] = useState<boolean | null>(null)
+  const [publishesMonthly, setPublishesMonthly] = useState<boolean | null>(null)
   const [complexity, setComplexity] = useState('')
   const [submitting, setSubmitting] = useState(false)
   
   const router = useRouter()
   const params = useSearchParams()
 
+  // Analytics: Track quiz start
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.gtag) {
+      const utmParams = {
+        utm_source: params.get('utm_source') || '',
+        utm_medium: params.get('utm_medium') || '',
+        utm_campaign: params.get('utm_campaign') || '',
+      }
+      window.gtag('event', 'quiz_start', utmParams)
+    }
+  }, [params])
+
+  const validateEmail = (email: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!email) return 'Work email is required'
+    if (!emailRegex.test(email)) return 'Please enter a valid email address'
+    // Block common personal domains for enterprise focus
+    const personalDomains = ['gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com']
+    const domain = email.split('@')[1]?.toLowerCase()
+    if (personalDomains.includes(domain)) return 'Please use your work email address'
+    return ''
+  }
+
+  const validateChannels = (channels: string[]) => {
+    if (channels.length === 0) return 'Please select at least one channel'
+    if (channels.length > 4) return 'Please select no more than 4 channels'
+    return ''
+  }
+
+  const handleEmailBlur = () => {
+    setEmailError(validateEmail(email))
+  }
+
+  const handleChannelChange = (channel: string, checked: boolean) => {
+    let newChannels: string[]
+    if (checked) {
+      newChannels = [...selectedChannels, channel]
+    } else {
+      newChannels = selectedChannels.filter(c => c !== channel)
+    }
+    
+    if (newChannels.length <= 4) {
+      setSelectedChannels(newChannels)
+      setChannelsError(validateChannels(newChannels))
+    }
+  }
+
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault()
+    
+    // Validate all fields
+    const emailErr = validateEmail(email)
+    const channelsErr = validateChannels(selectedChannels)
+    
+    setEmailError(emailErr)
+    setChannelsError(channelsErr)
+    
+    if (emailErr || channelsErr || !role || hasMatrix === null || publishesMonthly === null) {
+      return
+    }
+    
     setSubmitting(true)
 
     try {
+      // Analytics: Track quiz submission
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', 'quiz_submit', {
+          role,
+          channels_count: selectedChannels.length,
+          has_matrix: hasMatrix,
+          publishes: publishesMonthly,
+          complexity: complexity || '1'
+        })
+      }
+
       const res = await fetch('/api/quiz', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, role, channels, hasMatrix, publishesMonthly, complexity }),
+        body: JSON.stringify({ 
+          email, 
+          role, 
+          channels: selectedChannels, 
+          hasMatrix, 
+          publishesMonthly, 
+          complexity: complexity || '1' 
+        }),
       })
 
       const data = await res.json()
       if (!res.ok || !data?.ok) throw new Error(data?.error || 'Quiz failed')
+
+      // Analytics: Track scoring
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', 'quiz_scored', {
+          score: data.score,
+          band: data.band
+        })
+      }
 
       // Support id if your API returns page id { id: '...' }
       const id = data.id || ''
@@ -64,7 +151,7 @@ function QuizForm() {
       <form onSubmit={onSubmit} className="space-y-6">
         <div>
           <label htmlFor="email" className="block text-sm font-medium text-neutral-900 mb-2">
-            Work email
+            Work email *
           </label>
           <input
             id="email"
@@ -72,22 +159,30 @@ function QuizForm() {
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            aria-describedby="email_help"
-            className="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent"
+            onBlur={handleEmailBlur}
+            aria-describedby={emailError ? "email_error" : "email_help"}
+            aria-invalid={!!emailError}
+            className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-black focus:border-transparent focus:outline-none ${
+              emailError ? 'border-red-500' : 'border-neutral-300'
+            }`}
           />
-          <p id="email_help" className="mt-1 text-xs text-neutral-600">Use your company email.</p>
+          {emailError ? (
+            <p id="email_error" className="mt-1 text-xs text-red-600" role="alert">{emailError}</p>
+          ) : (
+            <p id="email_help" className="mt-1 text-xs text-neutral-600">Use your company email.</p>
+          )}
         </div>
 
         <div>
           <label htmlFor="role" className="block text-sm font-medium text-neutral-900 mb-2">
-            Role
+            Role *
           </label>
           <select
             id="role"
             required
             value={role}
             onChange={(e) => setRole(e.target.value)}
-            className="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent"
+            className="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent focus:outline-none"
           >
             <option value="">Select a role</option>
             <option value="Executive">Executive</option>
@@ -96,35 +191,40 @@ function QuizForm() {
           </select>
         </div>
 
-        <div>
-          <label htmlFor="channels" className="block text-sm font-medium text-neutral-900 mb-2">
-            Where you publish now
-          </label>
-          <select
-            id="channels"
-            multiple
-            required
-            value={channels ? [channels] : []}
-            onChange={(e) => {
-              const selected = Array.from(e.target.selectedOptions, option => option.value);
-              setChannels(selected.join(', '));
-            }}
-            aria-describedby="channels_help"
-            className="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent"
-          >
-            <option value="Website">Website</option>
-            <option value="Social">Social</option>
-            <option value="PR">PR</option>
-            <option value="Events">Events</option>
-            <option value="Sales collateral">Sales collateral</option>
-          </select>
-          <p id="channels_help" className="mt-1 text-xs text-neutral-600">Choose channels you actively use.</p>
-        </div>
-
         <fieldset>
-          <legend className="text-sm font-medium text-neutral-900 mb-2">One message matrix for all teams?</legend>
-          <div className="flex gap-6">
-            <label className="inline-flex items-center gap-2">
+          <legend className="block text-sm font-medium text-neutral-900 mb-2">
+            Where you publish now *
+          </legend>
+          <div className="space-y-2" role="group" aria-describedby={channelsError ? "channels_error" : "channels_help"}>
+            {['Website', 'Social', 'PR', 'Events', 'Sales collateral'].map((channel) => (
+              <label key={channel} className="flex items-center gap-3 p-2 rounded hover:bg-neutral-50 cursor-pointer">
+                <input
+                  type="checkbox"
+                  value={channel}
+                  checked={selectedChannels.includes(channel)}
+                  onChange={(e) => handleChannelChange(channel, e.target.checked)}
+                  className="w-4 h-4 text-black focus:ring-2 focus:ring-black focus:ring-offset-1 rounded"
+                />
+                <span className="text-sm">{channel}</span>
+              </label>
+            ))}
+          </div>
+          <div className="mt-2 flex items-center justify-between">
+            {channelsError ? (
+              <p id="channels_error" className="text-xs text-red-600" role="alert">{channelsError}</p>
+            ) : (
+              <p id="channels_help" className="text-xs text-neutral-600">
+                Choose 1–4 channels you actively use.
+              </p>
+            )}
+            <span className="text-xs text-neutral-500">{selectedChannels.length}/4</span>
+          </div>
+        </fieldset>
+
+        <fieldset className="border border-neutral-200 rounded-lg p-4">
+          <legend className="text-sm font-medium text-neutral-900 px-2">One message matrix for all teams? *</legend>
+          <div className="flex gap-6 mt-2">
+            <label className="inline-flex items-center gap-2 cursor-pointer">
               <input 
                 type="radio" 
                 name="matrix" 
@@ -132,11 +232,11 @@ function QuizForm() {
                 required
                 checked={hasMatrix === true}
                 onChange={(e) => setHasMatrix(e.target.value === 'yes')}
-                className="text-black focus:ring-black"
+                className="w-4 h-4 text-black focus:ring-2 focus:ring-black focus:ring-offset-1"
               />
-              Yes
+              <span className="text-sm">Yes</span>
             </label>
-            <label className="inline-flex items-center gap-2">
+            <label className="inline-flex items-center gap-2 cursor-pointer">
               <input 
                 type="radio" 
                 name="matrix" 
@@ -144,17 +244,17 @@ function QuizForm() {
                 required
                 checked={hasMatrix === false}
                 onChange={(e) => setHasMatrix(e.target.value === 'yes')}
-                className="text-black focus:ring-black"
+                className="w-4 h-4 text-black focus:ring-2 focus:ring-black focus:ring-offset-1"
               />
-              No
+              <span className="text-sm">No</span>
             </label>
           </div>
         </fieldset>
 
-        <fieldset>
-          <legend className="text-sm font-medium text-neutral-900 mb-2">Leaders publish monthly?</legend>
-          <div className="flex gap-6">
-            <label className="inline-flex items-center gap-2">
+        <fieldset className="border border-neutral-200 rounded-lg p-4">
+          <legend className="text-sm font-medium text-neutral-900 px-2">Leaders publish monthly? *</legend>
+          <div className="flex gap-6 mt-2">
+            <label className="inline-flex items-center gap-2 cursor-pointer">
               <input 
                 type="radio" 
                 name="publish" 
@@ -162,11 +262,11 @@ function QuizForm() {
                 required
                 checked={publishesMonthly === true}
                 onChange={(e) => setPublishesMonthly(e.target.value === 'yes')}
-                className="text-black focus:ring-black"
+                className="w-4 h-4 text-black focus:ring-2 focus:ring-black focus:ring-offset-1"
               />
-              Yes
+              <span className="text-sm">Yes</span>
             </label>
-            <label className="inline-flex items-center gap-2">
+            <label className="inline-flex items-center gap-2 cursor-pointer">
               <input 
                 type="radio" 
                 name="publish" 
@@ -174,38 +274,40 @@ function QuizForm() {
                 required
                 checked={publishesMonthly === false}
                 onChange={(e) => setPublishesMonthly(e.target.value === 'yes')}
-                className="text-black focus:ring-black"
+                className="w-4 h-4 text-black focus:ring-2 focus:ring-black focus:ring-offset-1"
               />
-              No
+              <span className="text-sm">No</span>
             </label>
           </div>
         </fieldset>
 
         <div>
           <label htmlFor="complexity" className="block text-sm font-medium text-neutral-900 mb-2">
-            Brand complexity
+            Brand complexity (optional)
           </label>
           <select
             id="complexity"
             value={complexity}
             onChange={(e) => setComplexity(e.target.value)}
             aria-describedby="complexity_help"
-            className="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent"
+            className="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent focus:outline-none"
           >
             <option value="">Select complexity level</option>
-            <option value="1">1 Simple</option>
-            <option value="2">2 Multi-team</option>
-            <option value="3">3 Multi-unit/region</option>
+            <option value="1">1 — Simple (single team)</option>
+            <option value="2">2 — Multi-team</option>
+            <option value="3">3 — Multi-unit/region</option>
           </select>
-          <p id="complexity_help" className="mt-1 text-xs text-neutral-600">Use 2 or 3 if you have multiple teams or business units.</p>
+          <p id="complexity_help" className="mt-1 text-xs text-neutral-600">
+            Choose 2 or 3 if you coordinate across multiple teams or business units.
+          </p>
         </div>
 
         <button
           type="submit"
-          disabled={submitting}
-          className="w-full bg-black text-white py-3 px-4 rounded-lg font-medium hover:bg-neutral-800 disabled:opacity-50 disabled:cursor-not-allowed"
+          disabled={submitting || !!emailError || !!channelsError}
+          className="w-full bg-black text-white py-3 px-4 rounded-lg font-medium hover:bg-neutral-800 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 min-h-[48px]"
         >
-          {submitting ? 'Calculating...' : 'Get my score'}
+          {submitting ? 'Calculating your Authority Index™...' : 'Get my Authority Index™ score'}
         </button>
         
         <p className="text-xs text-neutral-600">

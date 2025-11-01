@@ -119,12 +119,6 @@ export function ContactSection() {
   )
 }
 
-declare global {
-  interface Window {
-    gtag?: (...args: unknown[]) => void
-  }
-}
-
 
 
 

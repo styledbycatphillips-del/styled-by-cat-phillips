@@ -31,7 +31,6 @@ export function GoogleAnalytics({ measurementId }: GoogleAnalyticsProps) {
 declare global {
   interface Window {
     dataLayer: unknown[]
-    gtag?: (...args: unknown[]) => void
   }
 }
 
