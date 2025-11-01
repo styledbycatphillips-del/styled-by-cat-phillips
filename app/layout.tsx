@@ -88,6 +88,27 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta charSet="utf-8" />
         <JsonLd />
         <OrganizationJsonLd />
+        {/* Consent Mode v2 defaults: deny until user choice via CMP; runs before GA4 loads */}
+        <Script id="consent-defaults" strategy="beforeInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){ dataLayer.push(arguments); }
+            gtag('consent', 'default', {
+              analytics_storage: 'denied',
+              ad_storage: 'denied',
+              ad_user_data: 'denied',
+              ad_personalization: 'denied',
+              wait_for_update: 1500
+            });
+
+            // Optional: simple hook your CMP can call to update consent
+            window.KH_updateConsent = function(consent) {
+              try {
+                gtag('consent', 'update', consent || {});
+              } catch (e) { /* noop */ }
+            }
+          `}
+        </Script>
         {ga4MeasurementId && <GA4Setup measurementId={ga4MeasurementId} />}
       </head>
       <body suppressHydrationWarning className={`bg-ivory text-ink antialiased font-body`}>
