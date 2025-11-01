@@ -80,7 +80,7 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const ga4MeasurementId = process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID
+  const ga4MeasurementId = process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID || 'G-MC3VEK7RLM'
 
   return (
     <html lang="en" suppressHydrationWarning className={`${bodoni.variable} ${inter.variable}`}>
