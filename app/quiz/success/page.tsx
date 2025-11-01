@@ -27,17 +27,17 @@ export default function Page({ searchParams }: Props) {
         <div className="mt-6 space-y-4 text-neutral-800">
           {band === 'Emerging' && (
             <p>
-              Your signals are scattered. Create a 1‑page message matrix and ship one leadership post this month; re‑score in 30 days.
+              Your signals are scattered. Start by creating a message matrix and a simple publishing cadence. Focus on alignment and basics before scale.
             </p>
           )}
           {band === 'Practicing' && (
             <p>
-              You have structure, not everywhere. Extend standards to the next team and add a monthly leadership signal; track approvals and revision counts.
+              You have structure. It is not universal yet. Extend your standards across teams and add a monthly leadership signal. Measure approvals and revision counts.
             </p>
           )}
           {band === 'Consistent' && (
             <p>
-              Your system works; guard it. Add a quarterly governance review and a visibility push; track panel invites and qualified consults.
+              Your system works. Guard it. Add governance checks and a quarterly visibility push. Track pipeline lift and panel invites.
             </p>
           )}
         </div>

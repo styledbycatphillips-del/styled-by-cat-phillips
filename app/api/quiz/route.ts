@@ -6,9 +6,10 @@ import { z } from 'zod'
 const QuizSchema = z.object({
   email: z.string().email(),
   role: z.string().min(2).max(64).optional(),
-  channels: z.array(z.string()).optional(),
+  channels: z.union([z.array(z.string()), z.string()]).optional(),
   hasMatrix: z.boolean().optional(),
   publishesMonthly: z.boolean().optional(),
+  complexity: z.string().optional(),
 })
 
 // 2) Tiny in‑memory rate limit (per IP, per 60s)
@@ -34,16 +35,24 @@ export async function POST(req: Request) {
 
     // Validate input
     const json = await req.json()
-    const { email, role, channels = [], hasMatrix = false, publishesMonthly = false } = QuizSchema.parse(json)
+    const { email, role, channels = [], hasMatrix = false, publishesMonthly = false, complexity = '1' } = QuizSchema.parse(json)
 
-    // Score
-    let score = 10
-    score += Math.min(channels.length * 5, 20)
-    score += hasMatrix ? 30 : 0
-    score += publishesMonthly ? 30 : 0
+    // Parse channels (handle both string and array)
+    const channelArray = Array.isArray(channels) 
+      ? channels 
+      : typeof channels === 'string' 
+        ? channels.split(',').map(c => c.trim()).filter(Boolean)
+        : []
+
+    // Score using the specification rubric
+    let score = 10 // Base
+    score += Math.min(channelArray.length * 5, 20) // +5 per channel, max +20
+    score += hasMatrix ? 30 : 0 // +30 if matrix exists
+    score += publishesMonthly ? 30 : 0 // +30 if publishes monthly
+    score += (complexity === '2' || complexity === '3') ? 10 : 0 // +10 if complexity ≥ 2
 
     // Persist
-    const quizData = { role, channels, hasMatrix, publishesMonthly }
+    const quizData = { role, channels: channelArray, hasMatrix, publishesMonthly, complexity }
     const created = await writeLead({ 
       email, 
       source: 'Authority Index Quiz', 

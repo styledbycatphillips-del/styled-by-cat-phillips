@@ -9,6 +9,7 @@ function QuizForm() {
   const [channels, setChannels] = useState('')
   const [hasMatrix, setHasMatrix] = useState(false)
   const [publishesMonthly, setPublishesMonthly] = useState(false)
+  const [complexity, setComplexity] = useState('')
   const [submitting, setSubmitting] = useState(false)
   
   const router = useRouter()
@@ -22,7 +23,7 @@ function QuizForm() {
       const res = await fetch('/api/quiz', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, role, channels, hasMatrix, publishesMonthly }),
+        body: JSON.stringify({ email, role, channels, hasMatrix, publishesMonthly, complexity }),
       })
 
       const data = await res.json()
@@ -52,9 +53,12 @@ function QuizForm() {
 
   return (
     <main className="mx-auto max-w-2xl px-4 py-24">
-      <h1 className="text-3xl font-semibold text-center mb-8">Authority Index Quiz</h1>
+      <h1 className="text-3xl font-semibold text-center mb-4">Authority Index™</h1>
+      <p className="text-lg text-neutral-700 text-center mb-2">
+        Six quick answers. One clear baseline.
+      </p>
       <p className="text-neutral-600 text-center mb-8">
-        Quick assessment to understand where your brand stands and how visible you are.
+        Start the quiz and get your score.
       </p>
       
       <form onSubmit={onSubmit} className="space-y-6">
@@ -176,6 +180,25 @@ function QuizForm() {
             </label>
           </div>
         </fieldset>
+
+        <div>
+          <label htmlFor="complexity" className="block text-sm font-medium text-neutral-900 mb-2">
+            Brand complexity
+          </label>
+          <select
+            id="complexity"
+            value={complexity}
+            onChange={(e) => setComplexity(e.target.value)}
+            aria-describedby="complexity_help"
+            className="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent"
+          >
+            <option value="">Select complexity level</option>
+            <option value="1">1 Simple</option>
+            <option value="2">2 Multi-team</option>
+            <option value="3">3 Multi-unit/region</option>
+          </select>
+          <p id="complexity_help" className="mt-1 text-xs text-neutral-600">Use 2 or 3 if you have multiple teams or business units.</p>
+        </div>
 
         <button
           type="submit"
