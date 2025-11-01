@@ -41,8 +41,29 @@ const nextConfig = {
 
     const prodHeaders = [
       ...common,
-      // In production you can keep DENY for security if you aren't embedding elsewhere
+      // Enforce HTTPS for one year (preload recommended once verified at hstspreload.org)
+      { key: 'Strict-Transport-Security', value: 'max-age=31536000; includeSubDomains; preload' },
+      // Keep frame embedding disabled in production
       { key: 'X-Frame-Options', value: 'DENY' },
+      // Start with CSP in report-only to avoid breakage; tighten after observing reports
+      {
+        key: 'Content-Security-Policy-Report-Only',
+        value: [
+          "default-src 'self'",
+          // GA4, Clickio CMP, and script execution
+          "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://clickiocmp.com https://clickiocdn.com",
+          // XHR/fetch targets (analytics endpoints)
+          "connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://stats.g.doubleclick.net",
+          // Images from our domain, data URIs, and https CDNs
+          "img-src 'self' data: blob: https:",
+          // Inline styles are used by Next.js and fonts/styles from CDNs
+          "style-src 'self' 'unsafe-inline' https:",
+          // Webfonts from our domain and CDNs
+          "font-src 'self' data: https:",
+          // Disallow framing by other sites (paired with X-Frame-Options)
+          "frame-ancestors 'none'",
+        ].join('; '),
+      },
     ]
 
     return [
