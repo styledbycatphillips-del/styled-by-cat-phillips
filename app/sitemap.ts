@@ -11,14 +11,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/services', 
     '/process',
     '/contact',
+    '/quiz',
     '/services/signature-session',
     '/services/personal-development',
     '/services/executive-styling',
     '/services/brand-consulting',
     '/services/creative-direction',
+    '/services/executive-audit',
+    '/services/signature-architecture',
     '/vip-experiences',
     '/masterclass',
-    '/portfolio'
+    '/portfolio',
+    '/privacy-policy',
+    '/cookie-policy'
   ]
 
   // Arkansas location pages for local SEO

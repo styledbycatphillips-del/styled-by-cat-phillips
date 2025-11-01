@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { siteConfig } from '@/config/site'
+import { ManageCookiesButton } from './manage-cookies-button'
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
@@ -81,9 +82,20 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-signature-gray/30 pt-8 text-sm text-signature-navy/80 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <p>© {currentYear} Kirksey House. The Signature Architecture™. All rights reserved.</p>
-          <p>Serving Little Rock, Conway, Northwest Arkansas &amp; virtual clients worldwide.</p>
+        <div className="mt-12 border-t border-signature-gray/30 pt-8 text-sm text-signature-navy/80">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <p>© {currentYear} Kirksey House. The Signature Architecture™. All rights reserved.</p>
+            <p>Serving Little Rock, Conway, Northwest Arkansas &amp; virtual clients worldwide.</p>
+          </div>
+          <div className="mt-4 flex flex-wrap gap-4 sm:gap-6">
+            <Link href="/privacy-policy" className="hover:text-signature-black transition-colors">
+              Privacy Policy
+            </Link>
+            <Link href="/cookie-policy" className="hover:text-signature-black transition-colors">
+              Cookie Policy
+            </Link>
+            <ManageCookiesButton variant="footer" />
+          </div>
         </div>
       </div>
     </footer>
