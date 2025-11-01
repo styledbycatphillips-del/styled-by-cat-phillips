@@ -14,24 +14,24 @@ export const metadata: Metadata = {
 
 export default function PrivacyPolicyPage() {
   return (
-    <div className="min-h-screen bg-cream py-16">
+    <div className="min-h-screen bg-signature-cream py-16">
       <div className="container mx-auto max-w-4xl px-6">
         <header className="mb-12">
-          <h1 className="text-4xl font-serif font-semibold text-navy mb-4">
+          <h1 className="text-4xl font-serif font-semibold text-signature-navy mb-4">
             Privacy Policy — Kirksey House
           </h1>
-          <p className="text-lg text-navy/80">
+          <p className="text-lg text-signature-navy/80">
             <strong>Effective date:</strong> October 31, 2025
           </p>
         </header>
 
-        <div className="prose prose-lg prose-navy max-w-none">
+        <div className="prose prose-lg max-w-none text-signature-navy">
           <section className="mb-8">
-            <h2 className="text-2xl font-semibold text-navy mb-4">1) Who we are</h2>
+            <h2 className="text-2xl font-semibold text-signature-navy mb-4">1) Who we are</h2>
             <p>
               Kirksey House LLC ("Kirksey House," "we," "us") provides executive brand systems and consulting. 
-              Website: <a href="https://kirkseyhouse.com" className="text-champagne hover:underline">kirkseyhouse.com</a>. 
-              Contact: <a href="mailto:catherine@kirkseyhouse.com" className="text-champagne hover:underline">catherine@kirkseyhouse.com</a>.
+              Website: <a href="https://kirkseyhouse.com" className="text-signature-champagne hover:underline">kirkseyhouse.com</a>. 
+              Contact: <a href="mailto:catherine@kirkseyhouse.com" className="text-signature-champagne hover:underline">catherine@kirkseyhouse.com</a>.
             </p>
           </section>
 
