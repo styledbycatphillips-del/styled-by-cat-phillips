@@ -1,7 +1,10 @@
 'use client'
 
 import { useState, Suspense, useEffect } from 'react'
-import { useRouter, useSearchParams } from 'next/navigation'
+import { useRouter } from 'next/navigation'
+import { AnalyticsTracker } from '@/components/analytics-tracker'
+import { FormAnalytics, FormField } from '@/components/form-analytics'
+import { analytics, useUTMParams } from '@/lib/analytics-enhanced'
 
 function QuizForm() {
   const [email, setEmail] = useState('')
@@ -15,19 +18,12 @@ function QuizForm() {
   const [submitting, setSubmitting] = useState(false)
   
   const router = useRouter()
-  const params = useSearchParams()
+  const utmParams = useUTMParams()
 
   // Analytics: Track quiz start
   useEffect(() => {
-    if (typeof window !== 'undefined' && window.gtag) {
-      const utmParams = {
-        utm_source: params.get('utm_source') || '',
-        utm_medium: params.get('utm_medium') || '',
-        utm_campaign: params.get('utm_campaign') || '',
-      }
-      window.gtag('event', 'quiz_start', utmParams)
-    }
-  }, [params])
+    analytics.trackQuizStart(utmParams)
+  }, [utmParams])
 
   const validateEmail = (email: string) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -82,15 +78,13 @@ function QuizForm() {
 
     try {
       // Analytics: Track quiz submission
-      if (typeof window !== 'undefined' && window.gtag) {
-        window.gtag('event', 'quiz_submit', {
-          role,
-          channels_count: selectedChannels.length,
-          has_matrix: hasMatrix,
-          publishes: publishesMonthly,
-          complexity: complexity || '1'
-        })
-      }
+      analytics.trackQuizSubmit({
+        role,
+        channels_count: selectedChannels.length,
+        has_matrix: hasMatrix,
+        publishes: publishesMonthly,
+        complexity: complexity || '1'
+      })
 
       const res = await fetch('/api/quiz', {
         method: 'POST',
@@ -109,25 +103,17 @@ function QuizForm() {
       if (!res.ok || !data?.ok) throw new Error(data?.error || 'Quiz failed')
 
       // Analytics: Track scoring
-      if (typeof window !== 'undefined' && window.gtag) {
-        window.gtag('event', 'quiz_scored', {
-          score: data.score,
-          band: data.band
-        })
-      }
+      analytics.trackQuizScored(data.score, data.band)
 
       // Support id if your API returns page id { id: '...' }
       const id = data.id || ''
 
       // Preserve UTM from the current URL if present
-      const utm = ['utm_source', 'utm_medium', 'utm_campaign']
-        .reduce((acc, k) => ({ ...acc, [k]: params.get(k) || '' }), {} as Record<string, string>)
-
       const q = new URLSearchParams({
         band: String(data.band || ''),
         score: String(data.score ?? ''),
         id,
-        ...utm,
+        ...utmParams,
       })
 
       router.push(`/quiz/success?${q.toString()}`)
@@ -148,8 +134,8 @@ function QuizForm() {
         Start the quiz and get your score.
       </p>
       
-      <form onSubmit={onSubmit} className="space-y-6">
-        <div>
+      <FormAnalytics formName="authority_index_quiz" onSubmit={onSubmit} className="space-y-6">
+        <FormField name="email" formName="authority_index_quiz" error={emailError}>
           <label htmlFor="email" className="block text-sm font-medium text-neutral-900 mb-2">
             Work email *
           </label>
@@ -171,7 +157,7 @@ function QuizForm() {
           ) : (
             <p id="email_help" className="mt-1 text-xs text-neutral-600">Use your company email.</p>
           )}
-        </div>
+        </FormField>
 
         <div>
           <label htmlFor="role" className="block text-sm font-medium text-neutral-900 mb-2">
@@ -191,35 +177,37 @@ function QuizForm() {
           </select>
         </div>
 
-        <fieldset>
-          <legend className="block text-sm font-medium text-neutral-900 mb-2">
-            Where you publish now *
-          </legend>
-          <div className="space-y-2" role="group" aria-describedby={channelsError ? "channels_error" : "channels_help"}>
-            {['Website', 'Social', 'PR', 'Events', 'Sales collateral'].map((channel) => (
-              <label key={channel} className="flex items-center gap-3 p-2 rounded hover:bg-neutral-50 cursor-pointer">
-                <input
-                  type="checkbox"
-                  value={channel}
-                  checked={selectedChannels.includes(channel)}
-                  onChange={(e) => handleChannelChange(channel, e.target.checked)}
-                  className="w-4 h-4 text-black focus:ring-2 focus:ring-black focus:ring-offset-1 rounded"
-                />
-                <span className="text-sm">{channel}</span>
-              </label>
-            ))}
-          </div>
-          <div className="mt-2 flex items-center justify-between">
-            {channelsError ? (
-              <p id="channels_error" className="text-xs text-red-600" role="alert">{channelsError}</p>
-            ) : (
-              <p id="channels_help" className="text-xs text-neutral-600">
-                Choose 1–4 channels you actively use.
-              </p>
-            )}
-            <span className="text-xs text-neutral-500">{selectedChannels.length}/4</span>
-          </div>
-        </fieldset>
+        <FormField name="channels" formName="authority_index_quiz" error={channelsError}>
+          <fieldset>
+            <legend className="block text-sm font-medium text-neutral-900 mb-2">
+              Where you publish now *
+            </legend>
+            <div className="space-y-2" role="group" aria-describedby={channelsError ? "channels_error" : "channels_help"}>
+              {['Website', 'Social', 'PR', 'Events', 'Sales collateral'].map((channel) => (
+                <label key={channel} className="flex items-center gap-3 p-2 rounded hover:bg-neutral-50 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    value={channel}
+                    checked={selectedChannels.includes(channel)}
+                    onChange={(e) => handleChannelChange(channel, e.target.checked)}
+                    className="w-4 h-4 text-black focus:ring-2 focus:ring-black focus:ring-offset-1 rounded"
+                  />
+                  <span className="text-sm">{channel}</span>
+                </label>
+              ))}
+            </div>
+            <div className="mt-2 flex items-center justify-between">
+              {channelsError ? (
+                <p id="channels_error" className="text-xs text-red-600" role="alert">{channelsError}</p>
+              ) : (
+                <p id="channels_help" className="text-xs text-neutral-600">
+                  Choose 1–4 channels you actively use.
+                </p>
+              )}
+              <span className="text-xs text-neutral-500">{selectedChannels.length}/4</span>
+            </div>
+          </fieldset>
+        </FormField>
 
         <fieldset className="border border-neutral-200 rounded-lg p-4">
           <legend className="text-sm font-medium text-neutral-900 px-2">One message matrix for all teams? *</legend>
@@ -313,15 +301,17 @@ function QuizForm() {
         <p className="text-xs text-neutral-600">
           We store quiz results to send your baseline and plan. Request deletion anytime at /privacy or <a href="mailto:contact@kirkseyhouse.com" className="underline">contact@kirkseyhouse.com</a>.
         </p>
-      </form>
+      </FormAnalytics>
     </main>
   )
 }
 
 export default function QuizPage() {
   return (
-    <Suspense fallback={<div className="mx-auto max-w-2xl px-4 py-24 text-center">Loading quiz...</div>}>
-      <QuizForm />
-    </Suspense>
+    <AnalyticsTracker page="/quiz" category="quiz">
+      <Suspense fallback={<div className="mx-auto max-w-2xl px-4 py-24 text-center">Loading quiz...</div>}>
+        <QuizForm />
+      </Suspense>
+    </AnalyticsTracker>
   )
 }

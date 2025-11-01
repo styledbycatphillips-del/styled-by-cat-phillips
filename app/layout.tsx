@@ -4,6 +4,7 @@ import './globals.css'
 import { siteConfig } from '@/config/site'
 import { JsonLd } from '@/components/json-ld'
 import { GoogleAnalytics } from '@/components/google-analytics'
+import { AnalyticsDashboard } from '@/components/analytics-dashboard'
 import BuilderRegister from '@/builder-register'
 import Script from 'next/script'
 
@@ -112,6 +113,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {children}
         <Analytics />
         {ga4MeasurementId && <GoogleAnalytics measurementId={ga4MeasurementId} />}
+        <AnalyticsDashboard />
       </body>
     </html>
   )
