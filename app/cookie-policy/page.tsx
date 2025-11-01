@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { Metadata } from 'next'
 import { ManageCookiesButton } from '@/components/manage-cookies-button'
 
