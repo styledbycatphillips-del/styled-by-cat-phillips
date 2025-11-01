@@ -95,6 +95,10 @@ export default function PrivacyPolicyPage() {
                 (Google for Developers)
               </a>
             </p>
+            <p className="mt-2 text-signature-navy/80">
+              Our consent banner is provided by Clickio CMP (Site ID 245978), which presents region-sensitive prompts
+              and stores your preferences. You can adjust consent at any time via the Manage Cookies control.
+            </p>
             <p className="mt-2">
               See the <a href="/cookie-policy" className="text-signature-champagne hover:underline">Cookie Policy</a> for details.
             </p>

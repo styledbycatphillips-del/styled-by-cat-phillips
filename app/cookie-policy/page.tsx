@@ -73,6 +73,11 @@ export default function CookiePolicyPage() {
                 (Google for Developers)
               </a>
             </p>
+            <p className="mt-2 text-signature-navy/80">
+              We use Clickio CMP (Site ID 245978) to capture and communicate consent signals. The banner may appear
+              based on your region and prior choices. You can reopen preferences using the Manage Cookies control
+              on this page or in the footer.
+            </p>
           </section>
 
           <section className="mb-8">
