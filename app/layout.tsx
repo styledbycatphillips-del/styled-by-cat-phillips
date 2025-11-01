@@ -79,7 +79,12 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const ga4MeasurementId = process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID || 'G-MC3VEK7RLM'
+  const FALLBACK_GA4 = 'G-MC3VEK7RLM'
+  const envGa4 = process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID
+  // Enforce the intended GA4 property in production to avoid misconfigured envs
+  const ga4MeasurementId = process.env.NODE_ENV === 'production'
+    ? FALLBACK_GA4
+    : (envGa4 || FALLBACK_GA4)
 
   return (
     <html lang="en" suppressHydrationWarning className={`${bodoni.variable} ${inter.variable}`}>
