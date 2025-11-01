@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Authority Index — Loading… | Kirksey House</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Your Authority Index is loading. See what it means and book an Executive Audit." />
+  <meta name="robots" content="noindex">
+  <link rel="canonical" href="https://www.kirkseyhouse.com/quiz/success">
+  
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Minimal styles: Navy on Cream, visible focus, generous spacing -->
+  <style>
+    :root {
+      --navy:#0F172A; --cream:#FDF7ED; --champagne:#BFA27A;
+    }
+    html,body { 
+      background:var(--cream); 
+      color:var(--navy); 
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .wrap { 
+      max-width: 760px; 
+      margin: 0 auto; 
+      padding: 32px 24px 80px; 
+    }
+    h1 { 
+      font-family: "Fraunces", "Cormorant Garamond", Georgia, serif; 
+      font-weight: 600; 
+      font-size: clamp(28px,4vw,44px); 
+      line-height:1.2; 
+      margin: 8px 0 8px; 
+    }
+    h2 { 
+      font-size: clamp(18px,2.8vw,22px); 
+      font-weight:600; 
+      margin: 24px 0 8px; 
+    }
+    p  { 
+      font-size: 16px; 
+      line-height: 1.6; 
+      margin: 8px 0; 
+    }
+    .meta { 
+      margin: 4px 0 16px; 
+      opacity:.9; 
+    }
+    .grid { 
+      display:grid; 
+      gap: 16px; 
+      margin: 24px 0 32px; 
+    }
+    .btn { 
+      display:inline-block; 
+      padding:14px 18px; 
+      border:1px solid var(--navy); 
+      text-decoration:none; 
+      color:var(--cream); 
+      background:var(--navy); 
+      border-radius:6px; 
+      min-width:200px; 
+      text-align:center; 
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+    .btn.secondary { 
+      background:transparent; 
+      color:var(--navy); 
+      border-color:var(--navy); 
+    }
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 8px rgba(15, 23, 42, 0.15);
+    }
+    .btn.secondary:hover {
+      background: var(--navy);
+      color: var(--cream);
+    }
+    .btn:focus-visible, a:focus-visible { 
+      outline: 2px solid var(--navy); 
+      outline-offset: 3px; 
+    }
+    .fine { 
+      font-family: ui-monospace, Menlo, Consolas, "Geist Mono", monospace; 
+      font-size: 12px; 
+      opacity:.85; 
+    }
+    .rule { 
+      border-top: 1px solid var(--champagne); 
+      margin: 24px 0; 
+    }
+    .muted { 
+      opacity:.85; 
+    }
+    .badge { 
+      display:inline-block; 
+      border:1px solid var(--champagne); 
+      background: rgba(191, 162, 122, 0.1);
+      padding:4px 12px; 
+      border-radius:999px; 
+      font-size:12px;
+      font-weight: 500;
+      margin-bottom: 16px;
+    }
+    .kpis li { 
+      margin:6px 0; 
+    }
+    .score-display {
+      font-size: clamp(24px, 3vw, 32px);
+      font-weight: 600;
+      color: var(--champagne);
+    }
+    footer { 
+      margin-top:40px; 
+      font-size:14px; 
+    }
+    
+    /* Loading state */
+    .loading {
+      opacity: 0.6;
+    }
+    .loaded {
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+    
+    @media (max-width: 640px) {
+      .wrap {
+        padding: 24px 16px 60px;
+      }
+      .grid {
+        grid-template-columns: 1fr;
+      }
+      .btn {
+        width: 100%;
+        box-sizing: border-box;
+      }
+    }
+  </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MC3VEK7RLM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-MC3VEK7RLM', { 
+      send_page_view: true,
+      custom_map: {
+        'custom_parameter_1': 'authority_band',
+        'custom_parameter_2': 'quiz_score'
+      }
+    });
+  </script>
+
+  <!-- Organization + WebSite JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"Kirksey House",
+    "url":"https://www.kirkseyhouse.com",
+    "logo":"https://www.kirkseyhouse.com/brand/cplogotangreen.svgz",
+    "description":"Executive brand architecture and authority development for senior leaders",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "Executive Consultation",
+      "url": "https://www.kirkseyhouse.com/contact"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/kirkseyhouse"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"Kirksey House",
+    "url":"https://www.kirkseyhouse.com",
+    "description":"Authority Index assessment and executive brand development",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://www.kirkseyhouse.com/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+</head>
+<body class="loading">
+  <main class="wrap" aria-labelledby="ai-heading">
+    <div class="badge fine" id="band-badge">Authority Index</div>
+    <h1 id="ai-heading">Authority Index: <span class="score-display" id="score">—</span>/100 — <span id="band">—</span></h1>
+    <p class="meta" id="subhead">Your baseline is set. Here is what to do next.</p>
+
+    <section aria-labelledby="what-it-means">
+      <h2 id="what-it-means">What your score means</h2>
+      <p id="band-explainer" class="muted">Loading your guidance...</p>
+    </section>
+
+    <div class="rule"></div>
+
+    <section aria-labelledby="next-steps">
+      <h2 id="next-steps">Next steps</h2>
+      <div class="grid">
+        <a id="cta-book" class="btn js-utm" href="/services/executive-audit">Book an Executive Audit</a>
+        <a id="cta-contact" class="btn secondary js-utm" href="/contact">Contact / Quick intake</a>
+        <a id="cta-retake" class="btn secondary js-utm" href="/quiz" style="display:none;">Retake Assessment</a>
+      </div>
+      <p class="fine">Your consultation will include quiz results, score analysis, and UTM tracking for attribution.</p>
+    </section>
+
+    <div class="rule"></div>
+
+    <section aria-labelledby="kpis">
+      <h2 id="kpis">Authority outcomes to measure</h2>
+      <ul class="kpis" id="kpi-list">
+        <li>Approval time to publish content</li>
+        <li>Revisions per shipped asset</li>
+        <li>Qualified consultations after standards implementation</li>
+        <li>Leadership panel invitations and media mentions</li>
+      </ul>
+    </section>
+
+    <footer>
+      <p class="fine">Authority Pillars: <strong>Alignment</strong> • <strong>Consistency</strong> • <strong>ROI</strong> • <strong>Visibility</strong> • <strong>Governance</strong></p>
+      <p class="fine" style="margin-top: 16px; opacity: 0.7;">
+        Quiz ID: <span id="quiz-id-display">—</span> | 
+        Scored: <span id="timestamp">—</span>
+      </p>
+    </footer>
+  </main>
+
+<script>
+/* ---------- Helpers: params, band, UTM ---------- */
+const params = new URLSearchParams(location.search); // MDN: URLSearchParams for query parsing
+
+// Read inputs from query parameters
+const scoreParam = parseInt(params.get('score') || '', 10);
+let bandParam = (params.get('band') || '').trim();
+
+// Compute band if missing or malformed using Authority Index specification
+function computeBand(s) {
+  if (isNaN(s) || s < 0) return '';
+  if (s < 35) return 'Emerging';
+  if (s <= 69) return 'Practicing';
+  return 'Consistent';
+}
+
+const score = isNaN(scoreParam) ? null : Math.max(0, Math.min(100, scoreParam));
+const band  = bandParam || computeBand(score ?? 0);
+const quizId = params.get('quiz_id') || '';
+
+/* ---------- Band-specific guidance and KPIs ---------- */
+const bandGuidance = {
+  'Emerging': {
+    guidance: 'Build a 1-page message matrix and ship one leadership post this month. Focus on consistency over volume. Re-assess in 30 days to measure progress.',
+    kpis: [
+      'Message matrix completion (1 page maximum)',
+      'First leadership post published within 30 days', 
+      'Team alignment on core messaging',
+      'Basic approval workflow established'
+    ]
+  },
+  'Practicing': {
+    guidance: 'Extend standards to the next team and establish a monthly leadership signal cadence. Begin tracking approval times and revision counts systematically.',
+    kpis: [
+      'Standards adoption across 2+ teams',
+      'Monthly leadership content published consistently',
+      'Average approval time per asset',
+      'Revision count per published piece'
+    ]
+  },
+  'Consistent': {
+    guidance: 'Implement quarterly governance reviews and launch visibility initiatives. Track panel invitations, media mentions, and qualified consultation requests.',
+    kpis: [
+      'Quarterly brand governance review completed',
+      'Leadership panel invitations received',
+      'Qualified consultation requests generated',
+      'Media mentions and thought leadership features'
+    ]
+  }
+};
+
+/* ---------- Render title, meta, copy ---------- */
+function render() {
+  const scoreEl = document.getElementById('score');
+  const bandEl  = document.getElementById('band');
+  const badge   = document.getElementById('band-badge');
+  const expl    = document.getElementById('band-explainer');
+  const kpiList = document.getElementById('kpi-list');
+  const quizIdDisplay = document.getElementById('quiz-id-display');
+  const timestamp = document.getElementById('timestamp');
+
+  // Display score and band
+  if (score !== null) {
+    scoreEl.textContent = String(score);
+  }
+  bandEl.textContent = band || '—';
+  badge.textContent = band ? `Authority Index — ${band}` : 'Authority Index';
+
+  // Band-specific guidance and KPIs
+  const guidance = bandGuidance[band] || {
+    guidance: 'Set up a message matrix and establish monthly leadership communication. Re-assess in 30 days to track improvement.',
+    kpis: [
+      'Approval time to publish content',
+      'Revisions per shipped asset', 
+      'Qualified consultations after standards implementation',
+      'Leadership panel invitations and media mentions'
+    ]
+  };
+  
+  expl.textContent = guidance.guidance;
+  
+  // Update KPI list based on band
+  kpiList.innerHTML = guidance.kpis.map(kpi => `<li>${kpi}</li>`).join('');
+
+  // Display quiz metadata
+  quizIdDisplay.textContent = quizId || 'Not provided';
+  timestamp.textContent = new Date().toLocaleString();
+
+  // Set document title and meta description for SEO
+  const title = score !== null && band 
+    ? `Authority Index ${score}/100 — ${band} Band | Kirksey House`
+    : `Authority Index Results | Kirksey House`;
+  document.title = title;
+  
+  const metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc) {
+    const description = score !== null && band
+      ? `Your Authority Index is ${score}/100 (${band} band). See personalized guidance and book an Executive Audit to accelerate your authority development.`
+      : `View your Authority Index results and personalized guidance. Book an Executive Audit to develop executive presence and thought leadership.`;
+    metaDesc.setAttribute('content', description);
+  }
+
+  // Show retake option if score is available
+  if (score !== null) {
+    const retakeBtn = document.getElementById('cta-retake');
+    retakeBtn.style.display = 'inline-block';
+  }
+
+  // Remove loading state
+  document.body.classList.remove('loading');
+  document.body.classList.add('loaded');
+}
+
+/* ---------- UTM preservation and CTA enhancement ---------- */
+function currentUTMs() {
+  const utmKeys = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'];
+  const utm = new URLSearchParams();
+  utmKeys.forEach(key => {
+    const value = params.get(key);
+    if (value) utm.set(key, value);
+  });
+  return utm;
+}
+
+function enhanceURL(url, additionalParams = {}) {
+  const u = new URL(url, location.origin);
+  const utm = currentUTMs();
+  
+  // Add quiz-specific parameters
+  if (quizId) u.searchParams.set('quiz_id', quizId);
+  if (score !== null) u.searchParams.set('score', String(score));
+  if (band) u.searchParams.set('band', band);
+  
+  // Add any additional parameters
+  Object.entries(additionalParams).forEach(([key, value]) => {
+    u.searchParams.set(key, String(value));
+  });
+  
+  // Preserve UTM parameters if not already present
+  for (const [key, value] of utm.entries()) {
+    if (!u.searchParams.has(key)) {
+      u.searchParams.set(key, value);
+    }
+  }
+  
+  return u.toString();
+}
+
+// Enhance all CTA links
+function enhanceCTAs() {
+  const book = document.getElementById('cta-book');
+  const contact = document.getElementById('cta-contact');
+  const retake = document.getElementById('cta-retake');
+  
+  book.href = enhanceURL(book.getAttribute('href'), { source: 'authority_index_success' });
+  contact.href = enhanceURL(contact.getAttribute('href'), { source: 'authority_index_success' });
+  retake.href = enhanceURL(retake.getAttribute('href'), { retake: 'true' });
+}
+
+/* ---------- GA4 Event Tracking ---------- */
+function getUTMObject() {
+  return {
+    utm_source: params.get('utm_source') || undefined,
+    utm_medium: params.get('utm_medium') || undefined,
+    utm_campaign: params.get('utm_campaign') || undefined,
+    utm_content: params.get('utm_content') || undefined,
+    utm_term: params.get('utm_term') || undefined
+  };
+}
+
+// Fire quiz_scored event when page loads with a valid score
+function fireQuizScoredEvent() {
+  if (typeof gtag === 'function' && score !== null && band) {
+    const eventData = {
+      score: score ?? 0,
+      band: band || 'Unknown',
+      quiz_id: quizId || undefined,
+      authority_band: band || 'Unknown', // Custom dimension
+      quiz_score: score ?? 0,    // Custom dimension
+      ...getUTMObject()
+    };
+    
+    gtag('event', 'quiz_scored', eventData);
+    console.log('GA4 quiz_scored event fired:', eventData);
+  }
+}
+
+// CTA click tracking with enhanced data
+function setupCTATracking() {
+  const book = document.getElementById('cta-book');
+  const contact = document.getElementById('cta-contact');
+  const retake = document.getElementById('cta-retake');
+  
+  book.addEventListener('click', (e) => {
+    if (typeof gtag === 'function') {
+      gtag('event', 'cta_click', {
+        page: 'success',
+        cta: 'book_audit',
+        score: score ?? 0,
+        band: band || 'Unknown',
+        quiz_id: quizId || undefined,
+        ...getUTMObject()
+      });
+    }
+  });
+  
+  contact.addEventListener('click', (e) => {
+    if (typeof gtag === 'function') {
+      gtag('event', 'cta_click', {
+        page: 'success', 
+        cta: 'contact',
+        score: score ?? 0,
+        band: band || 'Unknown',
+        quiz_id: quizId || undefined,
+        ...getUTMObject()
+      });
+    }
+  });
+  
+  retake.addEventListener('click', (e) => {
+    if (typeof gtag === 'function') {
+      gtag('event', 'cta_click', {
+        page: 'success',
+        cta: 'retake_quiz', 
+        score: score ?? 0,
+        band: band || 'Unknown',
+        quiz_id: quizId || undefined,
+        ...getUTMObject()
+      });
+    }
+  });
+}
+
+/* ---------- Initialize everything ---------- */
+document.addEventListener('DOMContentLoaded', function() {
+  render();
+  enhanceCTAs();
+  setupCTATracking();
+  
+  // Fire quiz_scored event after slight delay to ensure GA4 is loaded
+  setTimeout(fireQuizScoredEvent, 100);
+});
+
+/* ---------- Accessibility & Error Handling ---------- */
+// Ensure focus is managed properly for screen readers
+document.addEventListener('keydown', function(e) {
+  // Handle escape key to potentially return to quiz
+  if (e.key === 'Escape' && document.getElementById('cta-retake').style.display !== 'none') {
+    document.getElementById('cta-retake').focus();
+  }
+});
+
+// Error boundary for GA4 events
+window.addEventListener('error', function(e) {
+  console.warn('Authority Index Success Page Error:', e.message);
+  // Ensure page still functions even if analytics fail
+});
+
+/* ---------- Performance: Preload critical resources ---------- */
+// Preload fonts and critical images after page load
+window.addEventListener('load', function() {
+  // Could preload Calendly or other booking system resources here
+  const link = document.createElement('link');
+  link.rel = 'prefetch';
+  link.href = '/services/executive-audit';
+  document.head.appendChild(link);
+});
+</script>
+</body>
+</html>

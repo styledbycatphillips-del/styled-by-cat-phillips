@@ -2,6 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+/* WCAG 2.4.7 Focus Visible - Navy outline for keyboard users */
+.focus-ring-enabled :focus {
+  outline: 2px solid #0F172A;
+  outline-offset: 2px;
+}
+
+/* Ensure good contrast - Navy on Cream for body text */
+body {
+  color: #0F172A; /* Navy */
+  background-color: #FDF7ED; /* Cream */
+}
+
+/* Reserve Champagne for accents only */
+.text-champagne {
+  color: #BFA27A;
+}
+
 /* Brand CSS variables */
 :root {
   --signature-cream: #fdf7ed;

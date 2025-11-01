@@ -4,6 +4,8 @@ import { useState, Suspense, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { AnalyticsTracker } from '@/components/analytics-tracker'
 import { FormAnalytics, FormField } from '@/components/form-analytics'
+import { InlineValidation } from '@/components/inline-validation'
+import { QuizPageSetup } from '@/components/utm-cta-components'
 import { analytics, useUTMParams } from '@/lib/analytics-enhanced'
 
 function QuizForm() {
@@ -126,6 +128,12 @@ function QuizForm() {
 
   return (
     <main className="mx-auto max-w-2xl px-4 py-24">
+      <QuizPageSetup />
+      <InlineValidation 
+        formSelector="form#authority-index" 
+        onQuizSubmit={(data) => console.log('Vanilla JS validation:', data)} 
+      />
+      
       <h1 className="text-3xl font-semibold text-center mb-4">Authority Index™</h1>
       <p className="text-lg text-neutral-700 text-center mb-2">
         Six quick answers. One clear baseline.
@@ -134,7 +142,11 @@ function QuizForm() {
         Start the quiz and get your score.
       </p>
       
-      <FormAnalytics formName="authority_index_quiz" onSubmit={onSubmit} className="space-y-6">
+      <form 
+        id="authority-index"
+        onSubmit={onSubmit} 
+        className="space-y-6"
+      >
         <FormField name="email" formName="authority_index_quiz" error={emailError}>
           <label htmlFor="email" className="block text-sm font-medium text-neutral-900 mb-2">
             Work email *
@@ -187,6 +199,7 @@ function QuizForm() {
                 <label key={channel} className="flex items-center gap-3 p-2 rounded hover:bg-neutral-50 cursor-pointer">
                   <input
                     type="checkbox"
+                    name="channels"
                     value={channel}
                     checked={selectedChannels.includes(channel)}
                     onChange={(e) => handleChannelChange(channel, e.target.checked)}
@@ -204,7 +217,7 @@ function QuizForm() {
                   Choose 1–4 channels you actively use.
                 </p>
               )}
-              <span className="text-xs text-neutral-500">{selectedChannels.length}/4</span>
+              <span id="channels-count" className="text-xs text-neutral-500">{selectedChannels.length}/4</span>
             </div>
           </fieldset>
         </FormField>
@@ -215,7 +228,7 @@ function QuizForm() {
             <label className="inline-flex items-center gap-2 cursor-pointer">
               <input 
                 type="radio" 
-                name="matrix" 
+                name="has_matrix" 
                 value="yes" 
                 required
                 checked={hasMatrix === true}
@@ -227,7 +240,7 @@ function QuizForm() {
             <label className="inline-flex items-center gap-2 cursor-pointer">
               <input 
                 type="radio" 
-                name="matrix" 
+                name="has_matrix" 
                 value="no" 
                 required
                 checked={hasMatrix === false}
@@ -245,7 +258,7 @@ function QuizForm() {
             <label className="inline-flex items-center gap-2 cursor-pointer">
               <input 
                 type="radio" 
-                name="publish" 
+                name="publishes" 
                 value="yes" 
                 required
                 checked={publishesMonthly === true}
@@ -257,7 +270,7 @@ function QuizForm() {
             <label className="inline-flex items-center gap-2 cursor-pointer">
               <input 
                 type="radio" 
-                name="publish" 
+                name="publishes" 
                 value="no" 
                 required
                 checked={publishesMonthly === false}
@@ -301,7 +314,7 @@ function QuizForm() {
         <p className="text-xs text-neutral-600">
           We store quiz results to send your baseline and plan. Request deletion anytime at /privacy or <a href="mailto:contact@kirkseyhouse.com" className="underline">contact@kirkseyhouse.com</a>.
         </p>
-      </FormAnalytics>
+      </form>
     </main>
   )
 }

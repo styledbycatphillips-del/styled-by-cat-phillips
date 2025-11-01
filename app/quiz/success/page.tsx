@@ -2,7 +2,7 @@
 
 import React, { useEffect } from 'react';
 import { AnalyticsTracker } from '@/components/analytics-tracker'
-import { TrackedLink } from '@/components/tracked-components'
+import { UTMCTALink, SuccessPageSetup } from '@/components/utm-cta-components'
 
 type Props = {
   searchParams?: { [key: string]: string | string[] | undefined };
@@ -23,8 +23,15 @@ export default function Page({ searchParams }: Props) {
 
 
 
+  const numericScore = parseInt(score, 10) || 0
+
   return (
     <AnalyticsTracker page="/quiz/success" category="quiz">
+      <SuccessPageSetup 
+        score={numericScore} 
+        band={band}
+        onQuizScored={(data) => console.log('Quiz scored:', data)}
+      />
       <main className="mx-auto max-w-3xl px-4 py-24 text-neutral-900">
         <section className="rounded-lg border bg-white p-8 shadow-sm">
         <h1 className="text-3xl font-semibold">
@@ -61,39 +68,32 @@ export default function Page({ searchParams }: Props) {
 
         <div className="mt-8 space-y-4">
           <div className="flex flex-wrap gap-3">
-            <TrackedLink
+            <UTMCTALink
               href={auditHref}
-              target="_blank"
-              rel="noopener noreferrer"
               ctaType="book_audit"
-              page="success"
-              context={{ score, band }}
               className="rounded bg-black px-6 py-3 text-white font-medium hover:bg-neutral-800 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 min-h-[48px] inline-flex items-center"
             >
               Book an Executive Audit
-            </TrackedLink>
+            </UTMCTALink>
 
-            <TrackedLink
+            <UTMCTALink
               href={contactHref}
               ctaType="contact"
-              page="success"
-              context={{ score, band }}
               className="rounded border border-neutral-300 px-6 py-3 hover:bg-neutral-50 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 min-h-[48px] inline-flex items-center"
             >
               Contact / Quick intake
-            </TrackedLink>
+            </UTMCTALink>
           </div>
 
           <div className="mt-6 pt-4 border-t border-neutral-200">
             <p className="text-sm text-neutral-600 mb-3">Want to improve your score?</p>
-            <TrackedLink 
+            <UTMCTALink 
               href="/quiz" 
               ctaType="retake_quiz"
-              page="success"
               className="text-sm text-neutral-600 underline hover:text-neutral-900"
             >
               Retake the quiz
-            </TrackedLink>
+            </UTMCTALink>
           </div>
 
           <p className="mt-4 text-xs text-neutral-500">

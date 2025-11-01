@@ -4,6 +4,8 @@ import './globals.css'
 import { siteConfig } from '@/config/site'
 import { JsonLd } from '@/components/json-ld'
 import { GoogleAnalytics } from '@/components/google-analytics'
+import { GA4Setup } from '@/components/ga4-setup'
+import OrganizationJsonLd from '@/components/organization-jsonld'
 import { AnalyticsDashboard } from '@/components/analytics-dashboard'
 import BuilderRegister from '@/builder-register'
 import Script from 'next/script'
@@ -85,28 +87,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <meta charSet="utf-8" />
         <JsonLd />
-        <Script id="org-jsonld" type="application/ld+json" strategy="afterInteractive">
-          {`
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Kirksey House",
-  "url": "https://www.kirkseyhouse.com",
-  "logo": "https://www.kirkseyhouse.com/logo.png",
-  "sameAs": []
-}
-          `}
-        </Script>
-        <Script id="site-jsonld" type="application/ld+json" strategy="afterInteractive">
-          {`
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "url": "https://www.kirkseyhouse.com",
-  "name": "Kirksey House"
-}
-          `}
-        </Script>
+        <OrganizationJsonLd />
+        {ga4MeasurementId && <GA4Setup measurementId={ga4MeasurementId} />}
       </head>
       <body suppressHydrationWarning className={`bg-ivory text-ink antialiased font-body`}>
         <BuilderRegister />
